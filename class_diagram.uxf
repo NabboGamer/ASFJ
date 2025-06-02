@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1060</x>
+      <y>150</y>
+      <w>730</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>firewallapi
+--
+bg=orange
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1360</x>
+      <y>200</y>
+      <w>210</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>IHeader
+--
+
+--
++ getSourceIp() : String
++ getDestinationIp() : String
++ getSourcePort() : Integer
++ getDestinationPort() : Integer
++ getProtocol() : Protocol
++ serialize() : byte[]
+
+bg=white
+fg=red
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>200</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>IPacket
+--
+
+--
++ getHeader() : IHeader
++ getPayload() : String
++ getChecksum() : String
++ serialize() : byte[]
+
+bg=white
+fg=red
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1620</x>
+      <y>200</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Protocol
+--
+TCP
+UDP
+ICMP
+
+bg=white
+fg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
