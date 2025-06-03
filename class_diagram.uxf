@@ -154,10 +154,10 @@ fg=red
 
 --
 + getRules() : List&lt;IRule&gt;
-+ setRules() : void
++ setRules(List&lt;IRule&gt; rules) : void
 + addRule(in rule : IRule) : void
 + removeRule(in rule : IRule) : void
-+ clone() : IRuleSet
++ clone() : Object
 + matches(in packet : IPacket) : Boolean
 
 bg=white
