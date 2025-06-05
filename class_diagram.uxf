@@ -4,8 +4,8 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>370</x>
-      <y>360</y>
+      <x>730</x>
+      <y>120</y>
       <w>1200</w>
       <h>460</h>
     </coordinates>
@@ -18,8 +18,8 @@ bg=orange
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>640</y>
+      <x>1350</x>
+      <y>400</y>
       <w>210</w>
       <h>160</h>
     </coordinates>
@@ -45,8 +45,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>740</x>
-      <y>640</y>
+      <x>1100</x>
+      <y>400</y>
       <w>210</w>
       <h>140</h>
     </coordinates>
@@ -71,8 +71,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1230</x>
-      <y>640</y>
+      <x>1590</x>
+      <y>400</y>
       <w>130</w>
       <h>100</h>
     </coordinates>
@@ -91,8 +91,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
-      <y>410</y>
+      <x>1680</x>
+      <y>170</y>
       <w>220</w>
       <h>90</h>
     </coordinates>
@@ -114,8 +114,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>410</y>
+      <x>1350</x>
+      <y>170</y>
       <w>310</w>
       <h>200</h>
     </coordinates>
@@ -144,8 +144,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>410</y>
+      <x>1050</x>
+      <y>170</y>
       <w>270</w>
       <h>160</h>
     </coordinates>
@@ -171,8 +171,8 @@ fg=red
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>410</y>
+      <x>750</x>
+      <y>170</y>
       <w>270</w>
       <h>110</h>
     </coordinates>

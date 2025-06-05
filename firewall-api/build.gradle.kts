@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    // Nessuna dipendenza esterna, solo modelli e interfacce
+    // Nessuna dipendenza esterna, solo interfacce
 }
