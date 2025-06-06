@@ -8,7 +8,7 @@ public class PortRange implements Range<Integer> {
     private Integer start;
     private Integer end;
 
-    public PortRange(int start, int end) {
+    public PortRange(int start, int end) throws IllegalArgumentException {
         if (start < 0 || end > 65535 || start > end) {
             throw new IllegalArgumentException("Port range must be between 0 and 65535, and start <= end");
         }

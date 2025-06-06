@@ -9,7 +9,7 @@ import lombok.Data;
 public class IPRange implements Range<String> {
     private IPAddress network;
 
-    public IPRange(String cidr) {
+    public IPRange(String cidr) throws IllegalArgumentException {
         this.network = new IPAddressString(cidr).getAddress();
         if (network == null || !network.isPrefixed()) {
             throw new IllegalArgumentException("Invalid CIDR notation: " + cidr);

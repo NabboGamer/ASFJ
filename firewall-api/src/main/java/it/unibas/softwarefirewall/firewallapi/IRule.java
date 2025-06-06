@@ -8,6 +8,6 @@ public interface IRule {
     Range<Integer> getSourcePortRange();
     Range<Integer> getDestinationPortRange();
     Protocol getProtocol();
-    Boolean getAllowed();
+    Direction getDirection();
     Boolean matches(IPacket packet);
 }
