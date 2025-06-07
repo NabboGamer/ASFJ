@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 @AllArgsConstructor
 @Slf4j
-public class Rule implements IRule {
+public class Rule implements IRule, Cloneable {
 
     private String ID;
     private String description;
@@ -60,5 +60,52 @@ public class Rule implements IRule {
         Boolean isSameProtocol = this.protocol.equals(header.getProtocol());
         return isSourceIPInRange && isDestinationIPInRange && isSorucePortInRange && isDestinationPortInRange && isSameProtocol;
     }
+    
+    @Override
+    public Object clone(){
+        try {
+            Rule clonedRule = (Rule)super.clone();
+            clonedRule.setID(this.ID);
+            clonedRule.setDescription(this.description);
+            clonedRule.setSourceIPRange((IPRange)this.sourceIPRange.clone());
+            clonedRule.setDestinationIPRange((IPRange)this.destinationIPRange.clone());
+            clonedRule.setSourcePortRange((PortRange)this.sourcePortRange.clone());
+            clonedRule.setDestinationPortRange((PortRange)this.destinationPortRange.clone());
+            clonedRule.setProtocol(this.getProtocol());
+            return clonedRule;
+        } catch (CloneNotSupportedException cnse) {
+            log.error("Error: not clonable object: {}", cnse);
+            return null;
+        }
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+
+        Rule otherRule = (Rule) o;
+
+        return (this.description != null ? description.equals(otherRule.description) : otherRule.description == null) &&
+               (this.direction == otherRule.direction) &&
+               (this.sourceIPRange != null ? sourceIPRange.equals(otherRule.sourceIPRange) : otherRule.sourceIPRange == null) &&
+               (this.destinationIPRange != null ? destinationIPRange.equals(otherRule.destinationIPRange) : otherRule.destinationIPRange == null) &&
+               (this.sourcePortRange != null ? sourcePortRange.equals(otherRule.sourcePortRange) : otherRule.sourcePortRange == null) &&
+               (this.destinationPortRange != null ? destinationPortRange.equals(otherRule.destinationPortRange) : otherRule.destinationPortRange == null) &&
+               (this.protocol == otherRule.protocol);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (description != null ? description.hashCode() : 0);
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (sourceIPRange != null ? sourceIPRange.hashCode() : 0);
+        result = 31 * result + (destinationIPRange != null ? destinationIPRange.hashCode() : 0);
+        result = 31 * result + (sourcePortRange != null ? sourcePortRange.hashCode() : 0);
+        result = 31 * result + (destinationPortRange != null ? destinationPortRange.hashCode() : 0);
+        result = 31 * result + (protocol != null ? protocol.hashCode() : 0);
+        return result;
+    }
+
 
 }

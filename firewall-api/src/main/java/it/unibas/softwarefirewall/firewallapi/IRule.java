@@ -10,4 +10,5 @@ public interface IRule {
     Protocol getProtocol();
     Direction getDirection();
     Boolean matches(IPacket packet);
+    Object clone();
 }

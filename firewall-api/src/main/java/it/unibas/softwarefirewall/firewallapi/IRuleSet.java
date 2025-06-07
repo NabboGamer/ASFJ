@@ -7,6 +7,6 @@ public interface IRuleSet {
     void setRules(List<IRule> newRules);
     void addRule(IRule newRule);
     void removeRule(IRule rule);
-    Object clone();
     Boolean matches(IPacket packet);
+    Object clone();
 }

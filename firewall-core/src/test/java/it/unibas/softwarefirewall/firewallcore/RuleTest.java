@@ -14,26 +14,26 @@ import org.junit.jupiter.api.TestInstance;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class RuleTest {
     
-    IHeader pseudoHeader1;
-    IHeader pseudoHeader2;
-    IHeader pseudoHeader3;
-    IHeader pseudoHeader4;
-    IHeader pseudoHeader5;
-    IHeader pseudoHeader6;
-    IHeader pseudoHeader7;
-    IHeader pseudoHeader8;
+    private IHeader pseudoHeader1;
+    private IHeader pseudoHeader2;
+    private IHeader pseudoHeader3;
+    private IHeader pseudoHeader4;
+    private IHeader pseudoHeader5;
+    private IHeader pseudoHeader6;
+    private IHeader pseudoHeader7;
+    private IHeader pseudoHeader8;
     
-    IPacket pseudoPacket1;
-    IPacket pseudoPacket2;
-    IPacket pseudoPacket3;
-    IPacket pseudoPacket4;
-    IPacket pseudoPacket5;
-    IPacket pseudoPacket6;
-    IPacket pseudoPacket7;
-    IPacket pseudoPacket8;
+    private IPacket pseudoPacket1;
+    private IPacket pseudoPacket2;
+    private IPacket pseudoPacket3;
+    private IPacket pseudoPacket4;
+    private IPacket pseudoPacket5;
+    private IPacket pseudoPacket6;
+    private IPacket pseudoPacket7;
+    private IPacket pseudoPacket8;
     
-    IRule testRule1;
-    IRule testRule2;
+    private IRule testRule1;
+    private IRule testRule2;
     
     @BeforeAll
     public void setUp(){

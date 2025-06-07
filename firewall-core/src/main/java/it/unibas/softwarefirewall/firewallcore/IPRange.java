@@ -4,9 +4,11 @@ import inet.ipaddr.IPAddress;
 import inet.ipaddr.IPAddressString;
 import it.unibas.softwarefirewall.firewallapi.Range;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
-public class IPRange implements Range<String> {
+@Slf4j
+public class IPRange implements Range<String>, Cloneable {
     private IPAddress network;
 
     public IPRange(String cidr) throws IllegalArgumentException {
@@ -26,4 +28,30 @@ public class IPRange implements Range<String> {
     public String toString() {
         return network.toCanonicalString();
     }
+    
+    @Override
+    public Object clone(){
+        try {
+            IPRange clonedIPRange = (IPRange)super.clone();
+            clonedIPRange.setNetwork(new IPAddressString(this.network.toString()).getAddress());
+            return clonedIPRange;
+        } catch (CloneNotSupportedException cnse) {
+            log.error("Error: not clonable object: {}", cnse);
+            return null;
+        }
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        IPRange otherIPRange = (IPRange) o;
+        return network.equals(otherIPRange.network);
+    }
+
+    @Override
+    public int hashCode() {
+        return network.hashCode();
+    }
+
 }
