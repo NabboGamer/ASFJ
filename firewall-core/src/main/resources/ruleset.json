@@ -1,0 +1,22 @@
+[
+  {
+    "ID": "r1",
+    "description": "Allow HTTP inbound",
+    "direction": "INBOUND",
+    "sourceIPRange": "0.0.0.0/0",
+    "destinationIPRange": "192.168.0.0/24",
+    "sourcePortRange": "0-65535",
+    "destinationPortRange": "80",
+    "protocol": "TCP"
+  },
+  {
+    "ID": "r2",
+    "description": "Allow DNS outbound",
+    "direction": "OUTBOUND",
+    "sourceIPRange": "192.168.0.0/24",
+    "destinationIPRange": "8.8.8.8/32",
+    "sourcePortRange": "1024-65535",
+    "destinationPortRange": "53",
+    "protocol": "UDP"
+  }
+]

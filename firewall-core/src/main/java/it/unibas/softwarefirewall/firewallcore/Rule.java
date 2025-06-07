@@ -107,5 +107,4 @@ public class Rule implements IRule, Cloneable {
         return result;
     }
 
-
 }

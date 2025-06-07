@@ -87,6 +87,12 @@ public class RuleSetTest {
         
         log.debug("Test RuleSet: {}", testRuleSet.toString());
         log.debug("Cloned RuleSet: {}", clonedTestRuleSet.toString());
-        
+    }
+    
+    @Test
+    public void testLoadRuleSetFromFile() {
+        IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
+        testRuleSet.loadRuleSetFromFile();
+        log.debug("RuleSet loaded from JSON file: ", testRuleSet.toString());
     }
 }

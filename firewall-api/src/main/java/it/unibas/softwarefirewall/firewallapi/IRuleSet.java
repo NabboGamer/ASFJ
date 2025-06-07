@@ -9,4 +9,5 @@ public interface IRuleSet {
     void removeRule(IRule rule);
     Boolean matches(IPacket packet);
     Object clone();
+    void loadRuleSetFromFile();
 }
