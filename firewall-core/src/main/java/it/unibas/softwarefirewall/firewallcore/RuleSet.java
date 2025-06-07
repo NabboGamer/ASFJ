@@ -1,5 +1,6 @@
 package it.unibas.softwarefirewall.firewallcore;
 
+import com.google.gson.JsonIOException;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
@@ -77,8 +78,8 @@ public class RuleSet implements IRuleSet, Cloneable {
             //rules.clear();
             this.rules.addAll(loadedRules);
             log.info("Loaded {} rules from {}", loadedRules.size(), path);
-        } catch (IOException ex) {
-            log.error("Error during RuleSet loading: {}", ex);
+        } catch (Exception ex) {
+            log.error("Error during RuleSet loading: ", ex);
         }
     }
 }

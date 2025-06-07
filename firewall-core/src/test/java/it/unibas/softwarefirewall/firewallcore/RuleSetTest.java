@@ -93,6 +93,6 @@ public class RuleSetTest {
     public void testLoadRuleSetFromFile() {
         IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
         testRuleSet.loadRuleSetFromFile();
-        log.debug("RuleSet loaded from JSON file: ", testRuleSet.toString());
+        log.debug("RuleSet loaded from JSON file: {}", testRuleSet.toString());
     }
 }

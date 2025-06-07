@@ -11,15 +11,12 @@ import java.lang.reflect.Type;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.google.inject.Singleton;
 
-@Singleton
 public class RuleSetLoaderJsonStrategy implements IRuleSetLoaderStrategy {
     private final Gson gson;
 
     public RuleSetLoaderJsonStrategy() {
-        this.gson = new GsonBuilder().registerTypeAdapter(IPRange.class, new IPRangeDeserializer())
-                                     .registerTypeAdapter(PortRange.class, new PortRangeDeserializer())
+        this.gson = new GsonBuilder().registerTypeAdapter(Rule.class, new RuleDeserializer())
                                      .create();
     }
 

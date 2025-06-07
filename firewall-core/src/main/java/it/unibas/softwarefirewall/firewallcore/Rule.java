@@ -9,9 +9,11 @@ import it.unibas.softwarefirewall.firewallapi.Range;
 import java.net.UnknownHostException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Slf4j
 public class Rule implements IRule, Cloneable {
