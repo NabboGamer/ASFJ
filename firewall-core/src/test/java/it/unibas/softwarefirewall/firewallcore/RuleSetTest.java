@@ -15,6 +15,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+//N.B: Since in Rule in the case of an OUTBUND Direction the verification occurs that the sourceIP
+//     of the packet header actually corresponds to the local IP, if this IP changes because
+//     you are connected to another network the packet will not pass and the test will fail!
+//     Obviously the same thing occur in case of INBOUND Direction and destinationIP.
+//     This test class is built with IPs compliant with my development environment.
+//     To re-run the test methods in your environment and be sure that they work, 
+//     keep in mind what was said previously and appropriately change the harcoded IPs
+//     of the pesuedo-packets and the harcoded CIDRs of the rules.
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class RuleSetTest {
