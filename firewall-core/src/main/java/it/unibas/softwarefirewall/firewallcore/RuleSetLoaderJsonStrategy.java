@@ -10,6 +10,7 @@ import java.util.List;
 import java.lang.reflect.Type;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 public class RuleSetLoaderJsonStrategy implements IRuleSetLoaderStrategy {
@@ -21,7 +22,7 @@ public class RuleSetLoaderJsonStrategy implements IRuleSetLoaderStrategy {
     }
 
     @Override
-    public List<IRule> load(String source) throws IOException {
+    public List<IRule> load(String source) throws IOException, JsonSyntaxException {
         try (Reader reader = Files.newBufferedReader(Paths.get(source).toAbsolutePath())) {
             Type listType = new TypeToken<List<Rule>>(){}.getType();
             return gson.fromJson(reader, listType);

@@ -1,11 +1,9 @@
 package it.unibas.softwarefirewall.firewallcore;
 
-import com.google.gson.JsonIOException;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
 import it.unibas.softwarefirewall.firewallapi.IRuleSetLoaderStrategy;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;

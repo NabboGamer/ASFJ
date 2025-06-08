@@ -94,5 +94,6 @@ public class RuleSetTest {
         IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
         testRuleSet.loadRuleSetFromFile();
         log.debug("RuleSet loaded from JSON file: {}", testRuleSet.toString());
+        assertEquals(testRuleSet.getRules().size(), 2);
     }
 }

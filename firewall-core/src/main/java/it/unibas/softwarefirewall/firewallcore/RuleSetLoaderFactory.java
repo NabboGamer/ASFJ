@@ -22,7 +22,7 @@ public class RuleSetLoaderFactory {
 
     private void init() {
         Properties props = new Properties();
-        try (InputStream in = getClass().getClassLoader().getResourceAsStream("firewall-core.properties")) {
+        try (InputStream in = this.getClass().getClassLoader().getResourceAsStream("firewall-core.properties")) {
             props.load(in);
             String loaderType = props.getProperty("firewallcore.ruleset.loader", "JSON");
             if ("XML".equalsIgnoreCase(loaderType)) {
