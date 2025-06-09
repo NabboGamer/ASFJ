@@ -5,5 +5,5 @@ public interface IHeader {
     String getDestinationIP();
     Integer getSourcePort();
     Integer getDestinationPort();
-    Protocol getProtocol();
+    EProtocol getProtocol();
 }

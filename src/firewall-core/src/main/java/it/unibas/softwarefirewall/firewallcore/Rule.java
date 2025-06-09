@@ -1,16 +1,16 @@
 package it.unibas.softwarefirewall.firewallcore;
 
-import it.unibas.softwarefirewall.firewallapi.Direction;
+import it.unibas.softwarefirewall.firewallapi.EDirection;
 import it.unibas.softwarefirewall.firewallapi.IHeader;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
-import it.unibas.softwarefirewall.firewallapi.Protocol;
-import it.unibas.softwarefirewall.firewallapi.Range;
+import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import java.net.UnknownHostException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import it.unibas.softwarefirewall.firewallapi.IRange;
 
 @Data
 @NoArgsConstructor
@@ -20,12 +20,12 @@ public class Rule implements IRule, Cloneable {
 
     private String ID;
     private String description;
-    private Direction direction;
-    private Range<String> sourceIPRange;
-    private Range<String> destinationIPRange;
-    private Range<Integer> sourcePortRange;
-    private Range<Integer> destinationPortRange;
-    private Protocol protocol;
+    private EDirection direction;
+    private IRange<String> sourceIPRange;
+    private IRange<String> destinationIPRange;
+    private IRange<Integer> sourcePortRange;
+    private IRange<Integer> destinationPortRange;
+    private EProtocol protocol;
 
     @Override
     public Boolean matches(IPacket packet) {
@@ -39,7 +39,7 @@ public class Rule implements IRule, Cloneable {
             return false;
         }
 
-        if (this.direction.equals(Direction.INBOUND)) {
+        if (this.direction.equals(EDirection.INBOUND)) {
             if (header.getDestinationIP().equals(localIpAddress)) {
                 return evaluateMatch(header);
             } else {

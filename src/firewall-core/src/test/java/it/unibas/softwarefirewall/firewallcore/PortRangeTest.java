@@ -1,8 +1,8 @@
 package it.unibas.softwarefirewall.firewallcore;
 
-import it.unibas.softwarefirewall.firewallapi.Range;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import it.unibas.softwarefirewall.firewallapi.IRange;
 
 public class PortRangeTest {
     
@@ -17,7 +17,7 @@ public class PortRangeTest {
 
     @Test
     public void testContains() {
-        Range<Integer> portRange = new PortRange(10, 220);
+        IRange<Integer> portRange = new PortRange(10, 220);
         assertTrue(portRange.contains(11));
         assertFalse(portRange.contains(221));
     }

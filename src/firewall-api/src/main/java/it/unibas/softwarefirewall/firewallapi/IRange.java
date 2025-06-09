@@ -1,6 +1,6 @@
 package it.unibas.softwarefirewall.firewallapi;
 
-public interface Range<T> {
+public interface IRange<T> {
     Boolean contains(T value);
     Object clone();
 }

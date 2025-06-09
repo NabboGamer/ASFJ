@@ -3,12 +3,12 @@ package it.unibas.softwarefirewall.firewallapi;
 public interface IRule {
     String getID();
     String getDescription();
-    Range<String> getSourceIPRange();
-    Range<String> getDestinationIPRange();
-    Range<Integer> getSourcePortRange();
-    Range<Integer> getDestinationPortRange();
-    Protocol getProtocol();
-    Direction getDirection();
+    IRange<String> getSourceIPRange();
+    IRange<String> getDestinationIPRange();
+    IRange<Integer> getSourcePortRange();
+    IRange<Integer> getDestinationPortRange();
+    EProtocol getProtocol();
+    EDirection getDirection();
     Boolean matches(IPacket packet);
     Object clone();
 }

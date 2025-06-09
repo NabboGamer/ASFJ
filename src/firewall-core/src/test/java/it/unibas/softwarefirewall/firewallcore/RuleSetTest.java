@@ -1,11 +1,11 @@
 package it.unibas.softwarefirewall.firewallcore;
 
-import it.unibas.softwarefirewall.firewallapi.Direction;
+import it.unibas.softwarefirewall.firewallapi.EDirection;
 import it.unibas.softwarefirewall.firewallapi.IHeader;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
-import it.unibas.softwarefirewall.firewallapi.Protocol;
+import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -36,27 +36,27 @@ public class RuleSetTest {
 
     @BeforeAll
     public void setUp(){
-        this.testRule1 = new Rule("1", "First testing rule", Direction.INBOUND,
+        this.testRule1 = new Rule("1", "First testing rule", EDirection.INBOUND,
                                   new IPRange("193.204.19.0/24"), new IPRange("192.168.0.0/24"),
                                   new PortRange(10, 100), new PortRange(10, 100),
-                                  Protocol.TCP);
+                                  EProtocol.TCP);
         
-        this.testRule2 = new Rule("2", "Second testing rule", Direction.INBOUND,
+        this.testRule2 = new Rule("2", "Second testing rule", EDirection.INBOUND,
                                   new IPRange("192.168.0.0/24"), new IPRange("10.0.0.0/8"),
                                   new PortRange(10, 100), new PortRange(10, 100),
-                                  Protocol.UDP);
+                                  EProtocol.UDP);
         
-        this.testRule3 = new Rule("3", "Third testing rule", Direction.OUTBOUND,
+        this.testRule3 = new Rule("3", "Third testing rule", EDirection.OUTBOUND,
                                   new IPRange("193.204.19.0/24"), new IPRange("192.168.0.0/24"),
                                   new PortRange(10, 100), new PortRange(10, 100),
-                                  Protocol.TCP);
+                                  EProtocol.TCP);
         
-        this.testRule4 = new Rule("4", "Allow outgoing ssh connections for devices of this internal network", Direction.OUTBOUND,
+        this.testRule4 = new Rule("4", "Allow outgoing ssh connections for devices of this internal network", EDirection.OUTBOUND,
                                   new IPRange("192.168.0.0/24"), new IPRange("0.0.0.0/0"),
                                   new PortRange(22, 22), new PortRange(22, 22),
-                                  Protocol.TCP);
+                                  EProtocol.TCP);
         
-        this.pseudoHeader1 = new PseudoHeader("192.168.0.140", "150.3.2.2", 22 , 22, Protocol.TCP);
+        this.pseudoHeader1 = new PseudoHeader("192.168.0.140", "150.3.2.2", 22 , 22, EProtocol.TCP);
         this.pseudoPacket1 = new PseudoPacket(UUID.randomUUID().toString(), this.pseudoHeader1, "Pseudo-packet 1 send during ssh handshake");
     }
     

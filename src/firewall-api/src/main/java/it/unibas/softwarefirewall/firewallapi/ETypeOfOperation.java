@@ -1,6 +1,6 @@
 package it.unibas.softwarefirewall.firewallapi;
 
-public enum TypeOfOperation {
+public enum ETypeOfOperation {
     ADD,
     UPDATE,
     REMOVE

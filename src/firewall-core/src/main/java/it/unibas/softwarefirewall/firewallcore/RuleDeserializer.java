@@ -5,8 +5,8 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import it.unibas.softwarefirewall.firewallapi.Direction;
-import it.unibas.softwarefirewall.firewallapi.Protocol;
+import it.unibas.softwarefirewall.firewallapi.EDirection;
+import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import java.lang.reflect.Type;
 
 public class RuleDeserializer implements JsonDeserializer<Rule> {
@@ -17,7 +17,7 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         Rule rule = new Rule();
         rule.setID(obj.get("ID").getAsString());
         rule.setDescription(obj.get("description").getAsString());
-        rule.setDirection(Direction.valueOf(obj.get("direction").getAsString()));
+        rule.setDirection(EDirection.valueOf(obj.get("direction").getAsString()));
 
         // IP Ranges
         rule.setSourceIPRange(new IPRange(obj.get("sourceIPRange").getAsString()));
@@ -28,7 +28,7 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         rule.setDestinationPortRange(this.parsePortRange(obj.get("destinationPortRange").getAsString()));
 
         // Protocol
-        rule.setProtocol(Protocol.valueOf(obj.get("protocol").getAsString()));
+        rule.setProtocol(EProtocol.valueOf(obj.get("protocol").getAsString()));
 
         return rule;
     }

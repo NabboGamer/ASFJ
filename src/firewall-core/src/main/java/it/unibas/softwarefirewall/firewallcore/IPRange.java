@@ -2,13 +2,13 @@ package it.unibas.softwarefirewall.firewallcore;
 
 import inet.ipaddr.IPAddress;
 import inet.ipaddr.IPAddressString;
-import it.unibas.softwarefirewall.firewallapi.Range;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import it.unibas.softwarefirewall.firewallapi.IRange;
 
 @Data
 @Slf4j
-public class IPRange implements Range<String>, Cloneable {
+public class IPRange implements IRange<String>, Cloneable {
     private IPAddress network;
 
     public IPRange(String cidr) throws IllegalArgumentException {

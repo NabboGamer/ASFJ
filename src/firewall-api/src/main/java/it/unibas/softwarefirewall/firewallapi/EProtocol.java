@@ -1,6 +1,6 @@
 package it.unibas.softwarefirewall.firewallapi;
 
-public enum Protocol {
+public enum EProtocol {
     TCP,
     UDP,
     ICMP

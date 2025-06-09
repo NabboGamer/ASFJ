@@ -1,7 +1,7 @@
 package it.unibas.softwarefirewall.firewallcore;
 
 import it.unibas.softwarefirewall.firewallapi.IHeader;
-import it.unibas.softwarefirewall.firewallapi.Protocol;
+import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,5 +12,5 @@ public class PseudoHeader implements IHeader {
     private final String destinationIP;
     private final Integer sourcePort;
     private final Integer destinationPort;
-    private final Protocol protocol;
+    private final EProtocol protocol;
 }

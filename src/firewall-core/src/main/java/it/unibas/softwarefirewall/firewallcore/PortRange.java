@@ -1,12 +1,12 @@
 package it.unibas.softwarefirewall.firewallcore;
 
-import it.unibas.softwarefirewall.firewallapi.Range;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import it.unibas.softwarefirewall.firewallapi.IRange;
 
 @Data
 @Slf4j
-public class PortRange implements Range<Integer>, Cloneable {
+public class PortRange implements IRange<Integer>, Cloneable {
     private Integer start;
     private Integer end;
 
