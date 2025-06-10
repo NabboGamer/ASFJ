@@ -4,27 +4,30 @@ import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
 import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
+import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.ADD;
+import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.REMOVE;
+import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.UPDATE;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 
 public class FirewallSimulator implements IFirewallFacade {
     
     private IRuleSet activeRuleSet;
     private IRuleSet clonedRuleSetUnderTest = null;
+    private final ReadWriteLock rwLock = new ReentrantReadWriteLock();
 
-    // Devo sincronizzare l'accesso in lettura al set di regole(credo) perchè 
-    // anche la vista da questo riferimento dovrebbe non solo mostrare a schermo
-    // ma anche fare poi delle modifiche delle regole e queste modifiche potrebbero
-    // avvenire concorrentemente all'accesso al set di regole da parte dei client 
-    // tramite il metodo inspect() il quale per valutare se il pacchetto può
-    // passare utilizza il set di regole ovviamente.
     @Override
-    public IRuleSet getActiveRuleSet(){
-        throw new UnsupportedOperationException("Not supported yet.");
+    public IRuleSet getActiveRuleSet() {
+        this.rwLock.readLock().lock();
+        try {
+            return this.activeRuleSet;
+        } finally {
+            this.rwLock.readLock().unlock();
+        }
     }
     
-    // Questo metodo non credo debba essere sincronizzato in fondo viene 
-    // utilizzato solo nella tab secondaria di test del ruleset clonato.
     @Override
     public IRuleSet getClonedRuleSetUnderTest(){
         if (this.clonedRuleSetUnderTest == null) {
@@ -33,22 +36,34 @@ public class FirewallSimulator implements IFirewallFacade {
         return this.clonedRuleSetUnderTest;
     }
     
-    // Stesso discorso fatto per getActiveRuleSet a maggior ragione valido qui, 
-    // per eseguire delle operazioni sul ruleset devo sincronizzarne l'accesso.
-    // Ho creato l'enum TypeOfOperation così so cosa ha scelto di fare l'utente lato 
-    // GUI, in questo modo mi manda solo la regola e grazie al suo ID che è inmodificabile
-    // posso cercarla nel ruleset ed eliminarla o modificarla, se si tratta di una aggiunta è easy.
     @Override
     public void updateActiveRuleSet(IRule rule, ETypeOfOperation typeOfOperation) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.rwLock.writeLock().lock();
+        try {
+            switch (typeOfOperation) {
+                case ADD -> this.activeRuleSet.addRule(rule);
+                case REMOVE -> this.activeRuleSet.removeRule(rule);
+                case UPDATE -> {
+                    this.activeRuleSet.removeRule(rule);
+                    this.activeRuleSet.addRule(rule);
+                }
+            }
+            this.clonedRuleSetUnderTest = null;
+        } finally {
+            rwLock.writeLock().unlock();
+        }
     }
     
-    // Anche qui come per getClonedRuleSetUnderTest() non credo debba essere sincronizzato.
-    // Qui effettivamente avvengono modifiche ma ci accede solo l'utente tramite la GUI
-    // non c'è pericolo di race condition con i client credo.
     @Override
     public void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation typeOfOperation){
-        throw new UnsupportedOperationException("Not supported yet.");
+        switch (typeOfOperation) {
+            case ADD -> this.clonedRuleSetUnderTest.addRule(rule);
+            case REMOVE -> this.clonedRuleSetUnderTest.removeRule(rule);
+            case UPDATE -> {
+                this.clonedRuleSetUnderTest.removeRule(rule);
+                this.clonedRuleSetUnderTest.addRule(rule);
+            }
+        }
     }
 
     // Infine il metodo inspect(devo anche valutare il nome non mi piace molto e non credo sia il più appropriato)
@@ -66,7 +81,14 @@ public class FirewallSimulator implements IFirewallFacade {
     // se non lo riguarda è un bel problema serve sicuro una lista/coda thread-safe.
     @Override
     public Boolean inspect(IPacket packet) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        rwLock.readLock().lock();
+        try {
+            Boolean allowed = activeRuleSet.matches(packet);
+            // logging via Aspect...
+            return allowed;
+        } finally {
+            rwLock.readLock().unlock();
+        }
     }
 
 }
