@@ -1,5 +1,7 @@
 package it.unibas.softwarefirewall.firewallcore;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
@@ -13,15 +15,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Data
 @Slf4j
+@Singleton
 public class RuleSet implements IRuleSet, Cloneable {
     
     private List<IRule> rules = new ArrayList<>();
     private IRuleSetLoaderStrategy loader;
     
-    public RuleSet(List<IRule> rules){
-        this.rules = rules;
-        IRuleSetLoaderStrategy ruleSetLoaderStrategy = RuleSetLoaderFactory.getInstance().getRuleSetLoaderStrategy();
-        this.loader = ruleSetLoaderStrategy;
+    @Inject
+    public RuleSet(IRuleSetLoaderStrategy loader) {
+        this.loader = loader;
+        this.loadRuleSetFromFile();
     }
 
     @Override
@@ -48,13 +51,13 @@ public class RuleSet implements IRuleSet, Cloneable {
     @Override
     public Object clone() {
         try {
-            // 1. Eseguo la clonazione superficiale della classe base
+            // 1. I perform shallow copy of the base class
             RuleSet clonedRuleSet = (RuleSet)super.clone();
 
-            // 2. Creo una nuova lista per il clone
+            // 2. I create a new list for the clone
             clonedRuleSet.setRules(new ArrayList<>());
 
-            // 3. Clono ogni regola e la aggiunge alla nuova lista
+            // 3. I clone each rule and add it to the new list
             for (IRule rule : this.rules) {
                 clonedRuleSet.addRule((Rule)rule.clone());
             }

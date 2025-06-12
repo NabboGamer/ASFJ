@@ -6,7 +6,6 @@ import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
 import it.unibas.softwarefirewall.firewallapi.EProtocol;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
@@ -62,7 +61,7 @@ public class RuleSetTest {
     
     @Test
     public void testMatches() {
-        IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
+        IRuleSet testRuleSet = new RuleSet(new RuleSetLoaderJsonStrategy());
         testRuleSet.addRule(testRule1);
         testRuleSet.addRule(testRule2);
         testRuleSet.addRule(testRule3);
@@ -75,7 +74,7 @@ public class RuleSetTest {
     
     @Test
     public void testClone(){
-        IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
+        IRuleSet testRuleSet = new RuleSet(new RuleSetLoaderJsonStrategy());
         testRuleSet.addRule(testRule1);
         RuleSet clonedTestRuleSet = (RuleSet)testRuleSet.clone();
         
@@ -99,8 +98,7 @@ public class RuleSetTest {
     
     @Test
     public void testLoadRuleSetFromFile() {
-        IRuleSet testRuleSet = new RuleSet(new ArrayList<>());
-        testRuleSet.loadRuleSetFromFile();
+        IRuleSet testRuleSet = new RuleSet(new RuleSetLoaderJsonStrategy());
         log.debug("RuleSet loaded from JSON file: {}", testRuleSet.toString());
         assertEquals(testRuleSet.getRules().size(), 2);
     }

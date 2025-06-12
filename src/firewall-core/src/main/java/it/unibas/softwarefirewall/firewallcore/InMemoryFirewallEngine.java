@@ -1,5 +1,7 @@
 package it.unibas.softwarefirewall.firewallcore;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
@@ -11,12 +13,17 @@ import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-
-public class FirewallSimulator implements IFirewallFacade {
+@Singleton
+public class InMemoryFirewallEngine implements IFirewallFacade {
     
     private IRuleSet activeRuleSet;
     private IRuleSet clonedRuleSetUnderTest = null;
     private final ReadWriteLock rwLock = new ReentrantReadWriteLock();
+    
+    @Inject
+    public InMemoryFirewallEngine(IRuleSet ruleSet) {
+        this.activeRuleSet = ruleSet;
+    }
 
     @Override
     public IRuleSet getActiveRuleSet() {
@@ -65,26 +72,13 @@ public class FirewallSimulator implements IFirewallFacade {
             }
         }
     }
-
-    // Infine il metodo inspect(devo anche valutare il nome non mi piace molto e non credo sia il più appropriato)
-    // ovviamente questo deve essere sincornizzato perchè per valutare se far passare o no
-    // un pacchetto comunque deve accedere al RuleSet e chiamare matches.
-    // Inoltre qui deve esserci il joining point dell'Aspect che si occuperà poi
-    // di loggare il tutto, per loggare si intende aggiungere grazie al PacketLogger
-    // una nuova entri nella coda di tipo PacketLog, questo è necessario per la tabella
-    // di visualizzazione dei pacchetti nella GUI, credo convenga anche un log classico
-    // a console poichè serve per il testing dei client.
-    // Devo poi valutare anche se conviene utilizzare una coda thread-safe come ConcurrentLinkedQueue
-    // poichè in fin dei conti il blocco penso debba essere tutto sincronizzato, ma questo
-    // devo capire se influenza anche l'Aspect che di conseguenza è sincronizzato 
-    // anche lui e anche il PacketLogger, se lo riguarda penso una Array list normale possa bastare,
-    // se non lo riguarda è un bel problema serve sicuro una lista/coda thread-safe.
+    
+    @LogPacket
     @Override
-    public Boolean inspect(IPacket packet) {
+    public Boolean processPacket(IPacket packet) {
         rwLock.readLock().lock();
         try {
             Boolean allowed = activeRuleSet.matches(packet);
-            // logging via Aspect...
             return allowed;
         } finally {
             rwLock.readLock().unlock();
