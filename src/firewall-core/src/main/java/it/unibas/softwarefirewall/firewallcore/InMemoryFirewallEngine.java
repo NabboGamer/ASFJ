@@ -10,6 +10,7 @@ import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.ADD;
 import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.REMOVE;
 import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.UPDATE;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -39,6 +40,26 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
     }
     
     @Override
+    public List<IRule> getActiveRuleSetRules() {
+        this.rwLock.readLock().lock();
+        try {
+            return this.activeRuleSet.getRules();
+        } finally {
+            this.rwLock.readLock().unlock();
+        }
+    }
+    
+    @Override
+    public Boolean activeRuleSetContainsRule(IRule rule) {
+        rwLock.readLock().lock();
+        try {
+            return activeRuleSet.getRules().contains(rule);
+        } finally {
+            rwLock.readLock().unlock();
+        }
+    }
+
+    @Override
     public IRuleSet getClonedRuleSetUnderTest(){
         this.rwLock.readLock().lock();
         try {
@@ -52,26 +73,59 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
     }
     
     @Override
-    public void updateActiveRuleSet(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) throws IllegalArgumentException {
+    public List<IRule> getClonedRuleSetUnderTestRules(){
+        this.rwLock.readLock().lock();
+        try {
+            if (this.clonedRuleSetUnderTest == null) {
+                this.clonedRuleSetUnderTest = (IRuleSet) this.activeRuleSet.clone();
+            }
+            return this.clonedRuleSetUnderTest.getRules();
+        } finally {
+            this.rwLock.readLock().unlock();
+        }
+    }
+    
+    @Override
+    public Boolean clonedRuleSetUnderTestContainsRule(IRule rule) {
+        rwLock.readLock().lock();
+        try {
+            if (this.clonedRuleSetUnderTest == null) {
+                this.clonedRuleSetUnderTest = (IRuleSet) this.activeRuleSet.clone();
+            }
+            return clonedRuleSetUnderTest.getRules().contains(rule);
+        } finally {
+            rwLock.readLock().unlock();
+        }
+    }
+    
+    @Override
+    public void updateActiveRuleSet(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) {
         this.rwLock.writeLock().lock();
         try {
             switch (typeOfOperation) {
                 case ADD -> {
                     if (this.activeRuleSet.getRules().contains(rule)) {
-                        throw new IllegalArgumentException("The rule you are trying to add already belongs to the current RuleSet. Are you sure you didn't mean to update it?");
+                        log.error("The rule you are trying to add already belongs to the current RuleSet");
+                        break;
                     }
                     this.activeRuleSet.addRule(rule);
+                    this.clonedRuleSetUnderTest = null;
+                    break;
                 }
                 case REMOVE -> {
                     if (!this.activeRuleSet.getRules().contains(rule)) {
-                        throw new IllegalArgumentException("The rule you are trying to delete does not belong to the current RuleSet");
+                        log.error("The rule you are trying to delete does not belong to the current RuleSet");
+                        break;
                     }
                     this.activeRuleSet.removeRule(rule);
+                    this.clonedRuleSetUnderTest = null;
+                    break;
                 }
                 case UPDATE -> {
                     if (!this.activeRuleSet.getRules().contains(rule) || !(rule instanceof Rule old) || 
                         otherRule.isEmpty() || !(otherRule.get() instanceof Rule updated)) {
-                        throw new IllegalArgumentException("Invalid rule or update target");
+                        log.error("Invalid rule or update target");
+                        break;
                     }
                     old.setDescription(updated.getDescription());
                     old.setDirection(updated.getDirection());
@@ -80,35 +134,41 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
                     old.setSourcePortRange(updated.getSourcePortRange());
                     old.setDestinationPortRange(updated.getDestinationPortRange());
                     old.setProtocol(updated.getProtocol());
+                    this.clonedRuleSetUnderTest = null;
+                    break;
                 }
             }
-            this.clonedRuleSetUnderTest = null;
         } finally {
             rwLock.writeLock().unlock();
         }
     }
     
     @Override
-    public void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) throws IllegalArgumentException {
+    public void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) {
         this.rwLock.writeLock().lock();
         try {
             switch (typeOfOperation) {
                 case ADD -> {
                     if (this.clonedRuleSetUnderTest.getRules().contains(rule)) {
-                        throw new IllegalArgumentException("The rule you are trying to add already belongs to the cloned RuleSet. Are you sure you didn't mean to update it?");
+                        log.error("The rule you are trying to add already belongs to the current RuleSet");
+                        break;
                     }
                     this.clonedRuleSetUnderTest.addRule(rule);
+                    break;
                 }
                 case REMOVE -> {
                     if (!this.clonedRuleSetUnderTest.getRules().contains(rule)) {
-                        throw new IllegalArgumentException("The rule you are trying to delete does not belong to the cloned RuleSet");
+                        log.error("The rule you are trying to delete does not belong to the current RuleSet");
+                        break;
                     }
                     this.clonedRuleSetUnderTest.removeRule(rule);
+                    break;
                 }
                 case UPDATE -> {
                     if (!this.clonedRuleSetUnderTest.getRules().contains(rule) || !(rule instanceof Rule old) || 
                         otherRule.isEmpty() || !(otherRule.get() instanceof Rule updated)) {
-                        throw new IllegalArgumentException("Invalid rule or update target");
+                        log.error("Invalid rule or update target");
+                        break;
                     }
                     old.setDescription(updated.getDescription());
                     old.setDirection(updated.getDirection());
@@ -117,6 +177,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
                     old.setSourcePortRange(updated.getSourcePortRange());
                     old.setDestinationPortRange(updated.getDestinationPortRange());
                     old.setProtocol(updated.getProtocol());
+                    break;
                 }
             }
         } finally {

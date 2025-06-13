@@ -138,75 +138,81 @@ public class InMemoryFirewallEngineTest {
         assertEquals(threads * iterations, testPacketLogger.getEntries().size());
     }
     
-//    @Test
-//    @Order(3)
-//    public void testLockingUnderConcurrentReadWrite() throws InterruptedException {
-//        // 1) Partiamo con una regola che blocca tutto
-//        Rule denyAll = new Rule("r0", "deny all", Direction.INBOUND,
-//            new IPRange("0.0.0.0/0"), new IPRange("127.0.0.1/32"),
-//            new PortRange(0, 65535), new PortRange(0, 65535),
-//            Protocol.TCP, false);
-//        firewall.updateActiveRuleSet(denyAll, TypeOfOperation.ADD, Optional.empty());
-//
-//        int readers = 10;
-//        int writers = 5;
-//        int iterations = 500;
-//        ExecutorService exec = Executors.newFixedThreadPool(readers + writers);
-//        CountDownLatch done = new CountDownLatch(readers + writers);
-//
-//        // Collezioni thread-safe per raccogliere eventuali eccezioni o risultati strani
-//        ConcurrentLinkedQueue<Throwable> exceptions = new ConcurrentLinkedQueue<>();
-//        ConcurrentLinkedQueue<Boolean> results = new ConcurrentLinkedQueue<>();
-//
-//        // 2) Lettori: continuano a chiamare processPacket
-//        for (int i = 0; i < readers; i++) {
-//            exec.submit(() -> {
-//                try {
-//                    for (int j = 0; j < iterations; j++) {
-//                        IPacket pkt = new PseudoPacket(
-//                          "p"+j,
-//                          new PseudoHeader("1.1.1.1","127.0.0.1",j,80,Protocol.TCP),
-//                          ""
-//                        );
-//                        // raccolgo i risultati
-//                        results.add(firewall.processPacket(pkt));
-//                    }
-//                } catch (Throwable t) {
-//                    exceptions.add(t);
-//                } finally {
-//                    done.countDown();
-//                }
-//            });
-//        }
-//
-//        // 3) Scrittori: alternano remove/add della stessa regola
-//        for (int i = 0; i < writers; i++) {
-//            exec.submit(() -> {
-//                try {
-//                    for (int j = 0; j < iterations; j++) {
-//                        firewall.updateActiveRuleSet(denyAll, TypeOfOperation.REMOVE, Optional.empty());
-//                        firewall.updateActiveRuleSet(denyAll, TypeOfOperation.ADD, Optional.empty());
-//                    }
-//                } catch (Throwable t) {
-//                    exceptions.add(t);
-//                } finally {
-//                    done.countDown();
-//                }
-//            });
-//        }
-//
-//        // 4) Attendo termine
-//        assertTrue(done.await(30, TimeUnit.SECONDS), "Timeout threads");
-//
-//        // 5) Non devono esserci eccezioni di concorrenza
-//        assertTrue(exceptions.isEmpty(), 
-//            "Sono emerse eccezioni durante il test: " + exceptions);
-//
-//        // 6) Tutti i lettori dovrebbero aver visto o 'false' (assenza di regole) o 'false' (regola denyAll)
-//        //    ovvero sempre false: nessun risultato true inatteso
-//        assertTrue(results.stream().allMatch(b -> b == false),
-//            "Lettori hanno visto qualche risultato true, comportamento incoerente");
-//    }
+    @Test
+    @Order(3)
+    public void testLockingUnderConcurrentReadWrite() throws InterruptedException {
+        // 1) I add a single rule that accepts any packet
+        Rule acceptAll = new Rule("accept all", EDirection.INBOUND,
+                                  new IPRange("0.0.0.0/0"), new IPRange("192.168.0.0/24"),
+                                  new PortRange(0, 65535), new PortRange(0, 65535),
+                                  EProtocol.TCP);
+        firewall.updateActiveRuleSet(acceptAll, ETypeOfOperation.ADD, Optional.empty());
+        
+        int readers = 10;
+        int writers = 5;
+        int iterations = 500;
+        ExecutorService exec = Executors.newFixedThreadPool(readers + writers);
+        CountDownLatch startLatch = new CountDownLatch(1);
+        CountDownLatch doneLatch = new CountDownLatch(readers + writers);
+        
+        ConcurrentLinkedQueue<Throwable> exceptions = new ConcurrentLinkedQueue<>();
+        ConcurrentLinkedQueue<Boolean> results = new ConcurrentLinkedQueue<>();
+
+        // 2) Readers: keep calling processPacket
+        for (int i = 0; i < readers; i++) {
+            exec.submit(() -> {
+                try {
+                    startLatch.await();
+                    for (int j = 0; j < iterations; j++) {
+                        IPacket pkt = new PseudoPacket(new PseudoHeader("1.1.1.1","192.168.0.140",j,80,EProtocol.TCP), "");
+                        // raccolgo i risultati
+                        results.add(firewall.processPacket(pkt));
+                    }
+                } catch (Throwable t) {
+                    exceptions.add(t);
+                } finally {
+                    doneLatch.countDown();
+                }
+            });
+        }
+
+        // 3) Writers: alternate remove/add of the same rule
+        for (int i = 0; i < writers; i++) {
+            exec.submit(() -> {
+                try {
+                    startLatch.await();
+                    for (int j = 0; j < iterations; j++) {
+                        if(firewall.activeRuleSetContainsRule(acceptAll)){
+                            firewall.updateActiveRuleSet(acceptAll, ETypeOfOperation.REMOVE, Optional.empty());
+                        }
+                        if(!firewall.activeRuleSetContainsRule(acceptAll)){
+                            firewall.updateActiveRuleSet(acceptAll, ETypeOfOperation.ADD, Optional.empty());
+                        } 
+                    }
+                } catch (Throwable t) {
+                    exceptions.add(t);
+                } finally {
+                    doneLatch.countDown();
+                }
+            });
+        }
+
+        startLatch.countDown();  // All threads start more or less together
+        // 4) Waiting for all threads to finish their operations
+        assertTrue(doneLatch.await(30, TimeUnit.SECONDS), "Timeout threads");
+
+        // 5) There must be no concurrency exceptions
+        log.error("Eccezioni collezionate durante il test:");
+        exceptions.stream().forEach( e -> log.error(e.getLocalizedMessage()));
+        log.info("The Active RuleSet actually have this rules: {}", firewall.getActiveRuleSet().getRules());
+        assertTrue(exceptions.isEmpty(), "Sono emerse eccezioni durante il test");
+        
+        // 6) State invariance:
+        // after writers*iterations REMOVE+ADD alternations,
+        // the acceptAll rule must still be present only once
+        assertTrue(firewall.activeRuleSetContainsRule(acceptAll), "La regola dovrebbe esserci ancora");
+        assertEquals(1,firewall.getActiveRuleSetRules().stream().filter(r -> r.equals(acceptAll)).count(),"Non devono esistere duplicati della regola");
+    }
 
     // TestPacketLogger is a inner class that is useful for intercepting logs 
     // without depending on the real PacketLogger
