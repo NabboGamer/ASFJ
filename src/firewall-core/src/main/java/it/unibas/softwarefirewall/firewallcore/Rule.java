@@ -6,15 +6,14 @@ import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import java.net.UnknownHostException;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import it.unibas.softwarefirewall.firewallapi.IRange;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Slf4j
 public class Rule implements IRule, Cloneable {
 
@@ -26,6 +25,20 @@ public class Rule implements IRule, Cloneable {
     private IRange<Integer> sourcePortRange;
     private IRange<Integer> destinationPortRange;
     private EProtocol protocol;
+    
+    public Rule(String description, EDirection direction, 
+                IRange<String> sourceIPRange, IRange<String> destinationIPRange, 
+                IRange<Integer> sourcePortRange, IRange<Integer> destinationPortRange, 
+                EProtocol protocol){
+        this.ID = UUID.randomUUID().toString();
+        this.description = description;
+        this.direction = direction;
+        this.sourceIPRange = sourceIPRange;
+        this.destinationIPRange = destinationIPRange;
+        this.sourcePortRange = sourcePortRange;
+        this.destinationPortRange = destinationPortRange;
+        this.protocol = protocol;
+    }
 
     @Override
     public Boolean matches(IPacket packet) {
@@ -87,26 +100,13 @@ public class Rule implements IRule, Cloneable {
         if (o == null || this.getClass() != o.getClass()) return false;
 
         Rule otherRule = (Rule) o;
-
-        return (this.description != null ? description.equals(otherRule.description) : otherRule.description == null) &&
-               (this.direction == otherRule.direction) &&
-               (this.sourceIPRange != null ? sourceIPRange.equals(otherRule.sourceIPRange) : otherRule.sourceIPRange == null) &&
-               (this.destinationIPRange != null ? destinationIPRange.equals(otherRule.destinationIPRange) : otherRule.destinationIPRange == null) &&
-               (this.sourcePortRange != null ? sourcePortRange.equals(otherRule.sourcePortRange) : otherRule.sourcePortRange == null) &&
-               (this.destinationPortRange != null ? destinationPortRange.equals(otherRule.destinationPortRange) : otherRule.destinationPortRange == null) &&
-               (this.protocol == otherRule.protocol);
+                
+        return (this.ID.equals(otherRule.ID));
     }
 
     @Override
     public int hashCode() {
-        int result = (description != null ? description.hashCode() : 0);
-        result = 31 * result + (direction != null ? direction.hashCode() : 0);
-        result = 31 * result + (sourceIPRange != null ? sourceIPRange.hashCode() : 0);
-        result = 31 * result + (destinationIPRange != null ? destinationIPRange.hashCode() : 0);
-        result = 31 * result + (sourcePortRange != null ? sourcePortRange.hashCode() : 0);
-        result = 31 * result + (destinationPortRange != null ? destinationPortRange.hashCode() : 0);
-        result = 31 * result + (protocol != null ? protocol.hashCode() : 0);
-        return result;
+        return ID != null ? ID.hashCode() : 0;
     }
 
 }

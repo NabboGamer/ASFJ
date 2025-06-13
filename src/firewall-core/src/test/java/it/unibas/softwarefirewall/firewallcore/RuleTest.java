@@ -5,7 +5,6 @@ import it.unibas.softwarefirewall.firewallapi.IHeader;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.EProtocol;
-import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -54,21 +53,21 @@ public class RuleTest {
         this.pseudoHeader7 = new PseudoHeader("192.168.0.140", "10.0.0.1", 80 , 80, EProtocol.TCP);       // ALLOWED
         this.pseudoHeader8 = new PseudoHeader("10.0.0.1", "192.168.0.140", 80 , 80, EProtocol.TCP);       // Incompatible source with this Direction
         
-        this.pseudoPacket1 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader1, "Pseudo-packet 1 generated for testing purpose");
-        this.pseudoPacket2 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader2, "Pseudo-packet 2 generated for testing purpose");
-        this.pseudoPacket3 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader3, "Pseudo-packet 3 generated for testing purpose");
-        this.pseudoPacket4 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader4, "Pseudo-packet 4 generated for testing purpose");
-        this.pseudoPacket5 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader5, "Pseudo-packet 5 generated for testing purpose");
-        this.pseudoPacket6 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader6, "Pseudo-packet 6 generated for testing purpose");
-        this.pseudoPacket7 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader7, "Pseudo-packet 7 generated for testing purpose");
-        this.pseudoPacket8 = new PseudoPacket(UUID.randomUUID().toString(), pseudoHeader8, "Pseudo-packet 8 generated for testing purpose");
+        this.pseudoPacket1 = new PseudoPacket(pseudoHeader1, "Pseudo-packet 1 generated for testing purpose");
+        this.pseudoPacket2 = new PseudoPacket(pseudoHeader2, "Pseudo-packet 2 generated for testing purpose");
+        this.pseudoPacket3 = new PseudoPacket(pseudoHeader3, "Pseudo-packet 3 generated for testing purpose");
+        this.pseudoPacket4 = new PseudoPacket(pseudoHeader4, "Pseudo-packet 4 generated for testing purpose");
+        this.pseudoPacket5 = new PseudoPacket(pseudoHeader5, "Pseudo-packet 5 generated for testing purpose");
+        this.pseudoPacket6 = new PseudoPacket(pseudoHeader6, "Pseudo-packet 6 generated for testing purpose");
+        this.pseudoPacket7 = new PseudoPacket(pseudoHeader7, "Pseudo-packet 7 generated for testing purpose");
+        this.pseudoPacket8 = new PseudoPacket(pseudoHeader8, "Pseudo-packet 8 generated for testing purpose");
         
-        this.testRule1 = new Rule("1", "First testing rule", EDirection.INBOUND, 
+        this.testRule1 = new Rule("First testing rule", EDirection.INBOUND, 
                                   new IPRange("193.204.19.0/24"), new IPRange("192.168.0.0/24"),
                                   new PortRange(10, 100), new PortRange(10, 100), 
                                   EProtocol.TCP);
         
-        this.testRule2 = new Rule("2", "Second testing rule", EDirection.OUTBOUND, 
+        this.testRule2 = new Rule("Second testing rule", EDirection.OUTBOUND, 
                                   new IPRange("192.168.0.0/24"), new IPRange("10.0.0.0/8"),
                                   new PortRange(10, 100), new PortRange(10, 100), 
                                   EProtocol.TCP);
