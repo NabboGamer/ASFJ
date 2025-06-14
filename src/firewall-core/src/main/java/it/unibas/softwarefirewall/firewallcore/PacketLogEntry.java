@@ -2,8 +2,10 @@ package it.unibas.softwarefirewall.firewallcore;
 
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class PacketLogEntry {
     private final IPacket packet;
     private final Boolean allowed;
