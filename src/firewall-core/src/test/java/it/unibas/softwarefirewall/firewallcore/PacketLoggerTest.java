@@ -28,6 +28,7 @@ public class PacketLoggerTest {
     @Test
     public void testPacketLogger() {
         // Create a packet to send to localhost
+        log.info(firewall.getActiveRuleSetRules().toString());
         IPacket pkt1 = new PseudoPacket(new PseudoHeader("1.2.3.4", "192.168.0.140", 1000, 80, EProtocol.TCP),"");
         IPacket pkt2 = new PseudoPacket(new PseudoHeader("4.3.2.1", "192.168.0.140", 400, 1000, EProtocol.TCP),"");
         boolean result1 = firewall.activeRuleSetProcessPacket(pkt1);

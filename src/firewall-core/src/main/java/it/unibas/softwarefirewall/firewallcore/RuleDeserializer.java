@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import it.unibas.softwarefirewall.firewallapi.EDirection;
 import it.unibas.softwarefirewall.firewallapi.EProtocol;
 import java.lang.reflect.Type;
+import java.util.UUID;
 
 public class RuleDeserializer implements JsonDeserializer<Rule> {
     @Override
@@ -15,7 +16,7 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         JsonObject obj = json.getAsJsonObject();
 
         Rule rule = new Rule();
-        rule.setID(obj.get("ID").getAsString());
+        rule.setID(UUID.randomUUID().toString());
         rule.setDescription(obj.get("description").getAsString());
         rule.setDirection(EDirection.valueOf(obj.get("direction").getAsString()));
 
