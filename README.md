@@ -21,11 +21,11 @@ Questa organizzazione modulare riflette un approccio scalabile e professionale, 
 
 ### Modalità di Funzionamento del Firewall
 
-Il progetto prevede che i pacchetti generati dai client vengano analizzati dal firewall attraverso un meccanismo semplificato ma efficace, basato sull’invocazione esplicita e diretta del metodo ```inspect()``` da parte di ciascun client, ovvero tramite **chiamata di metodo diretta**.
+Il progetto prevede che i pacchetti generati dai client vengano analizzati dal firewall attraverso un meccanismo semplificato ma efficace, basato sull’invocazione esplicita e diretta del metodo ```activeRuleSetProcessPacket()``` da parte di ciascun client, ovvero tramite **chiamata di metodo diretta**.
 
 In fase di progettazione, è stato valutato anche un meccanismo più realistico, in cui i client avrebbero inviato pacchetti tramite socket TCP al firewall, che li avrebbe ricevuti in modo asincrono, ovvero tramite **comunicazione via rete**. Tuttavia, questa soluzione avrebbe introdotto complessità tecniche legate alla gestione della concorrenza sulle connessioni di rete, alla serializzazione dei pacchetti e alla necessità di un ciclo di ricezione attiva (socket polling) da parte del firewall.
 
-Per rendere il progetto più chiaro e focalizzato sugli aspetti centrali (filtraggio, regole, sincronizzazione tra thread e AOP), si è deciso di optare per la prima soluzione, in cui ogni thread client, simulando l’invio del pacchetto, chiama direttamente ```firewall.inspect(packet)```. Questo approccio consente di simulare efficacemente il flusso dei pacchetti verso il firewall, mantenendo il controllo sulla concorrenza e semplificando il tracciamento e la verifica dell’intero sistema.
+Per rendere il progetto più chiaro e focalizzato sugli aspetti centrali (filtraggio, regole, sincronizzazione tra thread e AOP), si è deciso di optare per la prima soluzione, in cui ogni thread client, simulando l’invio del pacchetto, chiama direttamente ```firewall.activeRuleSetProcessPacket(packet)```. Questo approccio consente di simulare efficacemente il flusso dei pacchetti verso il firewall, mantenendo il controllo sulla concorrenza e semplificando il tracciamento e la verifica dell’intero sistema.
 
 Questa decisione preserva l’obiettivo didattico di simulare un ambiente concorrente e reattivo, mantenendo il codice più leggibile, manutenibile e testabile. Inoltre, grazie all’estensivo utilizzo delle interfacce, è possibile sviluppare anche la logica alternativa basata sulla comunicazione via rete e con costi minimi è possibile sostituirla all’implementazione attuale.
 
