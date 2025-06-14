@@ -159,10 +159,25 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
     
     @LogPacket
     @Override
-    public Boolean processPacket(IPacket packet) {
+    public Boolean activeRuleSetProcessPacket(IPacket packet) {
         rwLock.readLock().lock();
         try {
             Boolean allowed = activeRuleSet.matches(packet);
+            return allowed;
+        } finally {
+            rwLock.readLock().unlock();
+        }
+    }
+    
+    @LogPacket
+    @Override
+    public Boolean clonedRuleSetUnderTestProcessPacket(IPacket packet) {
+        rwLock.readLock().lock();
+        try {
+            if (this.clonedRuleSetUnderTest == null) {
+                this.clonedRuleSetUnderTest = (IRuleSet) this.activeRuleSet.clone();
+            }
+            Boolean allowed = this.clonedRuleSetUnderTest.matches(packet);
             return allowed;
         } finally {
             rwLock.readLock().unlock();

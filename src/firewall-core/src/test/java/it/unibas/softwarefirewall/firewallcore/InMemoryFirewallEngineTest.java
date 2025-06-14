@@ -96,7 +96,7 @@ public class InMemoryFirewallEngineTest {
         //// 3. Test of the processPacket method
         // Create a packet to send to localhost
         IPacket pkt = new PseudoPacket(new PseudoHeader("1.2.3.4", "192.168.0.140", 1000, 80, EProtocol.TCP),"");
-        boolean result = firewall.processPacket(pkt);
+        boolean result = firewall.activeRuleSetProcessPacket(pkt);
         assertTrue(result);
         // Verify that the logger has received a log
         assertEquals(1, testPacketLogger.getEntries().size());
@@ -118,7 +118,7 @@ public class InMemoryFirewallEngineTest {
                 try {
                     for (int j = 0; j < iterations; j++) {
                         IPacket pkt = new PseudoPacket(new PseudoHeader("1.1.1.1", "192.168.0.140", j, 80, EProtocol.TCP), "");
-                        boolean ok = firewall.processPacket(pkt);
+                        boolean ok = firewall.activeRuleSetProcessPacket(pkt);
                         assertFalse(ok, "Expected packet to be denied due to empty rule set");
                     }
                 } catch (Throwable t) {
@@ -164,9 +164,9 @@ public class InMemoryFirewallEngineTest {
                 try {
                     startLatch.await();
                     for (int j = 0; j < iterations; j++) {
-                        IPacket pkt = new PseudoPacket(new PseudoHeader("1.1.1.1","192.168.0.140",j,80,EProtocol.TCP), "");
+                        IPacket pkt = new PseudoPacket(new PseudoHeader("1.1.1.1", "192.168.0.140", j, 80, EProtocol.TCP), "");
                         // raccolgo i risultati
-                        results.add(firewall.processPacket(pkt));
+                        results.add(firewall.activeRuleSetProcessPacket(pkt));
                     }
                 } catch (Throwable t) {
                     exceptions.add(t);

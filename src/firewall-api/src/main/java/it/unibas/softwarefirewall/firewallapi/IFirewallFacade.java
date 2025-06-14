@@ -12,5 +12,6 @@ public interface IFirewallFacade {
     Boolean clonedRuleSetUnderTestContainsRule(IRule rule);
     void updateActiveRuleSet(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule);
     void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule);
-    Boolean processPacket(IPacket packet);
+    Boolean activeRuleSetProcessPacket(IPacket packet);
+    Boolean clonedRuleSetUnderTestProcessPacket(IPacket packet);
 }
