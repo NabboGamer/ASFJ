@@ -99,85 +99,57 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
     }
     
     @Override
-    public void updateActiveRuleSet(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) {
-        this.rwLock.writeLock().lock();
-        try {
-            switch (typeOfOperation) {
-                case ADD -> {
-                    if (this.activeRuleSet.getRules().contains(rule)) {
-                        log.error("The rule you are trying to add already belongs to the current RuleSet");
-                        break;
-                    }
-                    this.activeRuleSet.addRule(rule);
-                    this.clonedRuleSetUnderTest = null;
-                    break;
-                }
-                case REMOVE -> {
-                    if (!this.activeRuleSet.getRules().contains(rule)) {
-                        log.error("The rule you are trying to delete does not belong to the current RuleSet");
-                        break;
-                    }
-                    this.activeRuleSet.removeRule(rule);
-                    this.clonedRuleSetUnderTest = null;
-                    break;
-                }
-                case UPDATE -> {
-                    if (!this.activeRuleSet.getRules().contains(rule) || !(rule instanceof Rule old) || 
-                        otherRule.isEmpty() || !(otherRule.get() instanceof Rule updated)) {
-                        log.error("Invalid rule or update target");
-                        break;
-                    }
-                    old.setDescription(updated.getDescription());
-                    old.setDirection(updated.getDirection());
-                    old.setSourceIPRange(updated.getSourceIPRange());
-                    old.setDestinationIPRange(updated.getDestinationIPRange());
-                    old.setSourcePortRange(updated.getSourcePortRange());
-                    old.setDestinationPortRange(updated.getDestinationPortRange());
-                    old.setProtocol(updated.getProtocol());
-                    this.clonedRuleSetUnderTest = null;
-                    break;
-                }
-            }
-        } finally {
-            rwLock.writeLock().unlock();
-        }
+    public void updateActiveRuleSet(IRule rule, ETypeOfOperation op, Optional<IRule> otherRule) {
+        applyUpdate(rule, op, otherRule, this.activeRuleSet, /* resetClone= */true);
     }
-    
+
     @Override
-    public void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation typeOfOperation, Optional<IRule> otherRule) {
-        this.rwLock.writeLock().lock();
+    public void updateClonedRuleSetUnderTest(IRule rule, ETypeOfOperation op, Optional<IRule> otherRule) {
+        applyUpdate(rule, op, otherRule, this.clonedRuleSetUnderTest, /* resetClone= */false);
+    }
+
+    /* 
+    * Performs ADD/REMOVE/UPDATE operations on a RuleSet of your choice and,
+    * only if resetClone==true invalidates the clone of the activeRuleSet
+    */
+    private void applyUpdate(IRule rule, ETypeOfOperation op,
+                             Optional<IRule> otherRule, IRuleSet target,
+                             Boolean resetClone) {
+        rwLock.writeLock().lock();
         try {
-            switch (typeOfOperation) {
+            switch (op) {
                 case ADD -> {
-                    if (this.clonedRuleSetUnderTest.getRules().contains(rule)) {
+                    if (target.getRules().contains(rule)) {
                         log.error("The rule you are trying to add already belongs to the current RuleSet");
-                        break;
+                    } else {
+                        target.addRule(rule);
+                        if (resetClone) clonedRuleSetUnderTest = null;
                     }
-                    this.clonedRuleSetUnderTest.addRule(rule);
-                    break;
                 }
                 case REMOVE -> {
-                    if (!this.clonedRuleSetUnderTest.getRules().contains(rule)) {
+                    if (!target.getRules().contains(rule)) {
                         log.error("The rule you are trying to delete does not belong to the current RuleSet");
-                        break;
+                    } else {
+                        target.removeRule(rule);
+                        if (resetClone) clonedRuleSetUnderTest = null;
                     }
-                    this.clonedRuleSetUnderTest.removeRule(rule);
-                    break;
                 }
                 case UPDATE -> {
-                    if (!this.clonedRuleSetUnderTest.getRules().contains(rule) || !(rule instanceof Rule old) || 
-                        otherRule.isEmpty() || !(otherRule.get() instanceof Rule updated)) {
+                    if (!target.getRules().contains(rule) ||
+                        !(rule instanceof Rule old) ||
+                          otherRule.isEmpty()||
+                        !(otherRule.get() instanceof Rule updated)) {
                         log.error("Invalid rule or update target");
-                        break;
+                    } else {
+                        old.setDescription(updated.getDescription());
+                        old.setDirection(updated.getDirection());
+                        old.setSourceIPRange(updated.getSourceIPRange());
+                        old.setDestinationIPRange(updated.getDestinationIPRange());
+                        old.setSourcePortRange(updated.getSourcePortRange());
+                        old.setDestinationPortRange(updated.getDestinationPortRange());
+                        old.setProtocol(updated.getProtocol());
+                        if (resetClone) clonedRuleSetUnderTest = null;
                     }
-                    old.setDescription(updated.getDescription());
-                    old.setDirection(updated.getDirection());
-                    old.setSourceIPRange(updated.getSourceIPRange());
-                    old.setDestinationIPRange(updated.getDestinationIPRange());
-                    old.setSourcePortRange(updated.getSourcePortRange());
-                    old.setDestinationPortRange(updated.getDestinationPortRange());
-                    old.setProtocol(updated.getProtocol());
-                    break;
                 }
             }
         } finally {

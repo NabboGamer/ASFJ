@@ -202,16 +202,16 @@ public class InMemoryFirewallEngineTest {
         assertTrue(doneLatch.await(30, TimeUnit.SECONDS), "Timeout threads");
 
         // 5) There must be no concurrency exceptions
-        log.error("Eccezioni collezionate durante il test:");
+        log.error("Exceptions collected during the test:");
         exceptions.stream().forEach( e -> log.error(e.getLocalizedMessage()));
         log.info("The Active RuleSet actually have this rules: {}", firewall.getActiveRuleSet().getRules());
-        assertTrue(exceptions.isEmpty(), "Sono emerse eccezioni durante il test");
+        assertTrue(exceptions.isEmpty(), "Exceptions emerged during the test");
         
         // 6) State invariance:
-        // after writers*iterations REMOVE+ADD alternations,
-        // the acceptAll rule must still be present only once
-        assertTrue(firewall.activeRuleSetContainsRule(acceptAll), "La regola dovrebbe esserci ancora");
-        assertEquals(1,firewall.getActiveRuleSetRules().stream().filter(r -> r.equals(acceptAll)).count(),"Non devono esistere duplicati della regola");
+        //    after writers*iterations REMOVE+ADD alternations,
+        //    the acceptAll rule must still be present only once
+        assertTrue(firewall.activeRuleSetContainsRule(acceptAll), "The rule should still be there");
+        assertEquals(1,firewall.getActiveRuleSetRules().stream().filter(r -> r.equals(acceptAll)).count(),"There must be no duplicates of the rule");
     }
 
     // TestPacketLogger is a inner class that is useful for intercepting logs 
