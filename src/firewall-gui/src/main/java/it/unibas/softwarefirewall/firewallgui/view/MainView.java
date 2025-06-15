@@ -1,25 +1,38 @@
 package it.unibas.softwarefirewall.firewallgui.view;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallgui.controller.MenuController;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Singleton
-public class MainView extends javax.swing.JFrame {
+public class MainView extends JFrame {
+    
+    static {
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JDialog.setDefaultLookAndFeelDecorated(true);
+    }
     
     private final MenuController menuController;
+    private final MainPanel mainPanel;
     
     @Inject
-    public MainView(MenuController menuController) {
+    public MainView(MenuController menuController, MainPanel mainPanel) {
         this.menuController = menuController;
+        this.mainPanel = mainPanel;
     }
 
     public void init() {
         initComponents();
-//        setContentPane(new JScrollPane(Applicazione.getInstance().getVistaPrincipale()));
+        this.setContentPane(new JScrollPane(this.mainPanel));
         this.menuItemExit.setAction(this.menuController.getExitAction());
+        FlatSVGIcon shieldSVG = new FlatSVGIcon("images/shield.svg");
+        this.setIconImage(shieldSVG.getImage());
         this.pack();
         this.setSize(1920, 1080);
         this.setLocationRelativeTo(null);
@@ -35,6 +48,8 @@ public class MainView extends javax.swing.JFrame {
         menuItemExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ASFJ");
+        setAlwaysOnTop(true);
 
         jMenu1.setText("File");
 

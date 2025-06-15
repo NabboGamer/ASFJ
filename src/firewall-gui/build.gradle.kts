@@ -10,6 +10,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.5.18")
     implementation("com.formdev:flatlaf:3.6")
     implementation("com.formdev:flatlaf-intellij-themes:3.6")
+    implementation("com.formdev:flatlaf-extras:3.6")
+    implementation("com.github.Dansoftowner:jSystemThemeDetector:3.6")
     
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")

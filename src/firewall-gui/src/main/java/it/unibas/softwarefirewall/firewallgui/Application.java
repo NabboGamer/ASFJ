@@ -1,13 +1,14 @@
 package it.unibas.softwarefirewall.firewallgui;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
+import com.jthemedetecor.OsThemeDetector;
 import it.unibas.softwarefirewall.firewallcore.FirewallCoreModule;
+import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
 import java.awt.Font;
 import java.io.IOException;
@@ -28,9 +29,14 @@ public class Application {
     
     public static void main(String[] args) {
         try {
-//            FlatDarculaLaf.setup();
-            FlatIntelliJLaf.setup();
-            Font jetbrainsMonoFont = new Font("JetBrains Mono", Font.PLAIN, 16);
+            final OsThemeDetector detector = OsThemeDetector.getDetector();
+            final boolean isDarkThemeUsed = detector.isDark();
+            if (isDarkThemeUsed) {
+                FlatDarculaLaf.setup();
+            } else {
+                FlatIntelliJLaf.setup();
+            }
+            Font jetbrainsMonoFont = new Font("JetBrains Mono", Font.PLAIN, 14);
             UIManager.put("defaultFont", jetbrainsMonoFont);
         } catch (Exception ex) {
             log.error("Unable to set the custom look and feel");
@@ -70,7 +76,9 @@ public class Application {
     }
 
     private void init() {
-        MainView frame = injector.getInstance(MainView.class);
-        frame.init();
+        MainView mainView = injector.getInstance(MainView.class);
+        MainPanel mainPanel = injector.getInstance(MainPanel.class);
+        mainPanel.init();
+        mainView.init();
     }
 }
