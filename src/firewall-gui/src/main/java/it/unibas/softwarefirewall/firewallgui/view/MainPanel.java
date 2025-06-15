@@ -2,9 +2,6 @@ package it.unibas.softwarefirewall.firewallgui.view;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Singleton;
-import java.awt.Image;
-import java.net.URL;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -36,20 +33,6 @@ public class MainPanel extends JPanel {
         tabLabel2.setHorizontalTextPosition(SwingConstants.LEFT);
         this.mainPanelTabbedPane.setTabComponentAt(1, tabLabel2);
     }
-    
-    private ImageIcon createScaledIcon(String path, int width, int height) {
-    URL imageUrl = getClass().getResource(path);
-    if (imageUrl == null) {
-        log.error("Immagine non trovata nel path: {}", path);
-        return null;
-    }
-
-    ImageIcon originalIcon = new ImageIcon(imageUrl);
-    Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-    return new ImageIcon(scaledImage);
-}
-
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
