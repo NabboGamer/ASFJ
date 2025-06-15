@@ -12,7 +12,7 @@ import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
     
 @Slf4j
-public class FirewallModule extends AbstractModule {
+public class FirewallCoreModule extends AbstractModule {
     
     @Override
     protected void configure() {

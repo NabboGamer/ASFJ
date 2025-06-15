@@ -30,7 +30,7 @@ public class InMemoryFirewallEngineTest {
     public void setUp() {
         // I use a module that overrides PacketLogger with a mock one cause in this
         // test i want to test only the behavior of InMemoryFirewallEngine class
-        injector = Guice.createInjector(new FirewallModule() {
+        injector = Guice.createInjector(new FirewallCoreModule() {
             @Override
             protected void configure() {
                 super.configure();

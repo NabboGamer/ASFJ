@@ -20,7 +20,7 @@ public class PacketLoggerTest {
     
     @BeforeAll
     public void setUp() {
-        this.injector = Guice.createInjector(new FirewallModule());
+        this.injector = Guice.createInjector(new FirewallCoreModule());
         this.firewall = injector.getInstance(InMemoryFirewallEngine.class);
         this.packetLogger = injector.getInstance(PacketLogger.class);
     }
