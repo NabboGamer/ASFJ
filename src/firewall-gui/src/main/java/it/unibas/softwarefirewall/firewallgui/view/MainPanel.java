@@ -2,6 +2,7 @@ package it.unibas.softwarefirewall.firewallgui.view;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Singleton;
+import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -10,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Singleton
 public class MainPanel extends JPanel {
+    
+    private Integer focusedTabIndex = 0;
+    private String focusedTabTitle = "Firewall Live";
 
     public void init() {
         initComponents();
@@ -23,6 +27,7 @@ public class MainPanel extends JPanel {
         tabLabel1.setIconTextGap(5);
         tabLabel1.setHorizontalTextPosition(SwingConstants.LEFT); // Text on the left, icon on the right
         this.mainPanelTabbedPane.setTabComponentAt(0, tabLabel1);
+        this.mainPanelTabbedPane.setTitleAt(0, "Firewall Live");
         
         // Configure Second Tab
         this.mainPanelTabbedPane.addTab(null, this.secondTabPanel);
@@ -32,6 +37,13 @@ public class MainPanel extends JPanel {
         tabLabel2.setIconTextGap(5);
         tabLabel2.setHorizontalTextPosition(SwingConstants.LEFT);
         this.mainPanelTabbedPane.setTabComponentAt(1, tabLabel2);
+        this.mainPanelTabbedPane.setTitleAt(1, "Firewall Test");
+        
+        this.mainPanelTabbedPane.addChangeListener(e -> {
+            this.focusedTabIndex = mainPanelTabbedPane.getSelectedIndex();
+            this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
+            log.debug("New tab selected: " + this.focusedTabTitle);
+        });
     }
     
     @SuppressWarnings("unchecked")
@@ -39,35 +51,147 @@ public class MainPanel extends JPanel {
     private void initComponents() {
 
         firstTabPanel = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        rulesDetailsTable = new javax.swing.JTable();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        addNewRuleButton = new javax.swing.JButton();
+        javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
+        filteredPacketsTable = new javax.swing.JTable();
         secondTabPanel = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         mainPanelTabbedPane = new javax.swing.JTabbedPane();
 
         firstTabPanel.setName("firstTabPanel"); // NOI18N
-        firstTabPanel.setPreferredSize(new java.awt.Dimension(1280, 720));
+        firstTabPanel.setPreferredSize(new java.awt.Dimension(1200, 680));
+        firstTabPanel.setRequestFocusEnabled(false);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Active RuleSet", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(1228, 335));
+
+        rulesDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(rulesDetailsTable);
+
+        jLabel1.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        jLabel1.setText(" Rules details");
+
+        addNewRuleButton.setBackground(new java.awt.Color(28, 39, 76));
+        addNewRuleButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        addNewRuleButton.setForeground(new java.awt.Color(255, 255, 255));
+        addNewRuleButton.setText("+ Add New");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1166, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addNewRuleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addNewRuleButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtered Packets", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(1228, 335));
+
+        filteredPacketsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(filteredPacketsTable);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout firstTabPanelLayout = new javax.swing.GroupLayout(firstTabPanel);
         firstTabPanel.setLayout(firstTabPanelLayout);
         firstTabPanelLayout.setHorizontalGroup(
             firstTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(firstTabPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(firstTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE))
+                .addContainerGap())
         );
         firstTabPanelLayout.setVerticalGroup(
             firstTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(firstTabPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         secondTabPanel.setName("secondTabPanel"); // NOI18N
-        secondTabPanel.setPreferredSize(new java.awt.Dimension(1280, 720));
+
+        jLabel2.setText("Test Label Seconda Tab");
 
         javax.swing.GroupLayout secondTabPanelLayout = new javax.swing.GroupLayout(secondTabPanel);
         secondTabPanel.setLayout(secondTabPanelLayout);
         secondTabPanelLayout.setHorizontalGroup(
             secondTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(secondTabPanelLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jLabel2)
+                .addContainerGap(1007, Short.MAX_VALUE))
         );
         secondTabPanelLayout.setVerticalGroup(
             secondTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(secondTabPanelLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel2)
+                .addContainerGap(611, Short.MAX_VALUE))
         );
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -97,8 +221,11 @@ public class MainPanel extends JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addNewRuleButton;
+    private javax.swing.JTable filteredPacketsTable;
     private javax.swing.JPanel firstTabPanel;
     private javax.swing.JTabbedPane mainPanelTabbedPane;
+    private javax.swing.JTable rulesDetailsTable;
     private javax.swing.JPanel secondTabPanel;
     // End of variables declaration//GEN-END:variables
 }
