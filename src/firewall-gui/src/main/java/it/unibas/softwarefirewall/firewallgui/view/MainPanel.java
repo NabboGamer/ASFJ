@@ -1,7 +1,10 @@
 package it.unibas.softwarefirewall.firewallgui.view;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import it.unibas.softwarefirewall.firewallgui.controller.MainPanelController;
 import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,6 +17,16 @@ public class MainPanel extends JPanel {
     
     private Integer focusedTabIndex = 0;
     private String focusedTabTitle = "Firewall Live";
+    private final RulesDetailsTableModel rulesDetailsTableModel;
+    private final MainPanelController mainPanelController;
+    private final IFirewallFacade firewall;
+    
+    @Inject
+    public MainPanel(RulesDetailsTableModel rulesDetailsTableModel, MainPanelController mainPanelController, IFirewallFacade firewall){
+        this.rulesDetailsTableModel = rulesDetailsTableModel;
+        this.mainPanelController = mainPanelController;
+        this.firewall = firewall;
+    }
 
     public void init() {
         initComponents();
@@ -44,6 +57,12 @@ public class MainPanel extends JPanel {
             this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
             log.debug("New tab selected: " + this.focusedTabTitle);
         });
+        
+        this.rulesDetailsTableModel.setRules(firewall.getActiveRuleSetRules());
+        this.rulesDetailsTable.setModel(this.rulesDetailsTableModel);
+        this.addRuleButton.setAction(this.mainPanelController.getAddRuleAction());
+        this.editRuleButton.setAction(this.mainPanelController.getEditRuleAction());
+        this.removeRuleButton.setAction(this.mainPanelController.getRemoveRuleAction());
     }
     
     @SuppressWarnings("unchecked")
@@ -55,7 +74,9 @@ public class MainPanel extends JPanel {
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         rulesDetailsTable = new javax.swing.JTable();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
-        addNewRuleButton = new javax.swing.JButton();
+        removeRuleButton = new javax.swing.JButton();
+        editRuleButton = new javax.swing.JButton();
+        addRuleButton = new javax.swing.JButton();
         javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
         javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
         filteredPacketsTable = new javax.swing.JTable();
@@ -86,10 +107,20 @@ public class MainPanel extends JPanel {
         jLabel1.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
         jLabel1.setText(" Rules details");
 
-        addNewRuleButton.setBackground(new java.awt.Color(28, 39, 76));
-        addNewRuleButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
-        addNewRuleButton.setForeground(new java.awt.Color(255, 255, 255));
-        addNewRuleButton.setText("+ Add New");
+        removeRuleButton.setBackground(new java.awt.Color(255, 0, 0));
+        removeRuleButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        removeRuleButton.setForeground(new java.awt.Color(255, 255, 255));
+        removeRuleButton.setText("- Remove");
+
+        editRuleButton.setBackground(new java.awt.Color(255, 153, 0));
+        editRuleButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        editRuleButton.setForeground(new java.awt.Color(255, 255, 255));
+        editRuleButton.setText("~ Edit");
+
+        addRuleButton.setBackground(new java.awt.Color(0, 204, 0));
+        addRuleButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        addRuleButton.setForeground(new java.awt.Color(255, 255, 255));
+        addRuleButton.setText("+ Add");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,18 +133,25 @@ public class MainPanel extends JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addNewRuleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(addRuleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editRuleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(removeRuleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(addNewRuleButton))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(removeRuleButton)
+                        .addComponent(editRuleButton)
+                        .addComponent(addRuleButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addContainerGap())
@@ -221,10 +259,12 @@ public class MainPanel extends JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addNewRuleButton;
+    private javax.swing.JButton addRuleButton;
+    private javax.swing.JButton editRuleButton;
     private javax.swing.JTable filteredPacketsTable;
     private javax.swing.JPanel firstTabPanel;
     private javax.swing.JTabbedPane mainPanelTabbedPane;
+    private javax.swing.JButton removeRuleButton;
     private javax.swing.JTable rulesDetailsTable;
     private javax.swing.JPanel secondTabPanel;
     // End of variables declaration//GEN-END:variables

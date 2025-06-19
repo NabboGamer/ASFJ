@@ -3,7 +3,7 @@ package it.unibas.softwarefirewall.firewallgui.view;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import it.unibas.softwarefirewall.firewallgui.controller.MenuController;
+import it.unibas.softwarefirewall.firewallgui.controller.MainViewController;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -18,19 +18,19 @@ public class MainView extends JFrame {
         JDialog.setDefaultLookAndFeelDecorated(true);
     }
     
-    private final MenuController menuController;
+    private final MainViewController mainViewController;
     private final MainPanel mainPanel;
     
     @Inject
-    public MainView(MenuController menuController, MainPanel mainPanel) {
-        this.menuController = menuController;
+    public MainView(MainViewController mainViewController, MainPanel mainPanel) {
+        this.mainViewController = mainViewController;
         this.mainPanel = mainPanel;
     }
 
     public void init() {
         initComponents();
         this.setContentPane(new JScrollPane(this.mainPanel));
-        this.menuItemExit.setAction(this.menuController.getExitAction());
+        this.menuItemExit.setAction(this.mainViewController.getExitAction());
         FlatSVGIcon shieldSVG = new FlatSVGIcon("images/shield.svg");
         this.setIconImage(shieldSVG.getImage());
         this.pack();
