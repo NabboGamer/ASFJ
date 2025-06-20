@@ -4,8 +4,10 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallgui.controller.MainPanelController;
 import java.awt.Component;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -60,9 +62,18 @@ public class MainPanel extends JPanel {
         
         this.rulesDetailsTableModel.setRules(firewall.getActiveRuleSetRules());
         this.rulesDetailsTable.setModel(this.rulesDetailsTableModel);
+        
+        this.mainPanelController.setRulesDetailsTable(this.rulesDetailsTable);
+        
         this.addRuleButton.setAction(this.mainPanelController.getAddRuleAction());
         this.editRuleButton.setAction(this.mainPanelController.getEditRuleAction());
         this.removeRuleButton.setAction(this.mainPanelController.getRemoveRuleAction());
+    }
+    
+    public void updateTable(){
+        List<IRule> activeRuleSetRules = firewall.getActiveRuleSetRules();
+        rulesDetailsTableModel.setRules(activeRuleSetRules);
+        rulesDetailsTableModel.updateContent();
     }
     
     @SuppressWarnings("unchecked")

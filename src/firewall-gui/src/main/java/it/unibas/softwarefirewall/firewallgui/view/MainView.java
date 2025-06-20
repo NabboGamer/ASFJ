@@ -6,6 +6,7 @@ import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallgui.controller.MainViewController;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,6 +38,18 @@ public class MainView extends JFrame {
         this.setSize(1920, 1080);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+    
+    public void showInformationMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Information", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void showWarningMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Warning", JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public void showErrorMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
     @SuppressWarnings("unchecked")

@@ -56,18 +56,9 @@ public class RulesDetailsTableModel extends AbstractTableModel {
             default -> null;
         };
     }
-
-    public void addRule(IRule rule) {
-        rules.add(rule);
-        int idx = rules.size() - 1;
-        fireTableRowsInserted(idx, idx);
-    }
-
-    public void removeRule(int rowIndex) {
-        if (rowIndex >= 0 && rowIndex < rules.size()) {
-            rules.remove(rowIndex);
-            fireTableRowsDeleted(rowIndex, rowIndex);
-        }
+    
+    public IRule getRuleAt(int selectedRow) {
+        return this.rules.get(selectedRow);
     }
     
     public void updateContent() {
@@ -75,4 +66,3 @@ public class RulesDetailsTableModel extends AbstractTableModel {
     }
 
 }
-
