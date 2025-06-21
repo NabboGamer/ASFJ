@@ -8,9 +8,13 @@ import java.awt.Insets;
 import java.util.Optional;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 // Note there is no Guice annotation so this implies 
 // that the scope is the default one i.e. prototype
+@Slf4j
+@Getter
 public class RuleFormDialog extends JDialog {
     
     private final MainView mainView;
@@ -29,19 +33,9 @@ public class RuleFormDialog extends JDialog {
 
     public void showForAdd(Optional<IRule> rule) {
         this.rule = rule;
-//        resetForm();
         this.saveButton.setAction(this.ruleFormDialogController.getSaveAddedRuleAction());
-        this.setTitle("Edit selected rule");
-        this.getContentPane().invalidate();
-        this.getContentPane().validate();
-        Dimension clientPref = getContentPane().getPreferredSize();
-        this.pack();
-        Insets in = getInsets();
-        int totalW = clientPref.width  + in.left + in.right;
-        int totalH = clientPref.height + in.top  + in.bottom + 40;
-        this.setSize(totalW, totalH);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.setTitle("Add new rule");
+        this.showRuleFormDialog();
     }
 
     public void showForEdit(Optional<IRule> rule) {
@@ -53,16 +47,7 @@ public class RuleFormDialog extends JDialog {
         }
         this.saveButton.setAction(this.ruleFormDialogController.getSaveEditedRuleAction());
         this.setTitle("Edit selected rule");
-        this.getContentPane().invalidate();
-        this.getContentPane().validate();
-        Dimension clientPref = getContentPane().getPreferredSize();
-        this.pack();
-        Insets in = getInsets();
-        int totalW = clientPref.width  + in.left + in.right;
-        int totalH = clientPref.height + in.top  + in.bottom + 40;
-        this.setSize(totalW, totalH);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.showRuleFormDialog();
     }
     
     private void populateForm(IRule rule) throws IllegalArgumentException {
@@ -123,6 +108,19 @@ public class RuleFormDialog extends JDialog {
         } catch (Exception e) {
             throw new IllegalArgumentException(String.format("Port parsing error: %s", portRangeString));
         }
+    }
+    
+    private void showRuleFormDialog(){
+        this.getContentPane().invalidate();
+        this.getContentPane().validate();
+        Dimension clientPref = getContentPane().getPreferredSize();
+        this.pack();
+        Insets in = getInsets();
+        int totalW = clientPref.width  + in.left + in.right;
+        int totalH = clientPref.height + in.top  + in.bottom + 40;
+        this.setSize(totalW, totalH);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
