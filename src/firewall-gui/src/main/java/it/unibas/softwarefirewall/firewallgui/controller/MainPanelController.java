@@ -8,6 +8,7 @@ import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
+import it.unibas.softwarefirewall.firewallgui.view.RuleFormDialog;
 import it.unibas.softwarefirewall.firewallgui.view.RulesDetailsTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -37,15 +38,18 @@ public class MainPanelController {
     // 2. Break circular dependencies (A → B → A).
     private final Provider<MainPanel> mainPanelProvider;
     private final Provider<MainView> mainViewProvider;
+    private final Provider<RuleFormDialog> ruleFormDialogProvider;
     // The object is “generated” in the context of the view, so the view will 
     // take care of the set of this property
     private JTable rulesDetailsTable;
     
     @Inject
-    public MainPanelController(IFirewallFacade firewall, Provider<MainPanel> mainPanelProvider, Provider<MainView> mainViewProvider){
+    public MainPanelController(IFirewallFacade firewall, Provider<MainPanel> mainPanelProvider, 
+                               Provider<MainView> mainViewProvider, Provider<RuleFormDialog> ruleFormDialogProvider){
         this.firewall = firewall;
         this.mainPanelProvider = mainPanelProvider;
         this.mainViewProvider = mainViewProvider;
+        this.ruleFormDialogProvider = ruleFormDialogProvider;
     }
 
     public class AddRuleAction extends AbstractAction {
@@ -58,7 +62,8 @@ public class MainPanelController {
         }
 
         public void actionPerformed(ActionEvent e) {
-            
+            RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
+            ruleFormDialog.showForAdd(Optional.empty());
         }
     }
     
@@ -73,7 +78,14 @@ public class MainPanelController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            IRule selectedRule = getSelectedRule();
+            if(selectedRule == null){
+                MainView mainView = mainViewProvider.get();
+                mainView.showWarningMessage("Please select a rule from the table before continuing.");
+                return;
+            }
+            RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
+            ruleFormDialog.showForEdit(Optional.of(selectedRule));
         }
     }
     
@@ -88,19 +100,26 @@ public class MainPanelController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            int selectedRow = rulesDetailsTable.getSelectedRow();
-            if (selectedRow == -1) {
+            IRule selectedRule = getSelectedRule();
+            if(selectedRule == null){
                 MainView mainView = mainViewProvider.get();
                 mainView.showWarningMessage("Please select a rule from the table before continuing.");
                 return;
             }
-
-            RulesDetailsTableModel rulesDetailsTableModel = (RulesDetailsTableModel) rulesDetailsTable.getModel();
-            IRule rule = rulesDetailsTableModel.getRuleAt(selectedRow);
-            firewall.updateActiveRuleSet(rule, ETypeOfOperation.REMOVE, Optional.empty());
+            firewall.updateActiveRuleSet(selectedRule, ETypeOfOperation.REMOVE, Optional.empty());
             MainPanel mainPanel = mainPanelProvider.get();
             mainPanel.updateTable();
         }
+    }
+    
+    private IRule getSelectedRule(){
+        int selectedRow = rulesDetailsTable.getSelectedRow();
+        if (selectedRow == -1) {
+            return null;
+        }
+        RulesDetailsTableModel rulesDetailsTableModel = (RulesDetailsTableModel) rulesDetailsTable.getModel();
+        IRule rule = rulesDetailsTableModel.getRuleAt(selectedRow);
+        return rule;
     }
 
 }
