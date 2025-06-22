@@ -48,7 +48,7 @@ public class SimulatedClientTask implements Runnable {
         }
         IPacket randomPacket = this.generateRandomPacket(clientName);
         firewall.activeRuleSetProcessPacket(randomPacket);
-        log.debug("🚚 " + clientName + " send packet #" + this.packetsSent.get());
+//        log.debug("🚚 " + clientName + " send packet #" + this.packetsSent.get());
     }
     
     private IPacket generateRandomPacket(String clientName) {

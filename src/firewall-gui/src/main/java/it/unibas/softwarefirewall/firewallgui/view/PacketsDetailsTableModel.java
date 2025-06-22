@@ -43,7 +43,11 @@ public class PacketsDetailsTableModel extends AbstractTableModel {
     
     @Override
     public Class<?> getColumnClass(int column) {
-      return String.class;
+      return switch (column) {
+            case 0, 2 -> String.class;
+            case 1 -> Boolean.class; 
+            default -> Object.class;
+        };
     }
     
     @Override
@@ -51,17 +55,11 @@ public class PacketsDetailsTableModel extends AbstractTableModel {
         IPacketLogEntry ple = packetLogEntries.get(rowIndex);
         return switch (columnIndex) {
             case 0 -> formatTimestamp(ple.getTimestamp());
-            case 1 -> ple.getAllowed() ? "✓": "✖";
-            case 2 -> toHtmlWrapped(ple.getPacket().toDisplayString());
+            case 1 -> ple.getAllowed();
+            case 2 -> ple.getPacket().toDisplayString();
             default -> null;
         };
     }
-    
-    private String toHtmlWrapped(String txt) {
-        return "<html><body style='width:580px;'>" 
-               + txt.replace("&","&amp;").replace("<","&lt;") 
-               + "</body></html>";
-      }
     
     public void updateContent() {
         this.fireTableDataChanged();

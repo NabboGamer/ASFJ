@@ -10,17 +10,16 @@ import it.unibas.softwarefirewall.firewallapi.IPacketLoggerListener;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.ISimulationStatusListener;
 import it.unibas.softwarefirewall.firewallgui.controller.MainPanelController;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import java.util.List;
-import static javax.swing.GroupLayout.Alignment.CENTER;
-import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableColumn;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -80,26 +79,15 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         
         this.packetsDetailsTableModel.setPacketLogEntries(new ArrayList<>(this.packetLogger.getSnapshot()));
         this.filteredPacketsTable.setModel(this.packetsDetailsTableModel);
-        
-//        this.filteredPacketsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-//        int width = this.filteredPacketsTable.getWidth();
-//        log.debug("Width: {}", width);
-//        TableColumnModel cols = this.filteredPacketsTable.getColumnModel();  
-//        cols.getColumn(0).setPreferredWidth(Double.valueOf(0.20*width).intValue());  // Arrival time
-//        cols.getColumn(1).setPreferredWidth(Double.valueOf(0.10*width).intValue());  // Allowed
-//        cols.getColumn(2).setPreferredWidth(Double.valueOf(0.70*width).intValue());  // Packet
         this.filteredPacketsTable.setRowHeight(40);
-        this.filteredPacketsTable.setDefaultRenderer(String.class, new DefaultTableCellRenderer() {
+        this.filteredPacketsTable.setDefaultRenderer(Boolean.class, new EmojiBooleanRenderer());
+        this.filteredPacketsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        this.addComponentListener(new ComponentAdapter() {
             @Override
-            public void setValue(Object value) {
-              setText(value == null ? "" : value.toString());
-            }
-          });
-        
-        this.filteredPacketsTable.setDefaultRenderer(Icon.class, new DefaultTableCellRenderer() {
-            @Override
-            public void setHorizontalAlignment(int alignment) {
-              super.setHorizontalAlignment(CENTER);
+            public void componentResized(ComponentEvent e) {
+                // Every time the panel (and therefore the table) is resized,
+                // recalculate the column widths.
+                resizeColumns(filteredPacketsTable);
             }
         });
         
@@ -113,6 +101,24 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         this.startSimulationButton.setAction(this.mainPanelController.getStartSimulationAction());
     }
     
+     private void resizeColumns(JTable table) {
+        int totalWidth = table.getParent().getWidth();
+
+        // Desired proportions (15%, 5%, 80%)
+        float[] proportions = {0.15f, 0.05f, 0.80f};
+
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            TableColumn column = table.getColumnModel().getColumn(i);
+            
+            // Calculate width in pixel
+            int newWidth = (int) (totalWidth * proportions[i]);
+            
+            // Set the preferred width of the column.
+            // setPreferredWidth is the correct method to use in this context.
+            column.setPreferredWidth(newWidth);
+        }
+    }
+     
     public void updateRulesDetailsTable(){
         List<IRule> activeRuleSetRules = firewall.getActiveRuleSetRules();
         this.rulesDetailsTableModel.setRules(activeRuleSetRules);
