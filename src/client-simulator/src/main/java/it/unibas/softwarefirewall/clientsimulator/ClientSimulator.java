@@ -1,5 +1,7 @@
 package it.unibas.softwarefirewall.clientsimulator;
 
+import com.google.inject.Inject;
+import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.ISimulationStatusListener;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,12 +18,15 @@ import lombok.extern.slf4j.Slf4j;
 public class ClientSimulator {
 
     private final List<ISimulationStatusListener> listeners = new ArrayList<>();
+    private final IFirewallFacade firewall;
     private volatile boolean running = false;
     private Integer clientsCount;
     private Integer maxPackets;
     private Long intervalMs;
     
-    public ClientSimulator(){
+    @Inject
+    public ClientSimulator(IFirewallFacade firewall){
+        this.firewall = firewall;
         Properties props = new Properties();
         try (InputStream in = this.getClass().getClassLoader().getResourceAsStream("client-simulator.properties")) {
             props.load(in);
@@ -43,7 +48,7 @@ public class ClientSimulator {
     }
 
     public void addSimulationStatusListener(ISimulationStatusListener listener) {
-        listeners.add(listener);
+        this.listeners.add(listener);
     }
 
     public boolean isRunning() {
@@ -51,17 +56,17 @@ public class ClientSimulator {
     }
 
     public void startSimulation() {
-        running = true;
-        listeners.forEach(ISimulationStatusListener::onSimulationStarted);
+        this.running = true;
+        this.listeners.forEach(ISimulationStatusListener::onSimulationStarted);
 
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(clientsCount);
-        CountDownLatch latch = new CountDownLatch(clientsCount);
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(this.clientsCount);
+        CountDownLatch latch = new CountDownLatch(this.clientsCount);
 
-        for (int i = 0; i < clientsCount; i++) {
+        for (int i = 0; i < this.clientsCount; i++) {
             scheduler.scheduleAtFixedRate(
-                new SimulatedClientTask("Client-" + i, maxPackets, scheduler, latch),
+                new SimulatedClientTask("Client-" + i, this.maxPackets, scheduler, latch, this.firewall),
                 0,
-                intervalMs,
+                this.intervalMs,
                 TimeUnit.MILLISECONDS
             );
         }
@@ -71,8 +76,8 @@ public class ClientSimulator {
             try {
                 latch.await(); // Wait until all clients are finished
                 scheduler.shutdown(); // Stop the executor
-                running = false; // Simulation status updated
-                listeners.forEach(ISimulationStatusListener::onSimulationFinished); // End notification
+                this.running = false; // Simulation status updated
+                this.listeners.forEach(ISimulationStatusListener::onSimulationFinished); // End notification
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
