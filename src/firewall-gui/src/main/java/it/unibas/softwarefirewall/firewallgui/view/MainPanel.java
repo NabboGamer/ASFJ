@@ -5,17 +5,18 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.IRule;
+import it.unibas.softwarefirewall.firewallapi.ISimulationStatusListener;
 import it.unibas.softwarefirewall.firewallgui.controller.MainPanelController;
-import java.awt.Component;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Singleton
-public class MainPanel extends JPanel {
+public class MainPanel extends JPanel implements ISimulationStatusListener {
     
     private Integer focusedTabIndex = 0;
     private String focusedTabTitle = "Firewall Live";
@@ -68,12 +69,23 @@ public class MainPanel extends JPanel {
         this.addRuleButton.setAction(this.mainPanelController.getAddRuleAction());
         this.editRuleButton.setAction(this.mainPanelController.getEditRuleAction());
         this.removeRuleButton.setAction(this.mainPanelController.getRemoveRuleAction());
+        this.startSimulationButton.setAction(this.mainPanelController.getStartSimulationAction());
     }
     
     public void updateTable(){
         List<IRule> activeRuleSetRules = firewall.getActiveRuleSetRules();
         rulesDetailsTableModel.setRules(activeRuleSetRules);
         rulesDetailsTableModel.updateContent();
+    }
+    
+    @Override
+    public void onSimulationStarted() {
+        SwingUtilities.invokeLater(() -> startSimulationButton.setEnabled(false));
+    }
+
+    @Override
+    public void onSimulationFinished() {
+        SwingUtilities.invokeLater(() -> startSimulationButton.setEnabled(true));
     }
     
     @SuppressWarnings("unchecked")
@@ -91,6 +103,8 @@ public class MainPanel extends JPanel {
         javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
         javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
         filteredPacketsTable = new javax.swing.JTable();
+        startSimulationButton = new javax.swing.JButton();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         secondTabPanel = new javax.swing.JPanel();
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         mainPanelTabbedPane = new javax.swing.JTabbedPane();
@@ -184,20 +198,37 @@ public class MainPanel extends JPanel {
         ));
         jScrollPane2.setViewportView(filteredPacketsTable);
 
+        startSimulationButton.setBackground(new java.awt.Color(28, 39, 76));
+        startSimulationButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        startSimulationButton.setForeground(new java.awt.Color(255, 255, 255));
+        startSimulationButton.setText("Start Simulation ↓");
+
+        jLabel3.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        jLabel3.setText(" Packets details");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1166, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(startSimulationButton)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(startSimulationButton)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -278,5 +309,6 @@ public class MainPanel extends JPanel {
     private javax.swing.JButton removeRuleButton;
     private javax.swing.JTable rulesDetailsTable;
     private javax.swing.JPanel secondTabPanel;
+    private javax.swing.JButton startSimulationButton;
     // End of variables declaration//GEN-END:variables
 }

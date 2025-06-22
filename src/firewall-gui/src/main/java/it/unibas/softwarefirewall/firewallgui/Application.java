@@ -7,6 +7,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.jthemedetecor.OsThemeDetector;
+import it.unibas.softwarefirewall.clientsimulator.ClientSimulatorModule;
 import it.unibas.softwarefirewall.firewallcore.FirewallCoreModule;
 import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
@@ -72,7 +73,7 @@ public class Application {
             stage = Stage.DEVELOPMENT;
         }
         
-        this.injector = Guice.createInjector(stage, new FirewallGUIModule(), new FirewallCoreModule());
+        this.injector = Guice.createInjector(stage, new FirewallGUIModule(), new FirewallCoreModule(), new ClientSimulatorModule());
     }
 
     private void init() {

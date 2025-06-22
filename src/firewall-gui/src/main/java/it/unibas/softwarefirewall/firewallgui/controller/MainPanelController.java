@@ -3,6 +3,7 @@ package it.unibas.softwarefirewall.firewallgui.controller;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+import it.unibas.softwarefirewall.clientsimulator.ClientSimulator;
 import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.IRule;
@@ -30,6 +31,7 @@ public class MainPanelController {
     private final Action addRuleAction = new AddRuleAction();
     private final Action editRuleAction = new EditRuleAction();
     private final Action removeRuleAction = new RemoveRuleAction();
+    private final Action startSimulationAction = new StartSimulationAction();
     private final IFirewallFacade firewall;
     // This is to avoid cyclic dependencies, like MainPanel -> MainPanelController but MainPanelController -> MainPanel!
     // A Provider<T> is an interface provided by Guice that allows you to get an instance of T only when you need it, 
@@ -39,17 +41,20 @@ public class MainPanelController {
     private final Provider<MainPanel> mainPanelProvider;
     private final Provider<MainView> mainViewProvider;
     private final Provider<RuleFormDialog> ruleFormDialogProvider;
+    private final Provider<ClientSimulator> clientSimulatorProvider;
     // The object is “generated” in the context of the view, so the view will 
     // take care of the set of this property
     private JTable rulesDetailsTable;
     
     @Inject
     public MainPanelController(IFirewallFacade firewall, Provider<MainPanel> mainPanelProvider, 
-                               Provider<MainView> mainViewProvider, Provider<RuleFormDialog> ruleFormDialogProvider){
+                               Provider<MainView> mainViewProvider, Provider<RuleFormDialog> ruleFormDialogProvider,
+                               Provider<ClientSimulator> clientSimulatorProvider){
         this.firewall = firewall;
         this.mainPanelProvider = mainPanelProvider;
         this.mainViewProvider = mainViewProvider;
         this.ruleFormDialogProvider = ruleFormDialogProvider;
+        this.clientSimulatorProvider = clientSimulatorProvider;
     }
 
     public class AddRuleAction extends AbstractAction {
@@ -109,6 +114,23 @@ public class MainPanelController {
             firewall.updateActiveRuleSet(selectedRule, ETypeOfOperation.REMOVE, Optional.empty());
             MainPanel mainPanel = mainPanelProvider.get();
             mainPanel.updateTable();
+        }
+    }
+    
+    private class StartSimulationAction extends AbstractAction {
+
+        public StartSimulationAction() {
+            this.putValue(Action.NAME, "Start Simulation ↓");
+            this.putValue(Action.SHORT_DESCRIPTION, "Start simulating receiving packets from different clients");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_S);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl S"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ClientSimulator clientSimulator = clientSimulatorProvider.get();
+            clientSimulator.addSimulationStatusListener(mainPanelProvider.get());
+            clientSimulator.startSimulation();
         }
     }
     
