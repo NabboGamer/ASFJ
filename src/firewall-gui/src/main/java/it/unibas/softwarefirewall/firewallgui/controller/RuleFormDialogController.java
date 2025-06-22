@@ -5,13 +5,18 @@ import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.EDirection;
 import it.unibas.softwarefirewall.firewallapi.EProtocol;
+import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallcore.IPRange;
 import it.unibas.softwarefirewall.firewallcore.PortRange;
+import it.unibas.softwarefirewall.firewallcore.Rule;
+import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
 import it.unibas.softwarefirewall.firewallgui.view.RuleFormDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.Optional;
 import java.util.StringJoiner;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -30,14 +35,17 @@ public class RuleFormDialogController {
     private final Action saveAddedRuleAction = new SaveAddedRuleAction();
     private final Action cancelAction = new CancelAction();
     private final IFirewallFacade firewall;
+    private final Provider<MainPanel> mainPanelProvider;
     private final Provider<MainView> mainViewProvider;
     // Here I can't use a provider because the scope of RuleFormDialog is proptotype, 
     // so the provider would return me a new instance at each get
     private RuleFormDialog ruleFormDialog;
 
     @Inject
-    public RuleFormDialogController(IFirewallFacade firewall, Provider<MainView> mainViewProvider) {
+    public RuleFormDialogController(IFirewallFacade firewall, Provider<MainPanel> mainPanelProvider,
+                                    Provider<MainView> mainViewProvider) {
         this.firewall = firewall;
+        this.mainPanelProvider = mainPanelProvider;
         this.mainViewProvider = mainViewProvider;
     }
 
@@ -100,7 +108,38 @@ public class RuleFormDialogController {
                                                         port2SourcePortRangeString, port1DestinationPortRangeString, 
                                                         port2DestinationPortRangeString, protocolString);
             if(validateFieldsString.isBlank()){
+                EDirection direction = EDirection.valueOf(directionString);
                 
+                String sourceIPRangeString = octet1SourceIPRangeString + "." +
+                                             octet2SourceIPRangeString + "." +
+                                             octet3SourceIPRangeString + "." +
+                                             octet4SourceIPRangeString + "/" +
+                                             netmaskSourceIPRangeString;
+                IPRange sourceIPRange = new IPRange(sourceIPRangeString);
+                
+                String destinationIPRangeString = octet1DestinationIPRangeString + "." +
+                                                  octet2DestinationIPRangeString + "." +
+                                                  octet3DestinationIPRangeString + "." +
+                                                  octet4DestinationIPRangeString + "/" +
+                                                  netmaskDestinationIPRangeString;
+                IPRange destinationIPRange = new IPRange(destinationIPRangeString);
+                
+                PortRange sourcePortRange = new PortRange(Integer.valueOf(port1SourcePortRangeString),
+                                                          Integer.valueOf(port2SourcePortRangeString));
+                
+                PortRange destinationPortRange = new PortRange(Integer.valueOf(port1DestinationPortRangeString),
+                                                               Integer.valueOf(port2DestinationPortRangeString));
+                
+                EProtocol protocol = EProtocol.valueOf(protocolString);
+                
+                IRule newRule = new Rule(descriptionString, direction, sourceIPRange,
+                                          destinationIPRange, sourcePortRange, destinationPortRange,
+                                          protocol);
+                
+                firewall.updateActiveRuleSet(newRule, ETypeOfOperation.ADD, Optional.empty());
+                MainPanel mainPanel = mainPanelProvider.get();
+                mainPanel.updateTable();
+                ruleFormDialog.dispose();
             } else {
                 mainViewProvider.get().showErrorMessage(validateFieldsString);
             }
