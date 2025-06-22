@@ -4,5 +4,6 @@ public interface IPacket {
     String getID();
     IHeader getHeader();
     String getPayload();
+    String toDisplayString();
 //    String getChecksum();
 }

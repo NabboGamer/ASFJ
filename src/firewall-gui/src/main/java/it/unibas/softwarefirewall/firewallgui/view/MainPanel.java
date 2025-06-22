@@ -4,31 +4,45 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
+import it.unibas.softwarefirewall.firewallapi.IPacketLogEntry;
+import it.unibas.softwarefirewall.firewallapi.IPacketLogger;
+import it.unibas.softwarefirewall.firewallapi.IPacketLoggerListener;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.ISimulationStatusListener;
 import it.unibas.softwarefirewall.firewallgui.controller.MainPanelController;
+import java.util.ArrayList;
 import java.util.List;
+import static javax.swing.GroupLayout.Alignment.CENTER;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Singleton
-public class MainPanel extends JPanel implements ISimulationStatusListener {
+public class MainPanel extends JPanel implements ISimulationStatusListener, IPacketLoggerListener {
     
     private Integer focusedTabIndex = 0;
     private String focusedTabTitle = "Firewall Live";
     private final RulesDetailsTableModel rulesDetailsTableModel;
     private final MainPanelController mainPanelController;
     private final IFirewallFacade firewall;
+    private final IPacketLogger packetLogger;
+    private final PacketsDetailsTableModel packetsDetailsTableModel;
     
     @Inject
-    public MainPanel(RulesDetailsTableModel rulesDetailsTableModel, MainPanelController mainPanelController, IFirewallFacade firewall){
+    public MainPanel(RulesDetailsTableModel rulesDetailsTableModel, MainPanelController mainPanelController, 
+                     IFirewallFacade firewall, IPacketLogger packetLogger, PacketsDetailsTableModel packetsDetailsTableModel){
         this.rulesDetailsTableModel = rulesDetailsTableModel;
         this.mainPanelController = mainPanelController;
         this.firewall = firewall;
+        this.packetLogger = packetLogger;
+        this.packetsDetailsTableModel = packetsDetailsTableModel;
     }
 
     public void init() {
@@ -61,8 +75,35 @@ public class MainPanel extends JPanel implements ISimulationStatusListener {
             log.debug("New tab selected: " + this.focusedTabTitle);
         });
         
-        this.rulesDetailsTableModel.setRules(firewall.getActiveRuleSetRules());
+        this.rulesDetailsTableModel.setRules(this.firewall.getActiveRuleSetRules());
         this.rulesDetailsTable.setModel(this.rulesDetailsTableModel);
+        
+        this.packetsDetailsTableModel.setPacketLogEntries(new ArrayList<>(this.packetLogger.getSnapshot()));
+        this.filteredPacketsTable.setModel(this.packetsDetailsTableModel);
+        
+//        this.filteredPacketsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//        int width = this.filteredPacketsTable.getWidth();
+//        log.debug("Width: {}", width);
+//        TableColumnModel cols = this.filteredPacketsTable.getColumnModel();  
+//        cols.getColumn(0).setPreferredWidth(Double.valueOf(0.20*width).intValue());  // Arrival time
+//        cols.getColumn(1).setPreferredWidth(Double.valueOf(0.10*width).intValue());  // Allowed
+//        cols.getColumn(2).setPreferredWidth(Double.valueOf(0.70*width).intValue());  // Packet
+        this.filteredPacketsTable.setRowHeight(40);
+        this.filteredPacketsTable.setDefaultRenderer(String.class, new DefaultTableCellRenderer() {
+            @Override
+            public void setValue(Object value) {
+              setText(value == null ? "" : value.toString());
+            }
+          });
+        
+        this.filteredPacketsTable.setDefaultRenderer(Icon.class, new DefaultTableCellRenderer() {
+            @Override
+            public void setHorizontalAlignment(int alignment) {
+              super.setHorizontalAlignment(CENTER);
+            }
+        });
+        
+        this.packetLogger.addPacketLoggerListener(this);
         
         this.mainPanelController.setRulesDetailsTable(this.rulesDetailsTable);
         
@@ -72,10 +113,16 @@ public class MainPanel extends JPanel implements ISimulationStatusListener {
         this.startSimulationButton.setAction(this.mainPanelController.getStartSimulationAction());
     }
     
-    public void updateTable(){
+    public void updateRulesDetailsTable(){
         List<IRule> activeRuleSetRules = firewall.getActiveRuleSetRules();
-        rulesDetailsTableModel.setRules(activeRuleSetRules);
-        rulesDetailsTableModel.updateContent();
+        this.rulesDetailsTableModel.setRules(activeRuleSetRules);
+        this.rulesDetailsTableModel.updateContent();
+    }
+    
+    public void updateFilteredPacketsTable() {
+        List<IPacketLogEntry> packetLogEntries = new ArrayList<>(this.packetLogger.getSnapshot());
+        this.packetsDetailsTableModel.setPacketLogEntries(packetLogEntries);
+        this.packetsDetailsTableModel.updateContent();
     }
     
     @Override
@@ -86,6 +133,11 @@ public class MainPanel extends JPanel implements ISimulationStatusListener {
     @Override
     public void onSimulationFinished() {
         SwingUtilities.invokeLater(() -> startSimulationButton.setEnabled(true));
+    }
+    
+    @Override
+    public void onNewEntry() {
+        this.updateFilteredPacketsTable();
     }
     
     @SuppressWarnings("unchecked")
@@ -311,4 +363,5 @@ public class MainPanel extends JPanel implements ISimulationStatusListener {
     private javax.swing.JPanel secondTabPanel;
     private javax.swing.JButton startSimulationButton;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -4,6 +4,7 @@ import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.matcher.Matchers;
+import it.unibas.softwarefirewall.firewallapi.IPacketLogger;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
 import it.unibas.softwarefirewall.firewallapi.IRuleSetLoaderStrategy;
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class FirewallCoreModule extends AbstractModule {
     protected void configure() {
         this.bind(IFirewallFacade.class).to(InMemoryFirewallEngine.class);
         this.bind(IRuleSet.class).to(RuleSet.class);
+        this.bind(IPacketLogger.class).to(PacketLogger.class);
 
         // Bind logging interceptor
         // Guice does not automatically create interceptors, nor does it bind them. You must:

@@ -74,7 +74,7 @@ public class RuleFormDialogController {
             } else {
                 firewall.updateActiveRuleSet(selectedRule, ETypeOfOperation.UPDATE, Optional.of(newRule));
                 MainPanel mainPanel = mainPanelProvider.get();
-                mainPanel.updateTable();
+                mainPanel.updateRulesDetailsTable();
                 ruleFormDialog.dispose();
             }    
         }
@@ -97,7 +97,7 @@ public class RuleFormDialogController {
             } else {
                 firewall.updateActiveRuleSet(newRule, ETypeOfOperation.ADD, Optional.empty());
                 MainPanel mainPanel = mainPanelProvider.get();
-                mainPanel.updateTable();
+                mainPanel.updateRulesDetailsTable();
                 ruleFormDialog.dispose();
             }     
         }

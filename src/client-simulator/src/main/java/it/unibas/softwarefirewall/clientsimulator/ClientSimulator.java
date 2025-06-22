@@ -5,9 +5,9 @@ import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.ISimulationStatusListener;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClientSimulator {
 
-    private final List<ISimulationStatusListener> listeners = new ArrayList<>();
+    private final List<ISimulationStatusListener> listeners = new CopyOnWriteArrayList<>();
     private final IFirewallFacade firewall;
     private volatile boolean running = false;
     private Integer clientsCount;

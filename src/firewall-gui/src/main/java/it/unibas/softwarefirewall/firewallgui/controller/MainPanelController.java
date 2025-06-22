@@ -113,7 +113,7 @@ public class MainPanelController {
             }
             firewall.updateActiveRuleSet(selectedRule, ETypeOfOperation.REMOVE, Optional.empty());
             MainPanel mainPanel = mainPanelProvider.get();
-            mainPanel.updateTable();
+            mainPanel.updateRulesDetailsTable();
         }
     }
     

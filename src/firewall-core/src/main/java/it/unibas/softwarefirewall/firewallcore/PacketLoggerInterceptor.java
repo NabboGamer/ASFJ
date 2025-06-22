@@ -3,6 +3,7 @@ package it.unibas.softwarefirewall.firewallcore;
 import it.unibas.softwarefirewall.firewallapi.IPacket;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import it.unibas.softwarefirewall.firewallapi.IPacketLogger;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
@@ -10,7 +11,7 @@ import org.aopalliance.intercept.MethodInvocation;
 public class PacketLoggerInterceptor implements MethodInterceptor {
 
     @Inject
-    private PacketLogger logger;
+    private IPacketLogger logger;
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {

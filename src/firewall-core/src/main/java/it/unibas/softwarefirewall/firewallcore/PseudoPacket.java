@@ -17,4 +17,12 @@ public class PseudoPacket implements IPacket {
         this.header = header;
         this.payload = payload;
     }
+    
+    public String toDisplayString() {
+        IHeader h = this.getHeader();
+        return String.format("[%s] [%s:%d → %s:%d] Payload: \"%s\"", h.getProtocol(), h.getSourceIP(), 
+                                                                     h.getSourcePort(), h.getDestinationIP(), 
+                                                                     h.getDestinationPort(), this.getPayload());
+    }
+    
 }
