@@ -217,7 +217,11 @@ public class MainPanelController {
         @Override
         public void actionPerformed(ActionEvent e) {
             IPacket testPacket = buildPacketFromFields();
+            if(testPacket == null){
+                return;
+            }
             Boolean allowed = firewall.clonedRuleSetUnderTestProcessPacket(testPacket);
+//            log.debug("Allowed: " + allowed);
             if(allowed){
                 mainViewProvider.get().showInformationMessage("Test Packet Allowed");
             } else {
