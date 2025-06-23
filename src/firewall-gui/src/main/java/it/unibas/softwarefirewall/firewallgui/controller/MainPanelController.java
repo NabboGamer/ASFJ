@@ -57,7 +57,7 @@ public class MainPanelController {
         this.clientSimulatorProvider = clientSimulatorProvider;
     }
 
-    public class AddRuleAction extends AbstractAction {
+    private class AddRuleAction extends AbstractAction {
 
         public AddRuleAction() {
             this.putValue(Action.NAME, "+ Add");

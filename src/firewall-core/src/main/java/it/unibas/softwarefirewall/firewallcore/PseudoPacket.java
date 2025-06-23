@@ -19,10 +19,12 @@ public class PseudoPacket implements IPacket {
     }
     
     public String toDisplayString() {
-        IHeader h = this.getHeader();
-        return String.format("[%s] [%s:%d → %s:%d] Payload: \"%s\"", h.getProtocol(), h.getSourceIP(), 
-                                                                     h.getSourcePort(), h.getDestinationIP(), 
-                                                                     h.getDestinationPort(), this.getPayload());
+        IHeader h = this.header;
+        String hdr = String.format("[%-4s] %-15s:%-5d → %-15s:%-5d",
+                                   h.getProtocol(),h.getSourceIP(), 
+                                   h.getSourcePort(), h.getDestinationIP(), 
+                                   h.getDestinationPort());
+        return hdr + "  Payload: " + this.payload;
     }
-    
+
 }

@@ -19,11 +19,11 @@ public class SimulatedClientTask implements Runnable {
 
     private final AtomicInteger packetsSent  = new AtomicInteger(0);
     private final Random random              = new Random();
-    private final String[]  sourceIPs        = {"193.204.19.174", "193.204.19.178", "193.204.19.14", "192.168.0.140", "192.168.0.140"};
-    private final String[]  destinationIPs   = {"192.168.0.140", "192.168.0.140", "192.168.0.140", "8.8.8.8", "9.9.9.9"};
-    private final Integer[] sourcePorts      = {1000, 8080, 9090, 1024, 5000};
-    private final Integer[] destinationPorts = {80, 80, 5432, 53, 53};
-    private final EProtocol[] protocols      = {TCP, TCP, TCP, UDP,UDP};
+    private final String[]  sourceIPs        = {"193.204.19.174", "193.204.19.178", "193.204.19.14", "192.168.0.140", "192.168.0.140", "193.204.190.174"};
+    private final String[]  destinationIPs   = {"192.168.0.140", "192.168.0.140", "192.168.0.140", "8.8.8.8", "9.9.9.9", "192.168.255.140"};
+    private final Integer[] sourcePorts      = {1000, 8080, 9090, 1024, 5000, 65535};
+    private final Integer[] destinationPorts = {80, 80, 5432, 53, 53, 65535};
+    private final EProtocol[] protocols      = {TCP, TCP, TCP, UDP, UDP, ICMP};
     private final String clientName;
     private final Integer maxPackets;
     private final ScheduledExecutorService scheduler;
