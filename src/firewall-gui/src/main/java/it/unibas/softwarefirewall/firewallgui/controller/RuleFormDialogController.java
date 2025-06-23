@@ -128,16 +128,16 @@ public class RuleFormDialogController {
                                   String port2DestinationPortRangeString, String protocolString) {
         StringBuilder sb = new StringBuilder();
         if (descriptionString == null || descriptionString.isBlank()) {
-            sb.append("The description is a mandatory field and cannot be empty.").append("\n");
+            sb.append("The description is a mandatory field!").append("\n");
         }
 
         if (directionString == null || directionString.isBlank()) {
-            sb.append("The direction is mandatory.").append("\n");
+            sb.append("The direction is mandatory!").append("\n");
         } else {
             try {
                 EDirection.valueOf(directionString);
             } catch (Exception e) {
-                sb.append("Invalid Direction.").append("\n");
+                sb.append("Invalid Direction!").append("\n");
             }
         }
 
@@ -146,12 +146,12 @@ public class RuleFormDialogController {
                 || octet3SourceIPRangeString == null || octet3SourceIPRangeString.isBlank()
                 || octet4SourceIPRangeString == null || octet4SourceIPRangeString.isBlank()
                 || netmaskSourceIPRangeString == null || netmaskSourceIPRangeString.isBlank()) {
-            sb.append("All fields that make up the \"Source IP Range\" are mandatory and cannot be empty.").append("\n");
+            sb.append("All fields that make up the \"Source IP Range\" are mandatory!").append("\n");
         } else {
             IPRange sourceIPRange = validateIPRange(octet1SourceIPRangeString, octet2SourceIPRangeString,
                     octet3SourceIPRangeString, octet4SourceIPRangeString, netmaskSourceIPRangeString);
             if (sourceIPRange == null) {
-                sb.append("Invalid \"Source IP Range\".").append("\n");
+                sb.append("Invalid \"Source IP Range\"!").append("\n");
             }
         }
 
@@ -160,42 +160,42 @@ public class RuleFormDialogController {
                 || octet3DestinationIPRangeString == null || octet3DestinationIPRangeString.isBlank()
                 || octet4DestinationIPRangeString == null || octet4DestinationIPRangeString.isBlank()
                 || netmaskDestinationIPRangeString == null || netmaskDestinationIPRangeString.isBlank()) {
-            sb.append("All fields that make up the \"Destination IP Range\" are mandatory and cannot be empty.").append("\n");
+            sb.append("All fields that make up the \"Destination IP Range\" are mandatory!").append("\n");
         } else {
             IPRange destinationIPRange = validateIPRange(octet1DestinationIPRangeString, octet2DestinationIPRangeString,
                     octet3DestinationIPRangeString, octet4DestinationIPRangeString, netmaskDestinationIPRangeString);
             if (destinationIPRange == null) {
-                sb.append("Invalid \"Destination IP Range\".").append("\n");
+                sb.append("Invalid \"Destination IP Range\"!").append("\n");
             }
         }
 
         if (port1SourcePortRangeString == null || port1SourcePortRangeString.isBlank()
                 || port2SourcePortRangeString == null || port2SourcePortRangeString.isBlank()) {
-            sb.append("All fields that make up the \"Source Port Range\" are mandatory and cannot be empty.").append("\n");
+            sb.append("All fields that make up the \"Source Port Range\" are mandatory!").append("\n");
         } else {
             PortRange sourcePortRange = validatePortRange(port1SourcePortRangeString, port2SourcePortRangeString);
             if (sourcePortRange == null) {
-                sb.append("Invalid \"Source Port Range\".").append("\n");
+                sb.append("Invalid \"Source Port Range\"!").append("\n");
             }
         }
 
         if (port1DestinationPortRangeString == null || port1DestinationPortRangeString.isBlank()
                 || port2DestinationPortRangeString == null || port2DestinationPortRangeString.isBlank()) {
-            sb.append("All fields that make up the \"Destination Port Range\" are mandatory and cannot be empty.").append("\n");
+            sb.append("All fields that make up the \"Destination Port Range\" are mandatory!").append("\n");
         } else {
             PortRange destinationPortRange = validatePortRange(port1DestinationPortRangeString, port2DestinationPortRangeString);
             if (destinationPortRange == null) {
-                sb.append("Invalid \"Destination Port Range\".").append("\n");
+                sb.append("Invalid \"Destination Port Range\"!").append("\n");
             }
         }
 
         if (protocolString == null || protocolString.isBlank()) {
-            sb.append("The protocol is mandatory.").append("\n");
+            sb.append("The protocol is mandatory!").append("\n");
         } else {
             try {
                 EProtocol.valueOf(protocolString);
             } catch (Exception e) {
-                sb.append("Invalid Protocol.").append("\n");
+                sb.append("Invalid Protocol!").append("\n");
             }
         }
 
