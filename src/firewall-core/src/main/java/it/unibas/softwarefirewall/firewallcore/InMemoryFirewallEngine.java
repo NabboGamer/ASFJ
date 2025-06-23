@@ -169,7 +169,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
         }
     }
     
-    @LogPacket
+//    @LogPacket
     @Override
     public Boolean clonedRuleSetUnderTestProcessPacket(IPacket packet) {
         rwLock.readLock().lock();
