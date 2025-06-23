@@ -3,6 +3,7 @@ package it.unibas.softwarefirewall.firewallgui.view;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.IPacketLogEntry;
 import it.unibas.softwarefirewall.firewallapi.IPacketLogger;
@@ -33,15 +34,18 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
     private final IFirewallFacade firewall;
     private final IPacketLogger packetLogger;
     private final PacketsDetailsTableModel packetsDetailsTableModel;
+    private final RulesDetailsTableModel rulesDetailsTableModelClonedRuleSet;
     
     @Inject
-    public MainPanel(RulesDetailsTableModel rulesDetailsTableModel, MainPanelController mainPanelController, 
-                     IFirewallFacade firewall, IPacketLogger packetLogger, PacketsDetailsTableModel packetsDetailsTableModel){
+    public MainPanel(@Named("active") RulesDetailsTableModel rulesDetailsTableModel, MainPanelController mainPanelController, 
+                     IFirewallFacade firewall, IPacketLogger packetLogger, PacketsDetailsTableModel packetsDetailsTableModel,
+                     @Named("cloned") RulesDetailsTableModel rulesDetailsTableModelClonedRuleSet){
         this.rulesDetailsTableModel = rulesDetailsTableModel;
         this.mainPanelController = mainPanelController;
         this.firewall = firewall;
         this.packetLogger = packetLogger;
         this.packetsDetailsTableModel = packetsDetailsTableModel;
+        this.rulesDetailsTableModelClonedRuleSet = rulesDetailsTableModelClonedRuleSet;
     }
 
     public void init() {
@@ -91,17 +95,26 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         tabLabel2.setHorizontalTextPosition(SwingConstants.LEFT);
         this.mainPanelTabbedPane.setTabComponentAt(1, tabLabel2);
         this.mainPanelTabbedPane.setTitleAt(1, "Firewall Test");
+        this.rulesDetailsTableModelClonedRuleSet.setRules(this.firewall.getClonedRuleSetUnderTestRules());
+        this.rulesDetailsTableClonedRuleSet.setModel(this.rulesDetailsTableModelClonedRuleSet);
+        this.mainPanelController.setRulesDetailsTableClonedRuleSet(this.rulesDetailsTableClonedRuleSet);
+        this.addRuleButtonClonedRuleSet.setAction(this.mainPanelController.getAddRuleClonedRuleSetAction());
+        this.editRuleButtonClonedRuleSet.setAction(this.mainPanelController.getEditRuleClonedRuleSetAction());
+        this.removeRuleButtonClonedRuleSet.setAction(this.mainPanelController.getRemoveRuleClonedRuleSetAction());
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         
         
         this.mainPanelTabbedPane.addChangeListener(e -> {
             this.focusedTabIndex = mainPanelTabbedPane.getSelectedIndex();
-            this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
-            log.debug("New tab selected: " + this.focusedTabTitle);
+            if(focusedTabIndex == 1){
+                updateRulesDetailsTableClonedRuleSet();
+            }
+            //this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
+            //log.debug("New tab selected: " + this.focusedTabTitle + "." + " New tab index: " + focusedTabIndex);
         });
     }
     
-     private void resizeColumns(JTable table) {
+    private void resizeColumns(JTable table) {
         int totalWidth = table.getParent().getWidth();
 
         // Desired proportions (15%, 5%, 80%)
@@ -129,6 +142,12 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         List<IPacketLogEntry> packetLogEntries = new ArrayList<>(this.packetLogger.getSnapshot());
         this.packetsDetailsTableModel.setPacketLogEntries(packetLogEntries);
         this.packetsDetailsTableModel.updateContent();
+    }
+    
+    public void updateRulesDetailsTableClonedRuleSet(){
+        List<IRule> clonedRuleSetRules = firewall.getClonedRuleSetUnderTestRules();
+        this.rulesDetailsTableModelClonedRuleSet.setRules(clonedRuleSetRules);
+        this.rulesDetailsTableModelClonedRuleSet.updateContent();
     }
     
     @Override
@@ -164,7 +183,14 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         startSimulationButton = new javax.swing.JButton();
         javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         secondTabPanel = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane3 = new javax.swing.JScrollPane();
+        rulesDetailsTableClonedRuleSet = new javax.swing.JTable();
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+        removeRuleButtonClonedRuleSet = new javax.swing.JButton();
+        editRuleButtonClonedRuleSet = new javax.swing.JButton();
+        addRuleButtonClonedRuleSet = new javax.swing.JButton();
+        javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
         mainPanelTabbedPane = new javax.swing.JTabbedPane();
 
         firstTabPanel.setName("firstTabPanel"); // NOI18N
@@ -313,23 +339,109 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
 
         secondTabPanel.setName("secondTabPanel"); // NOI18N
 
-        jLabel2.setText("Test Label Seconda Tab");
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Test RuleSet", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel3.setPreferredSize(new java.awt.Dimension(1228, 335));
+
+        rulesDetailsTableClonedRuleSet.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(rulesDetailsTableClonedRuleSet);
+
+        jLabel2.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        jLabel2.setText(" Rules details");
+
+        removeRuleButtonClonedRuleSet.setBackground(new java.awt.Color(255, 0, 0));
+        removeRuleButtonClonedRuleSet.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        removeRuleButtonClonedRuleSet.setForeground(new java.awt.Color(255, 255, 255));
+        removeRuleButtonClonedRuleSet.setText("- Remove");
+
+        editRuleButtonClonedRuleSet.setBackground(new java.awt.Color(255, 153, 0));
+        editRuleButtonClonedRuleSet.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        editRuleButtonClonedRuleSet.setForeground(new java.awt.Color(255, 255, 255));
+        editRuleButtonClonedRuleSet.setText("~ Edit");
+
+        addRuleButtonClonedRuleSet.setBackground(new java.awt.Color(0, 204, 0));
+        addRuleButtonClonedRuleSet.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        addRuleButtonClonedRuleSet.setForeground(new java.awt.Color(255, 255, 255));
+        addRuleButtonClonedRuleSet.setText("+ Add");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1166, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addRuleButtonClonedRuleSet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editRuleButtonClonedRuleSet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(removeRuleButtonClonedRuleSet, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(removeRuleButtonClonedRuleSet)
+                        .addComponent(editRuleButtonClonedRuleSet)
+                        .addComponent(addRuleButtonClonedRuleSet)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Test Packet Editor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel4.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1228, 335));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 329, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout secondTabPanelLayout = new javax.swing.GroupLayout(secondTabPanel);
         secondTabPanel.setLayout(secondTabPanelLayout);
         secondTabPanelLayout.setHorizontalGroup(
             secondTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(secondTabPanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jLabel2)
-                .addContainerGap(1007, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(secondTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE))
+                .addContainerGap())
         );
         secondTabPanelLayout.setVerticalGroup(
             secondTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(secondTabPanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel2)
-                .addContainerGap(611, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -360,12 +472,16 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRuleButton;
+    private javax.swing.JButton addRuleButtonClonedRuleSet;
     private javax.swing.JButton editRuleButton;
+    private javax.swing.JButton editRuleButtonClonedRuleSet;
     private javax.swing.JTable filteredPacketsTable;
     private javax.swing.JPanel firstTabPanel;
     private javax.swing.JTabbedPane mainPanelTabbedPane;
     private javax.swing.JButton removeRuleButton;
+    private javax.swing.JButton removeRuleButtonClonedRuleSet;
     private javax.swing.JTable rulesDetailsTable;
+    private javax.swing.JTable rulesDetailsTableClonedRuleSet;
     private javax.swing.JPanel secondTabPanel;
     private javax.swing.JButton startSimulationButton;
     // End of variables declaration//GEN-END:variables

@@ -1,6 +1,5 @@
 package it.unibas.softwarefirewall.firewallgui.view;
 
-import com.google.inject.Singleton;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Singleton
 public class RulesDetailsTableModel extends AbstractTableModel {
     
     private List<IRule> rules = new ArrayList<>();

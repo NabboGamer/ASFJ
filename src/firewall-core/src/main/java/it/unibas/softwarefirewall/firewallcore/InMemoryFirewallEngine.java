@@ -123,7 +123,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
                         log.error("The rule you are trying to add already belongs to the current RuleSet");
                     } else {
                         target.addRule(rule);
-                        if (resetClone) clonedRuleSetUnderTest = null;
+                        if (resetClone) this.clonedRuleSetUnderTest = null;
                     }
                 }
                 case REMOVE -> {
@@ -131,7 +131,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
                         log.error("The rule you are trying to delete does not belong to the current RuleSet");
                     } else {
                         target.removeRule(rule);
-                        if (resetClone) clonedRuleSetUnderTest = null;
+                        if (resetClone) this.clonedRuleSetUnderTest = null;
                     }
                 }
                 case UPDATE -> {
@@ -148,7 +148,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
                         old.setSourcePortRange(updated.getSourcePortRange());
                         old.setDestinationPortRange(updated.getDestinationPortRange());
                         old.setProtocol(updated.getProtocol());
-                        if (resetClone) clonedRuleSetUnderTest = null;
+                        if (resetClone) this.clonedRuleSetUnderTest = null;
                     }
                 }
             }

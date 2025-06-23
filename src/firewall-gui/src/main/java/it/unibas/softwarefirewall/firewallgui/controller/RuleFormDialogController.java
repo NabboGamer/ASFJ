@@ -37,9 +37,11 @@ import lombok.extern.slf4j.Slf4j;
 @Singleton
 public class RuleFormDialogController {
 
-    private final Action saveEditedRuleAction = new SaveEditedRuleAction();
     private final Action saveAddedRuleAction = new SaveAddedRuleAction();
+    private final Action saveEditedRuleAction = new SaveEditedRuleAction();
     private final Action cancelAction = new CancelAction();
+    private final Action saveAddedRuleClonedRuleSetAction = new SaveAddedRuleClonedRuleSetAction();
+    private final Action saveEditedRuleClonedRuleSetAction = new SaveEditedRuleClonedRuleSetAction();
     private final IFirewallFacade firewall;
     private final Provider<MainPanel> mainPanelProvider;
     private final Provider<MainView> mainViewProvider;
@@ -53,6 +55,52 @@ public class RuleFormDialogController {
         this.firewall = firewall;
         this.mainPanelProvider = mainPanelProvider;
         this.mainViewProvider = mainViewProvider;
+    }
+    
+    private class SaveAddedRuleAction extends AbstractAction {
+
+        public SaveAddedRuleAction() {
+            this.putValue(Action.NAME, "Save");
+            this.putValue(Action.SHORT_DESCRIPTION, "Save the rule just created");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_S);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl S"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            IRule newRule = buildRuleFromFields();
+            if(newRule == null){
+                return;
+            } else {
+                firewall.updateActiveRuleSet(newRule, ETypeOfOperation.ADD, Optional.empty());
+                MainPanel mainPanel = mainPanelProvider.get();
+                mainPanel.updateRulesDetailsTable();
+                ruleFormDialog.dispose();
+            }     
+        }
+    }
+    
+    private class SaveAddedRuleClonedRuleSetAction extends AbstractAction {
+
+        public SaveAddedRuleClonedRuleSetAction() {
+            this.putValue(Action.NAME, "Save");
+            this.putValue(Action.SHORT_DESCRIPTION, "Save the rule just created in the test rule set");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_S);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl S"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            IRule newRule = buildRuleFromFields();
+            if(newRule == null){
+                return;
+            } else {
+                firewall.updateClonedRuleSetUnderTest(newRule, ETypeOfOperation.ADD, Optional.empty());
+                MainPanel mainPanel = mainPanelProvider.get();
+                mainPanel.updateRulesDetailsTableClonedRuleSet();
+                ruleFormDialog.dispose();
+            }     
+        }
     }
 
     private class SaveEditedRuleAction extends AbstractAction {
@@ -79,27 +127,29 @@ public class RuleFormDialogController {
             }    
         }
     }
+    
+    private class SaveEditedRuleClonedRuleSetAction extends AbstractAction {
 
-    private class SaveAddedRuleAction extends AbstractAction {
-
-        public SaveAddedRuleAction() {
+        public SaveEditedRuleClonedRuleSetAction() {
             this.putValue(Action.NAME, "Save");
-            this.putValue(Action.SHORT_DESCRIPTION, "Save the rule just created");
+            this.putValue(Action.SHORT_DESCRIPTION, "Save changes made to the selected rule");
             this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_S);
             this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl S"));
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            IRule selectedRule = ruleFormDialog.getRule().get();
+            
             IRule newRule = buildRuleFromFields();
             if(newRule == null){
                 return;
             } else {
-                firewall.updateActiveRuleSet(newRule, ETypeOfOperation.ADD, Optional.empty());
+                firewall.updateClonedRuleSetUnderTest(selectedRule, ETypeOfOperation.UPDATE, Optional.of(newRule));
                 MainPanel mainPanel = mainPanelProvider.get();
-                mainPanel.updateRulesDetailsTable();
+                mainPanel.updateRulesDetailsTableClonedRuleSet();
                 ruleFormDialog.dispose();
-            }     
+            }    
         }
     }
 

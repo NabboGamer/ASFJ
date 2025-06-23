@@ -1,7 +1,9 @@
 package it.unibas.softwarefirewall.firewallgui.view;
 
 import com.google.inject.Inject;
+import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
 import it.unibas.softwarefirewall.firewallapi.IRule;
+import it.unibas.softwarefirewall.firewallgui.ETypeOfRuleSet;
 import it.unibas.softwarefirewall.firewallgui.controller.RuleFormDialogController;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -31,21 +33,30 @@ public class RuleFormDialog extends JDialog {
         this.cancelButton.setAction(this.ruleFormDialogController.getCancelAction());
     }
 
-    public void showForAdd(Optional<IRule> rule) {
+    public void showForAdd(Optional<IRule> rule, ETypeOfRuleSet typeOfRuleSet) {
         this.rule = rule;
-        this.saveButton.setAction(this.ruleFormDialogController.getSaveAddedRuleAction());
+        if (typeOfRuleSet == ETypeOfRuleSet.ACTIVE){
+            this.saveButton.setAction(this.ruleFormDialogController.getSaveAddedRuleAction());
+        } else {
+            this.saveButton.setAction(this.ruleFormDialogController.getSaveAddedRuleClonedRuleSetAction());
+        }
+        
         this.setTitle("Add new rule");
         this.showRuleFormDialog();
     }
 
-    public void showForEdit(Optional<IRule> rule) {
+    public void showForEdit(Optional<IRule> rule, ETypeOfRuleSet typeOfRuleSet) {
         this.rule = rule;
         try {
             this.populateForm(rule.get());
         } catch (IllegalArgumentException e) {
             mainView.showErrorMessage("Error in the form initialization");
         }
-        this.saveButton.setAction(this.ruleFormDialogController.getSaveEditedRuleAction());
+        if (typeOfRuleSet == ETypeOfRuleSet.ACTIVE){
+            this.saveButton.setAction(this.ruleFormDialogController.getSaveEditedRuleAction());
+        } else {
+            this.saveButton.setAction(this.ruleFormDialogController.getSaveEditedRuleClonedRuleSetAction());
+        }
         this.setTitle("Edit selected rule");
         this.showRuleFormDialog();
     }

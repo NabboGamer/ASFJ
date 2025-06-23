@@ -7,6 +7,7 @@ import it.unibas.softwarefirewall.clientsimulator.ClientSimulator;
 import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import it.unibas.softwarefirewall.firewallapi.IRule;
+import it.unibas.softwarefirewall.firewallgui.ETypeOfRuleSet;
 import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
 import it.unibas.softwarefirewall.firewallgui.view.RuleFormDialog;
@@ -32,6 +33,9 @@ public class MainPanelController {
     private final Action editRuleAction = new EditRuleAction();
     private final Action removeRuleAction = new RemoveRuleAction();
     private final Action startSimulationAction = new StartSimulationAction();
+    private final Action addRuleClonedRuleSetAction = new AddRuleClonedRuleSetAction();
+    private final Action editRuleClonedRuleSetAction = new EditRuleClonedRuleSetAction();
+    private final Action removeRuleClonedRuleSetAction = new RemoveRuleClonedRuleSetAction();
     private final IFirewallFacade firewall;
     // This is to avoid cyclic dependencies, like MainPanel -> MainPanelController but MainPanelController -> MainPanel!
     // A Provider<T> is an interface provided by Guice that allows you to get an instance of T only when you need it, 
@@ -45,6 +49,7 @@ public class MainPanelController {
     // The object is “generated” in the context of the view, so the view will 
     // take care of the set of this property
     private JTable rulesDetailsTable;
+    private JTable rulesDetailsTableClonedRuleSet;
     
     @Inject
     public MainPanelController(IFirewallFacade firewall, Provider<MainPanel> mainPanelProvider, 
@@ -68,7 +73,22 @@ public class MainPanelController {
 
         public void actionPerformed(ActionEvent e) {
             RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
-            ruleFormDialog.showForAdd(Optional.empty());
+            ruleFormDialog.showForAdd(Optional.empty(), ETypeOfRuleSet.ACTIVE);
+        }
+    }
+    
+    private class AddRuleClonedRuleSetAction extends AbstractAction {
+
+        public AddRuleClonedRuleSetAction() {
+            this.putValue(Action.NAME, "+ Add");
+            this.putValue(Action.SHORT_DESCRIPTION, "Add a new rule to the test rule set");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_A);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl A"));
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
+            ruleFormDialog.showForAdd(Optional.empty(), ETypeOfRuleSet.CLONED);
         }
     }
     
@@ -90,7 +110,29 @@ public class MainPanelController {
                 return;
             }
             RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
-            ruleFormDialog.showForEdit(Optional.of(selectedRule));
+            ruleFormDialog.showForEdit(Optional.of(selectedRule), ETypeOfRuleSet.ACTIVE);
+        }
+    }
+    
+    private class EditRuleClonedRuleSetAction extends AbstractAction {
+
+        public EditRuleClonedRuleSetAction() {
+            this.putValue(Action.NAME, "~ Edit");
+            this.putValue(Action.SHORT_DESCRIPTION, "Edit an existing rule in the test rule set");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_E);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl E"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            IRule selectedRule = getSelectedRuleClonedRuleSet();
+            if(selectedRule == null){
+                MainView mainView = mainViewProvider.get();
+                mainView.showWarningMessage("Please select a rule from the table before continuing.");
+                return;
+            }
+            RuleFormDialog ruleFormDialog = ruleFormDialogProvider.get();
+            ruleFormDialog.showForEdit(Optional.of(selectedRule), ETypeOfRuleSet.CLONED);
         }
     }
     
@@ -114,6 +156,29 @@ public class MainPanelController {
             firewall.updateActiveRuleSet(selectedRule, ETypeOfOperation.REMOVE, Optional.empty());
             MainPanel mainPanel = mainPanelProvider.get();
             mainPanel.updateRulesDetailsTable();
+        }
+    }
+    
+    private class RemoveRuleClonedRuleSetAction extends AbstractAction {
+
+        public RemoveRuleClonedRuleSetAction() {
+            this.putValue(Action.NAME, "- Remove");
+            this.putValue(Action.SHORT_DESCRIPTION, "Remove an existing rule in the test rule set");
+            this.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_R);
+            this.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke("ctrl R"));
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            IRule selectedRule = getSelectedRuleClonedRuleSet();
+            if(selectedRule == null){
+                MainView mainView = mainViewProvider.get();
+                mainView.showWarningMessage("Please select a rule from the table before continuing.");
+                return;
+            }
+            firewall.updateClonedRuleSetUnderTest(selectedRule, ETypeOfOperation.REMOVE, Optional.empty());
+            MainPanel mainPanel = mainPanelProvider.get();
+            mainPanel.updateRulesDetailsTableClonedRuleSet();
         }
     }
     
@@ -141,6 +206,16 @@ public class MainPanelController {
         }
         RulesDetailsTableModel rulesDetailsTableModel = (RulesDetailsTableModel) rulesDetailsTable.getModel();
         IRule rule = rulesDetailsTableModel.getRuleAt(selectedRow);
+        return rule;
+    }
+    
+    private IRule getSelectedRuleClonedRuleSet(){
+        int selectedRow = rulesDetailsTableClonedRuleSet.getSelectedRow();
+        if (selectedRow == -1) {
+            return null;
+        }
+        RulesDetailsTableModel rulesDetailsTableModelClonedRuleSet = (RulesDetailsTableModel) rulesDetailsTableClonedRuleSet.getModel();
+        IRule rule = rulesDetailsTableModelClonedRuleSet.getRuleAt(selectedRow);
         return rule;
     }
 
