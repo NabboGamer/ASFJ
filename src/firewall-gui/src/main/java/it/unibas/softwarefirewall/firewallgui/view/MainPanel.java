@@ -21,9 +21,11 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.table.TableColumn;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Getter
 @Singleton
 public class MainPanel extends JPanel implements ISimulationStatusListener, IPacketLoggerListener {
     
@@ -101,6 +103,7 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         this.addRuleButtonClonedRuleSet.setAction(this.mainPanelController.getAddRuleClonedRuleSetAction());
         this.editRuleButtonClonedRuleSet.setAction(this.mainPanelController.getEditRuleClonedRuleSetAction());
         this.removeRuleButtonClonedRuleSet.setAction(this.mainPanelController.getRemoveRuleClonedRuleSetAction());
+        this.sendTestPacketButton.setAction(this.mainPanelController.getSendTestPacketAction());
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         
         
@@ -191,6 +194,33 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         editRuleButtonClonedRuleSet = new javax.swing.JButton();
         addRuleButtonClonedRuleSet = new javax.swing.JButton();
         javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+        octet1SourceIPTextField = new javax.swing.JTextField();
+        octet2SourceIPTextField = new javax.swing.JTextField();
+        octet3SourceIPTextField = new javax.swing.JTextField();
+        octet4SourceIPTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
+        octet4DestinationIPTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+        octet3DestinationIPTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
+        octet2DestinationIPTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
+        octet1DestinationIPTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel12 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel13 = new javax.swing.JLabel();
+        sourcePortTextField = new javax.swing.JTextField();
+        destinationPortTextField = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel14 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel17 = new javax.swing.JLabel();
+        protocolComboBox = new javax.swing.JComboBox<>();
+        sendTestPacketButton = new javax.swing.JButton();
+        javax.swing.JPanel jPanel6 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane4 = new javax.swing.JScrollPane();
+        payloadTextArea = new javax.swing.JTextArea();
         mainPanelTabbedPane = new javax.swing.JTabbedPane();
 
         firstTabPanel.setName("firstTabPanel"); // NOI18N
@@ -412,15 +442,229 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         jPanel4.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanel4.setPreferredSize(new java.awt.Dimension(1228, 335));
 
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Header", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel5.setPreferredSize(new java.awt.Dimension(580, 273));
+
+        jLabel4.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel4.setText("Source IP:");
+
+        octet1SourceIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet1SourceIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet1SourceIPTextField.setToolTipText("0");
+
+        octet2SourceIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet2SourceIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet2SourceIPTextField.setToolTipText("0");
+
+        octet3SourceIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet3SourceIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet3SourceIPTextField.setToolTipText("0");
+
+        octet4SourceIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet4SourceIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet4SourceIPTextField.setToolTipText("0");
+
+        jLabel5.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText(".");
+
+        jLabel6.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText(".");
+
+        jLabel7.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText(".");
+
+        octet4DestinationIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet4DestinationIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet4DestinationIPTextField.setToolTipText("0");
+
+        jLabel10.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText(".");
+
+        octet3DestinationIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet3DestinationIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet3DestinationIPTextField.setToolTipText("0");
+
+        jLabel9.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText(".");
+
+        octet2DestinationIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet2DestinationIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet2DestinationIPTextField.setToolTipText("0");
+
+        jLabel8.setFont(new java.awt.Font("JetBrains Mono", 0, 16)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText(".");
+
+        octet1DestinationIPTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        octet1DestinationIPTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        octet1DestinationIPTextField.setToolTipText("0");
+
+        jLabel12.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel12.setText("Destination IP:");
+
+        jLabel13.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel13.setText("Source Port:");
+
+        sourcePortTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        sourcePortTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sourcePortTextField.setToolTipText("0");
+
+        destinationPortTextField.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        destinationPortTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        destinationPortTextField.setToolTipText("0");
+
+        jLabel14.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel14.setText("Destination Port:");
+
+        jLabel17.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        jLabel17.setText("Protocol:");
+
+        protocolComboBox.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        protocolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TCP", "UDP", "ICMP" }));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(protocolComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sourcePortTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                    .addComponent(destinationPortTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(octet1DestinationIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet2DestinationIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet3DestinationIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet4DestinationIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(octet1SourceIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet2SourceIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet3SourceIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(octet4SourceIPTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(octet1SourceIPTextField)
+                    .addComponent(jLabel5)
+                    .addComponent(octet2SourceIPTextField)
+                    .addComponent(jLabel6)
+                    .addComponent(octet3SourceIPTextField)
+                    .addComponent(jLabel7)
+                    .addComponent(octet4SourceIPTextField)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(octet1DestinationIPTextField)
+                    .addComponent(jLabel8)
+                    .addComponent(octet2DestinationIPTextField)
+                    .addComponent(jLabel9)
+                    .addComponent(octet3DestinationIPTextField)
+                    .addComponent(jLabel10)
+                    .addComponent(octet4DestinationIPTextField)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sourcePortTextField))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(destinationPortTextField))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(protocolComboBox))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        sendTestPacketButton.setBackground(new java.awt.Color(28, 39, 76));
+        sendTestPacketButton.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        sendTestPacketButton.setForeground(new java.awt.Color(255, 255, 255));
+        sendTestPacketButton.setText("Send Test Packet →");
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Payload", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("JetBrains Mono", 0, 12))); // NOI18N
+        jPanel6.setPreferredSize(new java.awt.Dimension(580, 273));
+
+        payloadTextArea.setColumns(20);
+        payloadTextArea.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        payloadTextArea.setRows(5);
+        jScrollPane4.setViewportView(payloadTextArea);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jScrollPane4)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sendTestPacketButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sendTestPacketButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout secondTabPanelLayout = new javax.swing.GroupLayout(secondTabPanel);
@@ -473,16 +717,29 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRuleButton;
     private javax.swing.JButton addRuleButtonClonedRuleSet;
+    private javax.swing.JTextField destinationPortTextField;
     private javax.swing.JButton editRuleButton;
     private javax.swing.JButton editRuleButtonClonedRuleSet;
     private javax.swing.JTable filteredPacketsTable;
     private javax.swing.JPanel firstTabPanel;
     private javax.swing.JTabbedPane mainPanelTabbedPane;
+    private javax.swing.JTextField octet1DestinationIPTextField;
+    private javax.swing.JTextField octet1SourceIPTextField;
+    private javax.swing.JTextField octet2DestinationIPTextField;
+    private javax.swing.JTextField octet2SourceIPTextField;
+    private javax.swing.JTextField octet3DestinationIPTextField;
+    private javax.swing.JTextField octet3SourceIPTextField;
+    private javax.swing.JTextField octet4DestinationIPTextField;
+    private javax.swing.JTextField octet4SourceIPTextField;
+    private javax.swing.JTextArea payloadTextArea;
+    private javax.swing.JComboBox<String> protocolComboBox;
     private javax.swing.JButton removeRuleButton;
     private javax.swing.JButton removeRuleButtonClonedRuleSet;
     private javax.swing.JTable rulesDetailsTable;
     private javax.swing.JTable rulesDetailsTableClonedRuleSet;
     private javax.swing.JPanel secondTabPanel;
+    private javax.swing.JButton sendTestPacketButton;
+    private javax.swing.JTextField sourcePortTextField;
     private javax.swing.JButton startSimulationButton;
     // End of variables declaration//GEN-END:variables
 
