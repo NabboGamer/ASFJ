@@ -47,7 +47,8 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
     public void init() {
         initComponents();
         
-        // Configure First Tab
+        
+        /////////////////////////////////////////Configure First Tab//////////////////////////////////////////
         this.mainPanelTabbedPane.addTab(null, this.firstTabPanel);
         // Create custom tab with text and icon on the right
         JLabel tabLabel1 = new JLabel("Firewall Live");
@@ -57,26 +58,8 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
         tabLabel1.setHorizontalTextPosition(SwingConstants.LEFT); // Text on the left, icon on the right
         this.mainPanelTabbedPane.setTabComponentAt(0, tabLabel1);
         this.mainPanelTabbedPane.setTitleAt(0, "Firewall Live");
-        
-        // Configure Second Tab
-        this.mainPanelTabbedPane.addTab(null, this.secondTabPanel);
-        JLabel tabLabel2 = new JLabel("Firewall Test");
-        FlatSVGIcon hammerSVG = new FlatSVGIcon("images/hammer.svg", 18, 18);
-        tabLabel2.setIcon(hammerSVG);
-        tabLabel2.setIconTextGap(5);
-        tabLabel2.setHorizontalTextPosition(SwingConstants.LEFT);
-        this.mainPanelTabbedPane.setTabComponentAt(1, tabLabel2);
-        this.mainPanelTabbedPane.setTitleAt(1, "Firewall Test");
-        
-        this.mainPanelTabbedPane.addChangeListener(e -> {
-            this.focusedTabIndex = mainPanelTabbedPane.getSelectedIndex();
-            this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
-            log.debug("New tab selected: " + this.focusedTabTitle);
-        });
-        
         this.rulesDetailsTableModel.setRules(this.firewall.getActiveRuleSetRules());
         this.rulesDetailsTable.setModel(this.rulesDetailsTableModel);
-        
         this.packetsDetailsTableModel.setPacketLogEntries(new ArrayList<>(this.packetLogger.getSnapshot()));
         this.filteredPacketsTable.setModel(this.packetsDetailsTableModel);
         this.filteredPacketsTable.setRowHeight(40);
@@ -90,15 +73,32 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
                 resizeColumns(filteredPacketsTable);
             }
         });
-        
         this.packetLogger.addPacketLoggerListener(this);
-        
         this.mainPanelController.setRulesDetailsTable(this.rulesDetailsTable);
-        
         this.addRuleButton.setAction(this.mainPanelController.getAddRuleAction());
         this.editRuleButton.setAction(this.mainPanelController.getEditRuleAction());
         this.removeRuleButton.setAction(this.mainPanelController.getRemoveRuleAction());
         this.startSimulationButton.setAction(this.mainPanelController.getStartSimulationAction());
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        /////////////////////////////////////////Configure Second Tab/////////////////////////////////////////
+        this.mainPanelTabbedPane.addTab(null, this.secondTabPanel);
+        JLabel tabLabel2 = new JLabel("Firewall Test");
+        FlatSVGIcon hammerSVG = new FlatSVGIcon("images/hammer.svg", 18, 18);
+        tabLabel2.setIcon(hammerSVG);
+        tabLabel2.setIconTextGap(5);
+        tabLabel2.setHorizontalTextPosition(SwingConstants.LEFT);
+        this.mainPanelTabbedPane.setTabComponentAt(1, tabLabel2);
+        this.mainPanelTabbedPane.setTitleAt(1, "Firewall Test");
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        this.mainPanelTabbedPane.addChangeListener(e -> {
+            this.focusedTabIndex = mainPanelTabbedPane.getSelectedIndex();
+            this.focusedTabTitle = mainPanelTabbedPane.getTitleAt(this.focusedTabIndex);
+            log.debug("New tab selected: " + this.focusedTabTitle);
+        });
     }
     
      private void resizeColumns(JTable table) {
@@ -133,17 +133,17 @@ public class MainPanel extends JPanel implements ISimulationStatusListener, IPac
     
     @Override
     public void onSimulationStarted() {
-        SwingUtilities.invokeLater(() -> startSimulationButton.setEnabled(false));
+        SwingUtilities.invokeLater(() -> this.startSimulationButton.setEnabled(false));
     }
 
     @Override
     public void onSimulationFinished() {
-        SwingUtilities.invokeLater(() -> startSimulationButton.setEnabled(true));
+        SwingUtilities.invokeLater(() -> this.startSimulationButton.setEnabled(true));
     }
     
     @Override
     public void onNewEntry() {
-        this.updateFilteredPacketsTable();
+        SwingUtilities.invokeLater(() -> this.updateFilteredPacketsTable());
     }
     
     @SuppressWarnings("unchecked")
