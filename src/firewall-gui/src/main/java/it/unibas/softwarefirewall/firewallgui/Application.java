@@ -2,7 +2,6 @@ package it.unibas.softwarefirewall.firewallgui;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLaf;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
@@ -12,17 +11,22 @@ import it.unibas.softwarefirewall.firewallcore.FirewallCoreModule;
 import it.unibas.softwarefirewall.firewallgui.view.MainPanel;
 import it.unibas.softwarefirewall.firewallgui.view.MainView;
 import java.awt.Font;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.stream.Collectors;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Slf4j
 public class Application {
     
     private static Application singleton = new Application();
+    private static Logger log;
    
     public static Application getInstance() {
         return singleton;
@@ -51,20 +55,43 @@ public class Application {
         });
     }
     
+    private static void printBanner() {
+        // Load banner.txt from src/main/resources/banner.txt
+        String banner = "";
+        try (InputStream in = Application.class.getClassLoader().getResourceAsStream("banner.txt")) {
+            if (in != null) {
+                banner = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
+            } else {
+                banner = "Error banner not found!";
+            }
+        } catch (IOException e) {
+            banner = "Error loading banner: " + e.getMessage();
+        }
+
+        System.out.print(banner + "\n");
+    }
+    
     private Injector injector;
     
     private Application() {
+        printBanner();
+        System.setProperty("slf4j.internal.verbosity", "WARN");
+        this.log = LoggerFactory.getLogger(Application.class);
         Properties props = new Properties();
         Stage stage;
         try (InputStream in = this.getClass().getClassLoader().getResourceAsStream("firewall-gui.properties")) {
             props.load(in);
-            String stageProperty = props.getProperty("firewallgui.application.guice.stage");
+            String sysStage = System.getProperty("firewallgui.application.guice.stage");
+            String stageProperty = sysStage != null ? sysStage: props.getProperty("firewallgui.application.guice.stage");
             if (stageProperty != null && stageProperty.equals("tool")){
                 stage = Stage.TOOL;
+                log.info("Guice Injector configured with stage {}", stage.toString());
             } else if(stageProperty != null && stageProperty.equals("development")){
                 stage = Stage.DEVELOPMENT;
+                log.info("Guice Injector configured with stage {}", stage.toString());
             } else if(stageProperty != null && stageProperty.equals("production")) {
                 stage = Stage.PRODUCTION;
+                log.info("Guice Injector configured with stage {}", stage.toString());
             } else {
                 throw new IOException("Invalid value for the property 'firewallgui.application.guice.stage'. Please use one of the following: tool, development, or production.");
             }
@@ -75,7 +102,7 @@ public class Application {
         
         this.injector = Guice.createInjector(stage, new FirewallGUIModule(), new FirewallCoreModule(), new ClientSimulatorModule());
     }
-
+    
     private void init() {
         MainView mainView = injector.getInstance(MainView.class);
         MainPanel mainPanel = injector.getInstance(MainPanel.class);
