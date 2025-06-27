@@ -278,9 +278,8 @@ public class RuleFormDialogController {
             StringJoiner joiner = new StringJoiner(".");
             joiner.add(octet1IPRangeString.trim()).add(octet2IPRangeString.trim())
                     .add(octet3IPRangeString.trim()).add(octet4IPRangeString.trim());
-            String sourceIPRangeString = joiner.toString() + "/" + netmaskIPRangeString.trim();
-            IPRange ipRange = new IPRange(sourceIPRangeString);
-            return ipRange;
+            String sourceIPRangeString = joiner + "/" + netmaskIPRangeString.trim();
+            return new IPRange(sourceIPRangeString);
         } catch (Exception e) {
             return null;
         }
@@ -290,8 +289,7 @@ public class RuleFormDialogController {
         try {
             Integer port1PortRange = Integer.valueOf(port1PortRangeString);
             Integer port2PortRange = Integer.valueOf(port2PortRangeString);
-            PortRange portRange = new PortRange(port1PortRange, port2PortRange);
-            return portRange;
+            return new PortRange(port1PortRange, port2PortRange);
         } catch (Exception e) {
             return null;
         }
@@ -355,11 +353,9 @@ public class RuleFormDialogController {
 
             EProtocol protocol = EProtocol.valueOf(protocolString);
 
-            IRule newRule = new Rule(descriptionString, direction, sourceIPRange,
-                                     destinationIPRange, sourcePortRange, 
+            return new Rule(descriptionString, direction, sourceIPRange,
+                                     destinationIPRange, sourcePortRange,
                                      destinationPortRange, protocol);
-
-            return newRule;
         } else {
             mainViewProvider.get().showErrorMessage(validateFieldsString);
             return null;

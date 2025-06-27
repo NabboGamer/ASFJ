@@ -1,7 +1,6 @@
 package it.unibas.softwarefirewall.firewallgui.view;
 
 import com.google.inject.Inject;
-import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallgui.ETypeOfRuleSet;
 import it.unibas.softwarefirewall.firewallgui.controller.RuleFormDialogController;
@@ -13,7 +12,7 @@ import javax.swing.JTextField;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-// Note there is no Guice annotation so this implies 
+// Note there is no Guice annotations so this implies
 // that the scope is the default one i.e. prototype
 @Slf4j
 @Getter

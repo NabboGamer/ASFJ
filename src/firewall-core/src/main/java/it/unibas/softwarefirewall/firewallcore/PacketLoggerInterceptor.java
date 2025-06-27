@@ -21,7 +21,7 @@ public class PacketLoggerInterceptor implements MethodInterceptor {
             
             boolean allowed = (Boolean) result;
             IPacket packet = (IPacket) invocation.getArguments()[0];
-            logger.logPacket(packet, allowed);
+            this.logger.logPacket(packet, allowed);
         }
         return result;
     }

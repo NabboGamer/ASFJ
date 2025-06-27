@@ -36,7 +36,7 @@ public class PortRange implements IRange<Integer>, Cloneable {
             clonedPortRange.setEnd(this.end);
             return clonedPortRange;
         } catch (CloneNotSupportedException cnse) {
-            log.error("Error: not clonable object: {}", cnse);
+            log.error("Error: not clonable object: ", cnse);
             return null;
         }
     }
@@ -46,7 +46,7 @@ public class PortRange implements IRange<Integer>, Cloneable {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) return false;
         PortRange otherPortRange = (PortRange) o;
-        return this.start == otherPortRange.start && this.end == otherPortRange.end;
+        return this.start.equals(otherPortRange.start) && this.end.equals(otherPortRange.end);
     }
 
     @Override

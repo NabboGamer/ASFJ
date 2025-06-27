@@ -63,7 +63,7 @@ public class RuleSet implements IRuleSet, Cloneable {
             }
             return clonedRuleSet;
         } catch (CloneNotSupportedException cnse) {
-            log.error("Error: not clonable object: {}", cnse);
+            log.error("Error: not clonable object: ", cnse);
             return null;
         }
     }

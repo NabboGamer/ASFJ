@@ -236,8 +236,7 @@ public class MainPanelController {
             return null;
         }
         RulesDetailsTableModel rulesDetailsTableModel = (RulesDetailsTableModel) rulesDetailsTable.getModel();
-        IRule rule = rulesDetailsTableModel.getRuleAt(selectedRow);
-        return rule;
+        return rulesDetailsTableModel.getRuleAt(selectedRow);
     }
 
     private IRule getSelectedRuleClonedRuleSet() {
@@ -246,8 +245,7 @@ public class MainPanelController {
             return null;
         }
         RulesDetailsTableModel rulesDetailsTableModelClonedRuleSet = (RulesDetailsTableModel) rulesDetailsTableClonedRuleSet.getModel();
-        IRule rule = rulesDetailsTableModelClonedRuleSet.getRuleAt(selectedRow);
-        return rule;
+        return rulesDetailsTableModelClonedRuleSet.getRuleAt(selectedRow);
     }
 
     private String validateFields(String octet1SourceIPString, String octet2SourceIPString,
@@ -266,7 +264,7 @@ public class MainPanelController {
         } else {
             Boolean isSourceIPValid = validateIP(octet1SourceIPString, octet2SourceIPString,
                     octet3SourceIPString, octet4SourceIPString);
-            if (isSourceIPValid == false) {
+            if (!isSourceIPValid) {
                 sb.append("Invalid \"Source IP\"!").append("\n");
             }
         }
@@ -279,7 +277,7 @@ public class MainPanelController {
         } else {
             Boolean isDestinationIPValid = validateIP(octet1DestinationIPString, octet2DestinationIPString,
                     octet3DestinationIPString, octet4DestinationIPString);
-            if (isDestinationIPValid == false) {
+            if (!isDestinationIPValid) {
                 sb.append("Invalid \"Destination IP\"!").append("\n");
             }
         }
@@ -288,7 +286,7 @@ public class MainPanelController {
             sb.append("All fields that make up the \"Source Port\" are mandatory!").append("\n");
         } else {
             Boolean isSourcePortValid = validatePort(sourcePortString);
-            if (isSourcePortValid == false) {
+            if (!isSourcePortValid) {
                 sb.append("Invalid \"Source Port\"!").append("\n");
             }
         }
@@ -297,7 +295,7 @@ public class MainPanelController {
             sb.append("All fields that make up the \"Destination Port\" are mandatory!").append("\n");
         } else {
             Boolean isDestinationPortValid = validatePort(destinationPortString);
-            if (isDestinationPortValid == false) {
+            if (!isDestinationPortValid) {
                 sb.append("Invalid \"Destination Port\"!").append("\n");
             }
         }
@@ -402,10 +400,8 @@ public class MainPanelController {
             EProtocol protocol = EProtocol.valueOf(protocolString);
             
             IHeader header = new PseudoHeader(sourceIPString, destinationIPString, sourcePort, destinationPort, protocol);
-            
-            IPacket packet = new PseudoPacket(header, payloadString);
 
-            return packet;
+            return new PseudoPacket(header, payloadString);
         } else {
             mainViewProvider.get().showErrorMessage(validateFieldsString);
             return null;

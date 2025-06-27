@@ -9,7 +9,6 @@ import it.unibas.softwarefirewall.firewallcore.PseudoHeader;
 import it.unibas.softwarefirewall.firewallcore.PseudoPacket;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,16 +25,13 @@ public class SimulatedClientTask implements Runnable {
     private final EProtocol[] protocols      = {TCP, TCP, TCP, UDP, UDP, ICMP};
     private final String clientName;
     private final Integer maxPackets;
-    private final ScheduledExecutorService scheduler;
     private final CountDownLatch latch;
     private final IFirewallFacade firewall;
 
     public SimulatedClientTask(String clientName, Integer maxPackets,
-                               ScheduledExecutorService scheduler, CountDownLatch latch,
-                               IFirewallFacade firewall) {
+                               CountDownLatch latch, IFirewallFacade firewall) {
         this.clientName = clientName;
         this.maxPackets = maxPackets;
-        this.scheduler = scheduler;
         this.latch = latch;
         this.firewall = firewall;
     }
@@ -56,7 +52,6 @@ public class SimulatedClientTask implements Runnable {
         IHeader randomHeader = new PseudoHeader(sourceIPs[randomIndex], destinationIPs[randomIndex], 
                                                 sourcePorts[randomIndex], destinationPorts[randomIndex], 
                                                 protocols[randomIndex]);
-        IPacket randomPacket = new PseudoPacket(randomHeader, "Random packet #" + this.packetsSent.get() + " sent by " + clientName);
-        return randomPacket;
+        return new PseudoPacket(randomHeader, "Random packet #" + this.packetsSent.get() + " sent by " + clientName);
     }
 }

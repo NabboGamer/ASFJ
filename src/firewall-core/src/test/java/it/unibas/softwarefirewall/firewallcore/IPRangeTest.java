@@ -9,9 +9,9 @@ public class IPRangeTest {
     @Test
     @SuppressWarnings({"ResultOfObjectAllocationIgnored", "ThrowableResultIgnored"})
     public void testIPRange(){
-        assertThrows(IllegalArgumentException.class, () -> {  new IPRange("192.168.0.0"); }, "Invalid CIDR format");
-        assertThrows(IllegalArgumentException.class, () -> {  new IPRange("test"); }, "Invalid IP string");
-        assertThrows(IllegalArgumentException.class, () -> {  new IPRange("192.168.1.257"); }, "Invalid IP string");
+        assertThrows(IllegalArgumentException.class, () -> new IPRange("192.168.0.0"), "Invalid CIDR format");
+        assertThrows(IllegalArgumentException.class, () -> new IPRange("test"), "Invalid IP string");
+        assertThrows(IllegalArgumentException.class, () -> new IPRange("192.168.1.257"), "Invalid IP string");
         assertDoesNotThrow(() -> {  new IPRange("192.168.0.0/24"); }, "Valid CIDR");
     }
     

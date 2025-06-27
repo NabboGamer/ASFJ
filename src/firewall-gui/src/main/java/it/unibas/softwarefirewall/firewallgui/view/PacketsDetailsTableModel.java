@@ -9,8 +9,6 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Icon;
-import javax.swing.UIManager;
 import lombok.Getter;
 import lombok.Setter;
 

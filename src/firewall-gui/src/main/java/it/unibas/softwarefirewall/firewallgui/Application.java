@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 public class Application {
     
-    private static Application singleton = new Application();
+    private static final Application singleton = new Application();
     private static Logger log;
    
     public static Application getInstance() {
@@ -47,17 +47,12 @@ public class Application {
             log.error("Unable to set the custom look and feel");
         }
         
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Application.getInstance().init();
-            }
-        });
+        SwingUtilities.invokeLater(() -> Application.getInstance().init());
     }
     
     private static void printBanner() {
         // Load banner.txt from src/main/resources/banner.txt
-        String banner = "";
+        String banner;
         try (InputStream in = Application.class.getClassLoader().getResourceAsStream("banner.txt")) {
             if (in != null) {
                 banner = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
@@ -71,12 +66,12 @@ public class Application {
         System.out.print(banner + "\n");
     }
     
-    private Injector injector;
+    private final Injector injector;
     
     private Application() {
         printBanner();
         System.setProperty("slf4j.internal.verbosity", "WARN");
-        this.log = LoggerFactory.getLogger(Application.class);
+        log = LoggerFactory.getLogger(Application.class);
         Properties props = new Properties();
         Stage stage;
         try (InputStream in = this.getClass().getClassLoader().getResourceAsStream("firewall-gui.properties")) {
@@ -85,16 +80,14 @@ public class Application {
             String stageProperty = sysStage != null ? sysStage: props.getProperty("firewallgui.application.guice.stage");
             if (stageProperty != null && stageProperty.equals("tool")){
                 stage = Stage.TOOL;
-                log.info("Guice Injector configured with stage {}", stage.toString());
             } else if(stageProperty != null && stageProperty.equals("development")){
                 stage = Stage.DEVELOPMENT;
-                log.info("Guice Injector configured with stage {}", stage.toString());
             } else if(stageProperty != null && stageProperty.equals("production")) {
                 stage = Stage.PRODUCTION;
-                log.info("Guice Injector configured with stage {}", stage.toString());
             } else {
                 throw new IOException("Invalid value for the property 'firewallgui.application.guice.stage'. Please use one of the following: tool, development, or production.");
             }
+            log.info("Guice Injector configured with stage {}", stage);
         } catch (IOException | NumberFormatException ex) {
             log.error("Could not load Guice stage configuration:", ex);
             stage = Stage.DEVELOPMENT;

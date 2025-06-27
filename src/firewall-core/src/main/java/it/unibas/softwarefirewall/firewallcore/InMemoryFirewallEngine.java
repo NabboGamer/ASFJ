@@ -6,9 +6,6 @@ import it.unibas.softwarefirewall.firewallapi.IPacket;
 import it.unibas.softwarefirewall.firewallapi.IRule;
 import it.unibas.softwarefirewall.firewallapi.IRuleSet;
 import it.unibas.softwarefirewall.firewallapi.ETypeOfOperation;
-import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.ADD;
-import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.REMOVE;
-import static it.unibas.softwarefirewall.firewallapi.ETypeOfOperation.UPDATE;
 import it.unibas.softwarefirewall.firewallapi.IFirewallFacade;
 import java.util.List;
 import java.util.Optional;
@@ -162,8 +159,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
     public Boolean activeRuleSetProcessPacket(IPacket packet) {
         rwLock.readLock().lock();
         try {
-            Boolean allowed = activeRuleSet.matches(packet);
-            return allowed;
+            return activeRuleSet.matches(packet);
         } finally {
             rwLock.readLock().unlock();
         }
@@ -177,8 +173,7 @@ public class InMemoryFirewallEngine implements IFirewallFacade {
             if (this.clonedRuleSetUnderTest == null) {
                 this.clonedRuleSetUnderTest = (IRuleSet) this.activeRuleSet.clone();
             }
-            Boolean allowed = this.clonedRuleSetUnderTest.matches(packet);
-            return allowed;
+            return this.clonedRuleSetUnderTest.matches(packet);
         } finally {
             rwLock.readLock().unlock();
         }

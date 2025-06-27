@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class InMemoryFirewallEngineTest {
 
-    private Injector injector;
     private InMemoryFirewallEngine firewall;
     private TestPacketLogger testPacketLogger;
 
@@ -30,7 +29,8 @@ public class InMemoryFirewallEngineTest {
     public void setUp() {
         // I use a module that overrides PacketLogger with a mock one cause in this
         // test i want to test only the behavior of InMemoryFirewallEngine class
-        injector = Guice.createInjector(new FirewallCoreModule() {
+        // bind my test logger instead of real PacketLogger
+        Injector injector = Guice.createInjector(new FirewallCoreModule() {
             @Override
             protected void configure() {
                 super.configure();
@@ -77,7 +77,7 @@ public class InMemoryFirewallEngineTest {
         firewall.updateActiveRuleSet(allowAll, ETypeOfOperation.UPDATE, Optional.of(updatedRule));
         // Verify that the rule has been updated
         log.info("RuleSet post-update: {}", firewall.getActiveRuleSet().getRules());
-        assertEquals(EDirection.OUTBOUND, firewall.getActiveRuleSet().getRules().get(0).getDirection());
+        assertEquals(EDirection.OUTBOUND, firewall.getActiveRuleSet().getRules().getFirst().getDirection());
 
         // Add one different rules to the RuleSet
         IRule allowAllSecure = new Rule("allow all secure", EDirection.INBOUND,
@@ -90,7 +90,7 @@ public class InMemoryFirewallEngineTest {
         firewall.updateActiveRuleSet(allowAll, ETypeOfOperation.REMOVE, Optional.empty());
         log.info("RuleSet post-remove: {}", firewall.getActiveRuleSet().getRules());
         assertEquals(1, firewall.getActiveRuleSet().getRules().size());
-        assertEquals("allow all secure", firewall.getActiveRuleSet().getRules().get(0).getDescription());
+        assertEquals("allow all secure", firewall.getActiveRuleSet().getRules().getFirst().getDescription());
         
         
         //// 3. Test of the processPacket method
@@ -100,7 +100,7 @@ public class InMemoryFirewallEngineTest {
         assertTrue(result);
         // Verify that the logger has received a log
         assertEquals(1, testPacketLogger.getEntries().size());
-        assertTrue(testPacketLogger.getEntries().get(0).getAllowed());
+        assertTrue(testPacketLogger.getEntries().getFirst().getAllowed());
     }
 
     @Test
@@ -122,7 +122,7 @@ public class InMemoryFirewallEngineTest {
                         assertFalse(ok, "Expected packet to be denied due to empty rule set");
                     }
                 } catch (Throwable t) {
-                    log.error("Error in Thread: {}", t);
+                    log.error("Error in Thread: ", t);
                 } finally {
                     latch.countDown();
                 }
@@ -203,7 +203,7 @@ public class InMemoryFirewallEngineTest {
 
         // 5) There must be no concurrency exceptions
         log.error("Exceptions collected during the test:");
-        exceptions.stream().forEach( e -> log.error(e.getLocalizedMessage()));
+        exceptions.forEach(e -> log.error(e.getLocalizedMessage()));
         log.info("The Active RuleSet actually have this rules: {}", firewall.getActiveRuleSet().getRules());
         assertTrue(exceptions.isEmpty(), "Exceptions emerged during the test");
         

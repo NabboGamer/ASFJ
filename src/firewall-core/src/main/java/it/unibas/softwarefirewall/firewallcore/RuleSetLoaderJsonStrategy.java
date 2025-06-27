@@ -27,7 +27,7 @@ public class RuleSetLoaderJsonStrategy implements IRuleSetLoaderStrategy {
     }
     
     @Override
-    public List<IRule> load(String source) throws IOException, FileNotFoundException, JsonSyntaxException {
+    public List<IRule> load(String source) throws IOException, JsonSyntaxException {
         Reader reader;
         if (source.startsWith("classpath:")) {
             String res = source.substring("classpath:".length());

@@ -24,8 +24,7 @@ import org.junit.jupiter.api.TestInstance;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Slf4j
 public class RuleSetTest {
-    
-    private IHeader pseudoHeader1;
+
     private IPacket pseudoPacket1;
     private IRule testRule1;
     private IRule testRule2;
@@ -53,9 +52,9 @@ public class RuleSetTest {
                                   new IPRange("192.168.0.0/24"), new IPRange("0.0.0.0/0"),
                                   new PortRange(22, 22), new PortRange(22, 22),
                                   EProtocol.TCP);
-        
-        this.pseudoHeader1 = new PseudoHeader("192.168.0.140", "150.3.2.2", 22 , 22, EProtocol.TCP);
-        this.pseudoPacket1 = new PseudoPacket(this.pseudoHeader1, "Pseudo-packet 1 send during ssh handshake");
+
+        IHeader pseudoHeader1 = new PseudoHeader("192.168.0.140", "150.3.2.2", 22, 22, EProtocol.TCP);
+        this.pseudoPacket1 = new PseudoPacket(pseudoHeader1, "Pseudo-packet 1 send during ssh handshake");
     }
     
     @Test
@@ -88,17 +87,17 @@ public class RuleSetTest {
         for (int i = 0; i < testRulesSetRules.size(); i++) {
             assertNotNull(clonedTestRulesSetRules.get(i));
             assertNotSame(testRulesSetRules.get(i), clonedTestRulesSetRules.get(i));
-            assertTrue(testRulesSetRules.get(i).equals(clonedTestRulesSetRules.get(i)));
+            assertEquals(testRulesSetRules.get(i), clonedTestRulesSetRules.get(i));
         }
         
-        log.debug("Test RuleSet: {}", testRuleSet.toString());
-        log.debug("Cloned RuleSet: {}", clonedTestRuleSet.toString());
+        log.debug("Test RuleSet: {}", testRuleSet);
+        log.debug("Cloned RuleSet: {}", clonedTestRuleSet);
     }
     
     @Test
     public void testLoadRuleSetFromFile() {
         IRuleSet testRuleSet = new RuleSet(new RuleSetLoaderJsonStrategy());
-        log.debug("RuleSet loaded from JSON file: {}", testRuleSet.toString());
-        assertEquals(testRuleSet.getRules().size(), 2);
+        log.debug("RuleSet loaded from JSON file: {}", testRuleSet);
+        assertEquals(2, testRuleSet.getRules().size());
     }
 }

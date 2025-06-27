@@ -36,7 +36,7 @@ public class IPRange implements IRange<String>, Cloneable {
             clonedIPRange.setNetwork(new IPAddressString(this.network.toString()).getAddress());
             return clonedIPRange;
         } catch (CloneNotSupportedException cnse) {
-            log.error("Error: not clonable object: {}", cnse);
+            log.error("Error not clonable object: ", cnse);
             return null;
         }
     }

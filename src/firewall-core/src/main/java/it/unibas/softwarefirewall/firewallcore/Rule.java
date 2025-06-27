@@ -89,7 +89,7 @@ public class Rule implements IRule, Cloneable {
             clonedRule.setProtocol(this.getProtocol());
             return clonedRule;
         } catch (CloneNotSupportedException cnse) {
-            log.error("Error: not clonable object: {}", cnse);
+            log.error("Error: not clonable object: ", cnse);
             return null;
         }
     }

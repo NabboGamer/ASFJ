@@ -30,7 +30,7 @@ public class PacketLogger implements IPacketLogger {
             String retentionProperty = props.getProperty("firewallcore.packetlogger.retention");
             retention = retentionProperty != null ? Long.valueOf(retentionProperty) : 300_000L;
         } catch (IOException | NumberFormatException e) {
-            log.error("Could not load PacketLogger configuration: {}", e);
+            log.error("Could not load PacketLogger configuration: ", e);
             retention = Long.valueOf(300000);
         }
         this.retentionInMillis = retention;
@@ -53,11 +53,7 @@ public class PacketLogger implements IPacketLogger {
 
     public void cleanupOldEntries() {
         Long now = System.currentTimeMillis();
-        for (IPacketLogEntry entry : logQueue) {
-            if (now - entry.getTimestamp() > this.retentionInMillis) {
-                logQueue.remove(entry);
-            }
-        }
+        logQueue.stream().filter(entry -> now - entry.getTimestamp() > this.retentionInMillis).forEach(logQueue::remove);
     }
     
 }

@@ -8,7 +8,7 @@ public class ClientSimulatorModule extends AbstractModule {
     
     @Override
     protected void configure() {
-        //bind of the ClienSimulator
+        //bind of the ClientSimulator
     }
     
 }

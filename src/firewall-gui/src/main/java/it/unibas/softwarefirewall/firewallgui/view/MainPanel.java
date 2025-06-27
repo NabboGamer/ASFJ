@@ -30,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MainPanel extends JPanel implements ISimulationStatusListener, IPacketLoggerListener {
     
     private Integer focusedTabIndex = 0;
-    private String focusedTabTitle = "Firewall Live";
+    private final String focusedTabTitle = "Firewall Live";
     private final RulesDetailsTableModel rulesDetailsTableModel;
     private final MainPanelController mainPanelController;
     private final IFirewallFacade firewall;

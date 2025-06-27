@@ -12,6 +12,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -19,6 +21,7 @@ public class ClientSimulator {
 
     private final List<ISimulationStatusListener> listeners = new CopyOnWriteArrayList<>();
     private final IFirewallFacade firewall;
+    @Getter
     private volatile boolean running = false;
     private Integer clientsCount;
     private Integer maxPackets;
@@ -40,7 +43,7 @@ public class ClientSimulator {
             this.intervalMs = intervalMsProperty != null ? Long.valueOf(intervalMsProperty) : 1000L;
             
         } catch (IOException | NumberFormatException e) {
-            log.error("Could not load ClientSimulator configuration: {}", e);
+            log.error("Could not load ClientSimulator configuration: ", e);
             this.clientsCount = 10;
             this.maxPackets = 2;
             this.intervalMs = 1000L;
@@ -49,10 +52,6 @@ public class ClientSimulator {
 
     public void addSimulationStatusListener(ISimulationStatusListener listener) {
         this.listeners.add(listener);
-    }
-
-    public boolean isRunning() {
-        return this.running;
     }
 
     public void startSimulation() {
@@ -64,7 +63,7 @@ public class ClientSimulator {
 
         for (int i = 0; i < this.clientsCount; i++) {
             scheduler.scheduleAtFixedRate(
-                new SimulatedClientTask("Client-" + i, this.maxPackets, scheduler, latch, this.firewall),
+                new SimulatedClientTask("Client-" + i, this.maxPackets, latch, this.firewall),
                 0,
                 this.intervalMs,
                 TimeUnit.MILLISECONDS

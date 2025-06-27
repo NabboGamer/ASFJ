@@ -13,14 +13,13 @@ import org.junit.jupiter.api.TestInstance;
 @Slf4j
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PacketLoggerTest {
-    
-    private Injector injector;
+
     private InMemoryFirewallEngine firewall;
     private PacketLogger packetLogger;
     
     @BeforeAll
     public void setUp() {
-        this.injector = Guice.createInjector(new FirewallCoreModule());
+        Injector injector = Guice.createInjector(new FirewallCoreModule());
         this.firewall = injector.getInstance(InMemoryFirewallEngine.class);
         this.packetLogger = injector.getInstance(PacketLogger.class);
     }
@@ -39,7 +38,7 @@ public class PacketLoggerTest {
         assertEquals(2, this.packetLogger.getSnapshot().size());
         assertTrue(this.packetLogger.getSnapshot().peek().getAllowed());
         log.info("PacketLogEntry registered from the PacketLogger: ");
-        this.packetLogger.getSnapshot().stream().forEach(packetLogEntry -> log.info(packetLogEntry.toString()));
+        this.packetLogger.getSnapshot().forEach(packetLogEntry -> log.info(packetLogEntry.toString()));
     }
 
 }

@@ -56,8 +56,8 @@ public class MainView extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
+        javax.swing.JMenu jMenu1 = new javax.swing.JMenu();
         menuItemExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,8 +89,6 @@ public class MainView extends JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem menuItemExit;
     // End of variables declaration//GEN-END:variables
 }
