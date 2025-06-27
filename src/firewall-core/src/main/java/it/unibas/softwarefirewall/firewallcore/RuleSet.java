@@ -51,7 +51,7 @@ public class RuleSet implements IRuleSet, Cloneable {
     @Override
     public Object clone() {
         try {
-            // 1. I perform shallow copy of the base class
+            // 1. I perform a shallow copy of the base class
             RuleSet clonedRuleSet = (RuleSet)super.clone();
 
             // 2. I create a new list for the clone

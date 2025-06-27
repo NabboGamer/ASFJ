@@ -70,10 +70,10 @@ public class Rule implements IRule, Cloneable {
     private Boolean evaluateMatch(IHeader header) {
         Boolean isSourceIPInRange = this.sourceIPRange.contains(header.getSourceIP());
         Boolean isDestinationIPInRange = this.destinationIPRange.contains(header.getDestinationIP());
-        Boolean isSorucePortInRange = this.sourcePortRange.contains(header.getSourcePort());
+        Boolean isSourcePortInRange = this.sourcePortRange.contains(header.getSourcePort());
         Boolean isDestinationPortInRange = this.destinationPortRange.contains(header.getDestinationPort());
         Boolean isSameProtocol = this.protocol.equals(header.getProtocol());
-        return isSourceIPInRange && isDestinationIPInRange && isSorucePortInRange && isDestinationPortInRange && isSameProtocol;
+        return isSourceIPInRange && isDestinationIPInRange && isSourcePortInRange && isDestinationPortInRange && isSameProtocol;
     }
     
     @Override
