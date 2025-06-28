@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
   <diagram id="IjTwH-Po86_Vqoa0VxKK" name="Page-1">
-    <mxGraphModel dx="1401" dy="1505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2549" dy="2177" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -34,7 +34,7 @@
         <mxCell id="5QhLUKLZfmG-UPf2fnDZ-55" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="zuTtKcM1ff-oa4k9CTwb-6" vertex="1">
           <mxGeometry x="510" y="140" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-24" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="zuTtKcM1ff-oa4k9CTwb-6">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-24" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="zuTtKcM1ff-oa4k9CTwb-6" vertex="1">
           <mxGeometry x="60" y="180" width="13.59" height="20" as="geometry" />
         </mxCell>
         <mxCell id="node2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;IPacketLogger&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ addPacketLoggerListener(IPacketLoggerListener): void&lt;br&gt;+ getSnapshot(): Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br&gt;+ cleanupOldEntries(): void&lt;br&gt;+ logPacket(IPacket, Boolean): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
@@ -70,8 +70,17 @@
         <mxCell id="node4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;EProtocol&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ UDP: &lt;br&gt;+ TCP: &lt;br&gt;+ ICMP: &lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ valueOf(String): EProtocol&lt;br&gt;+ values(): EProtocol[]&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="498.47" y="110" width="91.53" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-37" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="Y7qKBM2O2GGH0q0RzG9P-3">
-          <mxGeometry x="6.409999999999968" y="90" width="13.59" height="20" as="geometry" />
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-37" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
+          <mxGeometry x="-3.197442310920451e-14" y="90" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-4" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;n&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
+          <mxGeometry y="150" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-6" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
+          <mxGeometry x="6.409999999999968" y="40" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-8" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
+          <mxGeometry x="13.590000000000032" y="50" width="13.59" height="20" as="geometry" />
         </mxCell>
         <mxCell id="OnnQE_iedf080fl_v-75-1" value="&lt;font&gt;it.unibas.softwarefirewall.firewallcore&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
           <mxGeometry x="-780" y="-1160" width="760" height="349" as="geometry" />
@@ -124,37 +133,37 @@
         <mxCell id="OnnQE_iedf080fl_v-75-17" value="&lt;font&gt;it.unibas.softwarefirewall.firewallgui&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=210;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
           <mxGeometry x="-780" y="-540" width="500" height="530" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;br&gt;- octet1SourceIPTextField: JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet2&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet3&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet4&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourcePortTextField: JTextField&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- payloadTextArea: JTextArea&lt;br&gt;- editRuleButton: JButton&lt;br&gt;- sendTestPacketButton: JButton&lt;br&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- packetsDetailsTableModel: PacketsDetailsTableModel&lt;br&gt;- filteredPacketsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- rulesDetailsTableModelClonedRuleSet: RulesDetailsTableModel&lt;br&gt;- removeRuleButton: JButton&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- addRuleButton: JButton&lt;br&gt;- startSimulationButton: JButton&lt;br&gt;- packetLogger: IPacketLogger&lt;br&gt;- rulesDetailsTableModel: RulesDetailsTableModel&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- mainPanelController: MainPanelController&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getAddRuleButtonClonedRuleSet(): JButton&lt;br&gt;+ getPayloadTextArea(): JTextArea&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ init(): void&lt;br&gt;+ updateRulesDetailsTable(): void&lt;br&gt;+ onSimulationStarted(): void&lt;br&gt;- initComponents(): void&lt;br&gt;- resizeColumns(JTable): void&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ updateFilteredPacketsTable(): void&lt;br&gt;+ onNewEntry(): void&lt;br&gt;+ onSimulationFinished(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;br&gt;- octet1SourceIPTextField: JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet2&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet3&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet4&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourcePortTextField: JTextField&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- payloadTextArea: JTextArea&lt;br&gt;- editRuleButton: JButton&lt;br&gt;- sendTestPacketButton: JButton&lt;br&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- packetsDetailsTableModel: PacketsDetailsTableModel&lt;br&gt;- filteredPacketsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- rulesDetailsTableModelClonedRuleSet: RulesDetailsTableModel&lt;br&gt;- removeRuleButton: JButton&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- addRuleButton: JButton&lt;br&gt;- startSimulationButton: JButton&lt;br&gt;- packetLogger: IPacketLogger&lt;br&gt;- rulesDetailsTableModel: RulesDetailsTableModel&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- mainPanelController: MainPanelController&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getAddRuleButtonClonedRuleSet(): JButton&lt;br&gt;+ getPayloadTextArea(): JTextArea&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ init(): void&lt;br&gt;+ updateRulesDetailsTable(): void&lt;br&gt;+ onSimulationStarted(): void&lt;br&gt;- initComponents(): void&lt;br&gt;- resizeColumns(JTable): void&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ updateFilteredPacketsTable(): void&lt;br&gt;+ onNewEntry(): void&lt;br&gt;+ onSimulationFinished(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="12.41" y="50" width="157.59" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanelController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- removeRuleClonedRuleSetAction: Action&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- log: Logger&lt;br&gt;- editRuleAction: Action&lt;br&gt;- addRuleAction: Action&lt;br&gt;- removeRuleAction: Action&lt;br&gt;- addRuleClonedRuleSetAction: Action&lt;br&gt;- editRuleClonedRuleSetAction: Action&lt;br&gt;- sendTestPacketAction: Action&lt;br&gt;- clientSimulatorProvider: Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- ruleFormDialogProvider: Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;- startSimulationAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setRulesDetailsTableClonedRuleSet(JTable): void&lt;br&gt;+ getStartSimulationAction(): Action&lt;br&gt;+ getClientSimulatorProvider(): Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- validatePort(String): Boolean&lt;br&gt;+ getAddRuleAction(): Action&lt;br&gt;+ getAddRuleClonedRuleSetAction(): Action&lt;br&gt;- validateIP(String, String, String, String): Boolean&lt;br&gt;- buildPacketFromFields(): IPacket&lt;br&gt;+ getRuleFormDialogProvider(): Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ getRulesDetailsTableClonedRuleSet(): JTable&lt;br&gt;+ getEditRuleClonedRuleSetAction(): Action&lt;br&gt;+ getSendTestPacketAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRemoveRuleAction(): Action&lt;br&gt;- getSelectedRuleClonedRuleSet(): IRule&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- getSelectedRule(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getEditRuleAction(): Action&lt;br&gt;+ getRemoveRuleClonedRuleSetAction(): Action&lt;br&gt;+ setRulesDetailsTable(JTable): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanelController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- removeRuleClonedRuleSetAction: Action&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- log: Logger&lt;br&gt;- editRuleAction: Action&lt;br&gt;- addRuleAction: Action&lt;br&gt;- removeRuleAction: Action&lt;br&gt;- addRuleClonedRuleSetAction: Action&lt;br&gt;- editRuleClonedRuleSetAction: Action&lt;br&gt;- sendTestPacketAction: Action&lt;br&gt;- clientSimulatorProvider: Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- ruleFormDialogProvider: Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;- startSimulationAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setRulesDetailsTableClonedRuleSet(JTable): void&lt;br&gt;+ getStartSimulationAction(): Action&lt;br&gt;+ getClientSimulatorProvider(): Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- validatePort(String): Boolean&lt;br&gt;+ getAddRuleAction(): Action&lt;br&gt;+ getAddRuleClonedRuleSetAction(): Action&lt;br&gt;- validateIP(String, String, String, String): Boolean&lt;br&gt;- buildPacketFromFields(): IPacket&lt;br&gt;+ getRuleFormDialogProvider(): Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ getRulesDetailsTableClonedRuleSet(): JTable&lt;br&gt;+ getEditRuleClonedRuleSetAction(): Action&lt;br&gt;+ getSendTestPacketAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRemoveRuleAction(): Action&lt;br&gt;- getSelectedRuleClonedRuleSet(): IRule&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- getSelectedRule(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getEditRuleAction(): Action&lt;br&gt;+ getRemoveRuleClonedRuleSetAction(): Action&lt;br&gt;+ setRulesDetailsTable(JTable): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="180" y="50" width="150" height="280" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainView&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- menuItemExit: JMenuItem&lt;br/&gt;- log: Logger&lt;br/&gt;- mainViewController: MainViewController&lt;br/&gt;- mainPanel: MainPanel&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ showInformationMessage(String): void&lt;br/&gt;+ showWarningMessage(String): void&lt;br/&gt;+ init(): void&lt;br/&gt;+ showErrorMessage(String): void&lt;br/&gt;- initComponents(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainView&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- menuItemExit: JMenuItem&lt;br/&gt;- log: Logger&lt;br/&gt;- mainViewController: MainViewController&lt;br/&gt;- mainPanel: MainPanel&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ showInformationMessage(String): void&lt;br/&gt;+ showWarningMessage(String): void&lt;br/&gt;+ init(): void&lt;br/&gt;+ showErrorMessage(String): void&lt;br/&gt;- initComponents(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="340" y="50" width="110" height="83" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainViewController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- exitAction: Action&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getExitAction(): Action&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainViewController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- exitAction: Action&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getExitAction(): Action&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="340" y="140" width="67" height="44" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Application&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- injector: Injector&lt;br&gt;- singleton: Application&lt;br&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- init(): void&lt;/span&gt;&lt;br style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- printBanner(): void&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ getInstance(): Application&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;+ main(String[]): void&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Application&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- injector: Injector&lt;br&gt;- singleton: Application&lt;br&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- init(): void&lt;/span&gt;&lt;br style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- printBanner(): void&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ getInstance(): Application&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;+ main(String[]): void&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="14.41" y="395.5" width="82" height="64.5" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialog&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- descriptionTextField: JTextField&lt;br&gt;- octet1SourceIPRange: JTextField&lt;br&gt;- rule: Optional&amp;lt;IRule&amp;gt;&lt;br&gt;- octet2SourceIPRange: JTextField&lt;br&gt;- port1SourcePortRange: JTextField&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- octet3SourceIPRange: JTextField&lt;br&gt;- ruleFormDialogController: RuleFormDialogController&lt;br&gt;- mainView: MainView&lt;br&gt;- log: Logger&lt;br&gt;- octet4SourceIPRange: JTextField&lt;br&gt;- port2SourcePortRange: JTextField&lt;br&gt;- directionComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- saveButton: JButton&lt;br&gt;- netmaskSourceIPRange: JTextField&lt;br&gt;- cancelButton: JButton&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- populateIPFields(String, JTextField[], JTextField): void&lt;br&gt;- initComponents(): void&lt;br&gt;+ getMainView(): MainView&lt;br&gt;- populateForm(IRule): void&lt;br&gt;+ showForAdd(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getOctet2SourceIPRange(): JTextField&lt;br&gt;+ showForEdit(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getRuleFormDialogController(): RuleFormDialogController&lt;br&gt;+ getDirectionComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet3SourceIPRange(): JTextField&lt;br&gt;+ getPort2SourcePortRange(): JTextField&lt;br&gt;- showRuleFormDialog(): void&lt;br&gt;+ getProtocolComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet4SourceIPRange(): JTextField&lt;br&gt;+ getRule(): Optional&amp;lt;IRule&amp;gt;&lt;br&gt;+ getCancelButton(): JButton&lt;br&gt;- populatePortFields(String, JTextField, JTextField): void&lt;br&gt;+ getOctet1SourceIPRange(): JTextField&lt;br&gt;+ getSaveButton(): JButton&lt;br&gt;+ getPort1SourcePortRange(): JTextField&lt;br&gt;+ getDescriptionTextField(): JTextField&lt;br&gt;+ getNetmaskSourceIPRange(): JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialog&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- descriptionTextField: JTextField&lt;br&gt;- octet1SourceIPRange: JTextField&lt;br&gt;- rule: Optional&amp;lt;IRule&amp;gt;&lt;br&gt;- octet2SourceIPRange: JTextField&lt;br&gt;- port1SourcePortRange: JTextField&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- octet3SourceIPRange: JTextField&lt;br&gt;- ruleFormDialogController: RuleFormDialogController&lt;br&gt;- mainView: MainView&lt;br&gt;- log: Logger&lt;br&gt;- octet4SourceIPRange: JTextField&lt;br&gt;- port2SourcePortRange: JTextField&lt;br&gt;- directionComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- saveButton: JButton&lt;br&gt;- netmaskSourceIPRange: JTextField&lt;br&gt;- cancelButton: JButton&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- populateIPFields(String, JTextField[], JTextField): void&lt;br&gt;- initComponents(): void&lt;br&gt;+ getMainView(): MainView&lt;br&gt;- populateForm(IRule): void&lt;br&gt;+ showForAdd(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getOctet2SourceIPRange(): JTextField&lt;br&gt;+ showForEdit(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getRuleFormDialogController(): RuleFormDialogController&lt;br&gt;+ getDirectionComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet3SourceIPRange(): JTextField&lt;br&gt;+ getPort2SourcePortRange(): JTextField&lt;br&gt;- showRuleFormDialog(): void&lt;br&gt;+ getProtocolComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet4SourceIPRange(): JTextField&lt;br&gt;+ getRule(): Optional&amp;lt;IRule&amp;gt;&lt;br&gt;+ getCancelButton(): JButton&lt;br&gt;- populatePortFields(String, JTextField, JTextField): void&lt;br&gt;+ getOctet1SourceIPRange(): JTextField&lt;br&gt;+ getSaveButton(): JButton&lt;br&gt;+ getPort1SourcePortRange(): JTextField&lt;br&gt;+ getDescriptionTextField(): JTextField&lt;br&gt;+ getNetmaskSourceIPRange(): JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="340" y="190" width="157" height="280" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialogController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- cancelAction: Action&lt;br&gt;- saveEditedRuleClonedRuleSetAction: Action&lt;br&gt;- ruleFormDialog: RuleFormDialog&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- saveAddedRuleAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- saveAddedRuleClonedRuleSetAction: Action&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- log: Logger&lt;br&gt;- saveEditedRuleAction: Action&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getSaveEditedRuleClonedRuleSetAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRuleFormDialog(): RuleFormDialog&lt;br&gt;+ getSaveAddedRuleClonedRuleSetAction(): Action&lt;br&gt;- buildRuleFromFields(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getCancelAction(): Action&lt;br&gt;+ getSaveAddedRuleAction(): Action&lt;br&gt;+ setRuleFormDialog(RuleFormDialog): void&lt;br&gt;- validatePortRange(String, String): PortRange&lt;br&gt;+ getSaveEditedRuleAction(): Action&lt;br&gt;- validateIPRange(String, String, String, String, String): IPRange&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialogController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- cancelAction: Action&lt;br&gt;- saveEditedRuleClonedRuleSetAction: Action&lt;br&gt;- ruleFormDialog: RuleFormDialog&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- saveAddedRuleAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- saveAddedRuleClonedRuleSetAction: Action&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- log: Logger&lt;br&gt;- saveEditedRuleAction: Action&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getSaveEditedRuleClonedRuleSetAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRuleFormDialog(): RuleFormDialog&lt;br&gt;+ getSaveAddedRuleClonedRuleSetAction(): Action&lt;br&gt;- buildRuleFromFields(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getCancelAction(): Action&lt;br&gt;+ getSaveAddedRuleAction(): Action&lt;br&gt;+ setRuleFormDialog(RuleFormDialog): void&lt;br&gt;- validatePortRange(String, String): PortRange&lt;br&gt;+ getSaveEditedRuleAction(): Action&lt;br&gt;- validateIPRange(String, String, String, String, String): IPRange&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="160" y="340" width="170" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;ETypeOfRuleSet&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ ACTIVE: &lt;br/&gt;+ CLONED: &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ values(): ETypeOfRuleSet[]&lt;br/&gt;+ valueOf(String): ETypeOfRuleSet&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;ETypeOfRuleSet&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ ACTIVE: &lt;br/&gt;+ CLONED: &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ values(): ETypeOfRuleSet[]&lt;br/&gt;+ valueOf(String): ETypeOfRuleSet&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="14.410000000000082" y="310" width="84" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-16" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-16" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="245" y="30" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.494;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-4">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.494;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-15" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-5" target="cf_jCmYm5Re2yIDIJEeb-4">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-15" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-5" target="cf_jCmYm5Re2yIDIJEeb-4" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-201.99514" y="10" as="sourcePoint" />
             <mxPoint x="-46.710000000000036" y="10" as="targetPoint" />
@@ -164,7 +173,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-28" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-7" target="cf_jCmYm5Re2yIDIJEeb-6">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-28" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-7" target="cf_jCmYm5Re2yIDIJEeb-6" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="410" y="90" as="sourcePoint" />
             <mxPoint x="250" y="90" as="targetPoint" />
@@ -174,10 +183,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-29" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-29" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="413.5" y="140" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-30" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.91;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-6">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-30" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=0.91;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-6" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="140" y="120" as="sourcePoint" />
             <mxPoint x="300" y="120" as="targetPoint" />
@@ -187,10 +196,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-31" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-31" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="150" y="30" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-32" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0.982;exitY=0.974;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-9">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-32" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0.982;exitY=0.974;exitDx=0;exitDy=0;exitPerimeter=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-9" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="280" y="200" as="sourcePoint" />
             <mxPoint x="440" y="200" as="targetPoint" />
@@ -200,10 +209,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-33" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-33" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="450" y="110" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=-0.214;exitY=1.034;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.968;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-35">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-34" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=-0.214;exitY=1.034;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.968;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-35" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="280" y="470" as="sourcePoint" />
             <mxPoint x="420" y="470" as="targetPoint" />
@@ -212,46 +221,46 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-35" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-35" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="330" y="490" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-38" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.017;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-5">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-38" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.017;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="170" y="270" as="sourcePoint" />
             <mxPoint x="330" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-39" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-39" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="130" y="290" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-40" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.998;entryY=0.323;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-5">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-40" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.998;entryY=0.323;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="330" y="70" as="sourcePoint" />
             <mxPoint x="170" y="70" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-41" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-41" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="360" y="113" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-42" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-5">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-42" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="170" y="210" as="sourcePoint" />
             <mxPoint x="330" y="210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-43" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-43" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="373.59000000000003" y="170" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-46" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.604;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-10">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-46" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.604;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-10" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="60" y="350" as="sourcePoint" />
             <mxPoint x="220" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-47" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-47" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="98.40999999999997" y="290" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-48" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.968;entryY=0.033;entryDx=0;entryDy=0;exitX=0.002;exitY=0.485;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-10">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-48" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.968;entryY=0.033;entryDx=0;entryDy=0;exitX=0.002;exitY=0.485;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-10" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="250" y="210" as="sourcePoint" />
             <mxPoint x="410" y="210" as="targetPoint" />
@@ -261,10 +270,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-49" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-49" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="330" y="70" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-50" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0.408;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-10">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-50" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0.408;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-10" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="210" y="400" as="sourcePoint" />
             <mxPoint x="370" y="400" as="targetPoint" />
@@ -274,11 +283,20 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-51" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-51" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-17" vertex="1">
           <mxGeometry x="380" y="460" width="13.59" height="20" as="geometry" />
         </mxCell>
         <mxCell id="OnnQE_iedf080fl_v-75-18" value="&lt;font&gt;it.unibas.softwarefirewall.clientsimulator&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
-          <mxGeometry x="-250" y="-540" width="230" height="500" as="geometry" />
+          <mxGeometry x="-250" y="-540" width="230" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ClientSimulator&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;br/&gt;- running: boolean&lt;br/&gt;- clientsCount: Integer&lt;br/&gt;- maxPackets: Integer&lt;br/&gt;- listeners: List&amp;lt;ISimulationStatusListener&amp;gt;&lt;br/&gt;- firewall: IFirewallFacade&lt;br/&gt;- intervalMs: Long&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ startSimulation(): void&lt;br/&gt;+ addSimulationStatusListener(ISimulationStatusListener): void&lt;br/&gt;+ isRunning(): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-18" vertex="1">
+          <mxGeometry x="30" y="53" width="162" height="87" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SimulatedClientTask&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- protocols: EProtocol[]&lt;br/&gt;- destinationPorts: Integer[]&lt;br/&gt;- latch: CountDownLatch&lt;br/&gt;- random: Random&lt;br/&gt;- clientName: String&lt;br/&gt;- maxPackets: Integer&lt;br/&gt;- log: Logger&lt;br/&gt;- sourceIPs: String[]&lt;br/&gt;- firewall: IFirewallFacade&lt;br/&gt;- packetsSent: AtomicInteger&lt;br/&gt;- destinationIPs: String[]&lt;br/&gt;- sourcePorts: Integer[]&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ run(): void&lt;br/&gt;- generateRandomPacket(String): IPacket&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="OnnQE_iedf080fl_v-75-18" vertex="1">
+          <mxGeometry x="50" y="160" width="110" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-10" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="OnnQE_iedf080fl_v-75-18" vertex="1">
+          <mxGeometry x="20" y="80" width="10" height="20" as="geometry" />
         </mxCell>
         <mxCell id="5QhLUKLZfmG-UPf2fnDZ-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-3" target="node1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -292,7 +310,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-23" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="node7" target="5QhLUKLZfmG-UPf2fnDZ-3" edge="1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-23" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="node7" target="5QhLUKLZfmG-UPf2fnDZ-3" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-570" y="-790" as="sourcePoint" />
             <mxPoint x="-450" y="-790" as="targetPoint" />
@@ -407,7 +425,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-18" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.41;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-4">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-18" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.41;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-4" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-827" y="-495" as="sourcePoint" />
             <mxPoint x="-900" y="-720" as="targetPoint" />
@@ -418,10 +436,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-20" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-20" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-800" y="-740" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-22" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.124;entryY=-0.001;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="node2" target="cf_jCmYm5Re2yIDIJEeb-4">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-22" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.124;entryY=-0.001;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" parent="1" source="node2" target="cf_jCmYm5Re2yIDIJEeb-4" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-940" y="-499.1" as="sourcePoint" />
             <mxPoint x="-889.2824074074074" y="-584" as="targetPoint" />
@@ -431,7 +449,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-25" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.002;entryY=0.416;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.001;exitY=0.202;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node9">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-25" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.002;entryY=0.416;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.001;exitY=0.202;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node9" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-790" y="-440" as="sourcePoint" />
             <mxPoint x="-630" y="-530" as="targetPoint" />
@@ -441,7 +459,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-26" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.999;exitY=0.046;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node6">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-26" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.999;exitY=0.046;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node6" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-550" y="-520" as="sourcePoint" />
             <mxPoint x="-390" y="-520" as="targetPoint" />
@@ -451,7 +469,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-46" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.48;entryY=0.956;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.848;exitY=0.002;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="node2" target="5QhLUKLZfmG-UPf2fnDZ-8" edge="1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-46" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.48;entryY=0.956;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.848;exitY=0.002;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="node2" target="5QhLUKLZfmG-UPf2fnDZ-8" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-640" y="-620" as="sourcePoint" />
             <mxPoint x="-110" y="-800" as="targetPoint" />
@@ -463,7 +481,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-41" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.822;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node11" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-41" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.822;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node11" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-470" y="-770" as="sourcePoint" />
             <mxPoint x="-630" y="-770" as="targetPoint" />
@@ -475,7 +493,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-44" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.089;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node6" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-44" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.089;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node6" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-570" y="-617" as="sourcePoint" />
             <mxPoint x="-343" y="-840" as="targetPoint" />
@@ -487,7 +505,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-52" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.994;exitY=0.463;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="node3" target="5QhLUKLZfmG-UPf2fnDZ-11" edge="1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-52" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;exitX=0.994;exitY=0.463;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="node3" target="5QhLUKLZfmG-UPf2fnDZ-11" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-340" y="-750" as="sourcePoint" />
             <mxPoint x="-500" y="-750" as="targetPoint" />
@@ -498,7 +516,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-36" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.732;entryY=0.008;entryDx=0;entryDy=0;exitX=-0.001;exitY=0.779;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-5">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-36" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.732;entryY=0.008;entryDx=0;entryDy=0;exitX=-0.001;exitY=0.779;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-680" y="-610" as="sourcePoint" />
             <mxPoint x="-520" y="-610" as="targetPoint" />
@@ -509,7 +527,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-44" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=-0.003;entryY=0.769;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-37" target="cf_jCmYm5Re2yIDIJEeb-10">
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-44" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=-0.003;entryY=0.769;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.667;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-10" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-800" y="-700" as="sourcePoint" />
             <mxPoint x="-450" y="-160" as="targetPoint" />
@@ -519,8 +537,54 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cf_jCmYm5Re2yIDIJEeb-45" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-786.41" y="-720" width="13.59" height="20" as="geometry" />
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-45" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-793.5899999999999" y="-720" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-3" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="node9" target="wdstmCH6jJrxFYBpWQmC-1" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-390" y="-470" as="sourcePoint" />
+            <mxPoint x="-230" y="-470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-780" y="-630" />
+              <mxPoint x="-780" y="-540" />
+              <mxPoint x="-470" y="-540" />
+              <mxPoint x="-260" y="-540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-5" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.222;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="node1" target="wdstmCH6jJrxFYBpWQmC-1" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-320" y="-510" as="sourcePoint" />
+            <mxPoint x="-160" y="-510" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-770" y="-740" />
+              <mxPoint x="-770" y="-530" />
+              <mxPoint x="-280" y="-530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-7" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.222;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" target="wdstmCH6jJrxFYBpWQmC-2" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-760" y="-730" as="sourcePoint" />
+            <mxPoint x="-220" y="-455" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-770" y="-730" />
+              <mxPoint x="-770" y="-520" />
+              <mxPoint x="-280" y="-520" />
+              <mxPoint x="-250" y="-480" />
+              <mxPoint x="-250" y="-351" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wdstmCH6jJrxFYBpWQmC-9" value="" style="endArrow=diamondThin;endFill=0;endSize=20;html=1;rounded=0;entryX=0.969;entryY=0.014;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.003;exitY=0.435;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" source="wdstmCH6jJrxFYBpWQmC-1" target="cf_jCmYm5Re2yIDIJEeb-5" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-590" y="-340" as="sourcePoint" />
+            <mxPoint x="-430" y="-340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-300" y="-510" />
+              <mxPoint x="-400" y="-510" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
