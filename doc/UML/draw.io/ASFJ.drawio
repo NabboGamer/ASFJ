@@ -1,11 +1,11 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
   <diagram id="IjTwH-Po86_Vqoa0VxKK" name="Page-1">
-    <mxGraphModel dx="2357" dy="2065" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1401" dy="1505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Y7qKBM2O2GGH0q0RzG9P-3" value="&lt;font&gt;it.unibas.softwarefirewall.firewallapi&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
-          <mxGeometry x="-780" y="-800" width="740" height="240" as="geometry" />
+          <mxGeometry x="-780" y="-800" width="760" height="240" as="geometry" />
         </mxCell>
         <mxCell id="zuTtKcM1ff-oa4k9CTwb-6" value="" style="group" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1" connectable="0">
           <mxGeometry x="20" y="40" width="671.53" height="209.87000000000006" as="geometry" />
@@ -28,11 +28,14 @@
         <mxCell id="node9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ISimulationStatusListener&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ onSimulationStarted(): void&lt;br&gt;+ onSimulationFinished(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="zuTtKcM1ff-oa4k9CTwb-6" vertex="1">
           <mxGeometry y="95.37352941176472" width="81.25" height="34.62352941176471" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-47" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="zuTtKcM1ff-oa4k9CTwb-6">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-47" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="zuTtKcM1ff-oa4k9CTwb-6" vertex="1">
           <mxGeometry x="150" y="110" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-55" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="zuTtKcM1ff-oa4k9CTwb-6">
-          <mxGeometry x="530" y="166" width="10" height="20" as="geometry" />
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-55" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="zuTtKcM1ff-oa4k9CTwb-6" vertex="1">
+          <mxGeometry x="510" y="140" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-24" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="zuTtKcM1ff-oa4k9CTwb-6">
+          <mxGeometry x="60" y="180" width="13.59" height="20" as="geometry" />
         </mxCell>
         <mxCell id="node2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;IPacketLogger&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ addPacketLoggerListener(IPacketLoggerListener): void&lt;br&gt;+ getSnapshot(): Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br&gt;+ cleanupOldEntries(): void&lt;br&gt;+ logPacket(IPacket, Boolean): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="20" y="177.45294117647057" width="141.4351851851852" height="47.64705882352942" as="geometry" />
@@ -49,13 +52,13 @@
         <mxCell id="node3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;IHeader&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font&gt;+ getDestinationIP(): String&lt;br&gt;+ getSourcePort(): Integer&lt;br&gt;+ getSourceIP(): String&lt;br&gt;+ getDestinationPort(): Integer&lt;br&gt;+ getProtocol(): EProtocol&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="430" y="177.45" width="100" height="52.55" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-26" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 8px;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;2&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="Y7qKBM2O2GGH0q0RzG9P-3">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-26" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 8px;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;2&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="270" y="20" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-43" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;n&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="Y7qKBM2O2GGH0q0RzG9P-3">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-43" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;n&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="250.79999999999995" y="150" width="10" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-45" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;n&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="Y7qKBM2O2GGH0q0RzG9P-3">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-45" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;n&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="318.81" y="157.45000000000005" width="10" height="20" as="geometry" />
         </mxCell>
         <mxCell id="node5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;IRuleSetLoaderStrategy&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ load(String): List&amp;lt;IRule&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
@@ -67,75 +70,217 @@
         <mxCell id="node4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;EProtocol&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ UDP: &lt;br&gt;+ TCP: &lt;br&gt;+ ICMP: &lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ valueOf(String): EProtocol&lt;br&gt;+ values(): EProtocol[]&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" parent="Y7qKBM2O2GGH0q0RzG9P-3" vertex="1">
           <mxGeometry x="498.47" y="110" width="91.53" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="OnnQE_iedf080fl_v-75-1" value="&lt;font&gt;it.unibas.softwarefirewall.firewallgui&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
-          <mxGeometry x="-780" y="-1160" width="764.5" height="349" as="geometry" />
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-37" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="Y7qKBM2O2GGH0q0RzG9P-3">
+          <mxGeometry x="6.409999999999968" y="90" width="13.59" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-11" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PseudoPacket&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- ID: String&lt;br/&gt;- payload: String&lt;br/&gt;- header: IHeader&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;# canEqual(Object): boolean&lt;br/&gt;+ getPayload(): String&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toDisplayString(): String&lt;br/&gt;+ toString(): String&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getID(): String&lt;br/&gt;+ getHeader(): IHeader&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="OnnQE_iedf080fl_v-75-1" value="&lt;font&gt;it.unibas.softwarefirewall.firewallcore&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
+          <mxGeometry x="-780" y="-1160" width="760" height="349" as="geometry" />
+        </mxCell>
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-11" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PseudoPacket&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- ID: String&lt;br/&gt;- payload: String&lt;br/&gt;- header: IHeader&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;# canEqual(Object): boolean&lt;br/&gt;+ getPayload(): String&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toDisplayString(): String&lt;br/&gt;+ toString(): String&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getID(): String&lt;br/&gt;+ getHeader(): IHeader&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="610" y="124.8" width="93.88" height="95.2" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;IPRange&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- network: IPAddress&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ equals(Object): boolean&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ clone(): Object&lt;br/&gt;+ setNetwork(IPAddress): void&lt;br/&gt;+ contains(String): Boolean&lt;br/&gt;+ getNetwork(): IPAddress&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;IPRange&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- network: IPAddress&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ equals(Object): boolean&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ clone(): Object&lt;br/&gt;+ setNetwork(IPAddress): void&lt;br/&gt;+ contains(String): Boolean&lt;br/&gt;+ getNetwork(): IPAddress&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="552.47" y="241.13" width="99.69" height="78.87" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;InMemoryFirewallEngine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- activeRuleSet: IRuleSet&lt;br/&gt;- clonedRuleSetUnderTest: IRuleSet&lt;br/&gt;- rwLock: ReadWriteLock&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ updateClonedRuleSetUnderTest(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ getActiveRuleSet(): IRuleSet&lt;br/&gt;+ clonedRuleSetUnderTestProcessPacket(IPacket): Boolean&lt;br/&gt;+ updateActiveRuleSet(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ getClonedRuleSetUnderTestRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;+ activeRuleSetProcessPacket(IPacket): Boolean&lt;br/&gt;+ getActiveRuleSetRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;- applyUpdate(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;, IRuleSet, Boolean): void&lt;br/&gt;+ getClonedRuleSetUnderTest(): IRuleSet&lt;br/&gt;+ activeRuleSetContainsRule(IRule): Boolean&lt;br/&gt;+ clonedRuleSetUnderTestContainsRule(IRule): Boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-          <mxGeometry x="20" y="220" width="209.21" height="115.76" as="geometry" />
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;InMemoryFirewallEngine&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- activeRuleSet: IRuleSet&lt;br/&gt;- clonedRuleSetUnderTest: IRuleSet&lt;br/&gt;- rwLock: ReadWriteLock&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ updateClonedRuleSetUnderTest(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ getActiveRuleSet(): IRuleSet&lt;br/&gt;+ clonedRuleSetUnderTestProcessPacket(IPacket): Boolean&lt;br/&gt;+ updateActiveRuleSet(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ getClonedRuleSetUnderTestRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;+ activeRuleSetProcessPacket(IPacket): Boolean&lt;br/&gt;+ getActiveRuleSetRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;- applyUpdate(IRule, ETypeOfOperation, Optional&amp;lt;IRule&amp;gt;, IRuleSet, Boolean): void&lt;br/&gt;+ getClonedRuleSetUnderTest(): IRuleSet&lt;br/&gt;+ activeRuleSetContainsRule(IRule): Boolean&lt;br/&gt;+ clonedRuleSetUnderTestContainsRule(IRule): Boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
+          <mxGeometry x="12.41" y="220" width="209.21" height="115.76" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;annotation&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;LogPacket&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;annotation&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;LogPacket&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="20" y="173.91" width="59.01" height="22.13" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NetworkUtils&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getLocalIpAddress(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NetworkUtils&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getLocalIpAddress(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="20" y="70.55999999999997" width="95.66" height="33.11" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLogEntry&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- allowed: Boolean&lt;br/&gt;- packet: IPacket&lt;br/&gt;- timestamp: Long&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ toString(): String&lt;br/&gt;+ getPacket(): IPacket&lt;br/&gt;+ getAllowed(): Boolean&lt;br/&gt;+ getTimestamp(): Long&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-          <mxGeometry x="290" y="241.13" width="81.81" height="69.36" as="geometry" />
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLogEntry&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- allowed: Boolean&lt;br/&gt;- packet: IPacket&lt;br/&gt;- timestamp: Long&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ toString(): String&lt;br/&gt;+ getPacket(): IPacket&lt;br/&gt;+ getAllowed(): Boolean&lt;br/&gt;+ getTimestamp(): Long&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
+          <mxGeometry x="290" y="250.64" width="81.81" height="69.36" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLogger&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- logQueue: Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br/&gt;- retentionInMillis: Long&lt;br/&gt;- listeners: List&amp;lt;IPacketLoggerListener&amp;gt;&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ addPacketLoggerListener(IPacketLoggerListener): void&lt;br/&gt;+ logPacket(IPacket, Boolean): void&lt;br/&gt;+ getSnapshot(): Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br/&gt;+ cleanupOldEntries(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLogger&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- logQueue: Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br/&gt;- retentionInMillis: Long&lt;br/&gt;- listeners: List&amp;lt;IPacketLoggerListener&amp;gt;&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ addPacketLoggerListener(IPacketLoggerListener): void&lt;br/&gt;+ logPacket(IPacket, Boolean): void&lt;br/&gt;+ getSnapshot(): Queue&amp;lt;IPacketLogEntry&amp;gt;&lt;br/&gt;+ cleanupOldEntries(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="380.37" y="241.13" width="109.63" height="73.33" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLoggerInterceptor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- logger: IPacketLogger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ invoke(MethodInvocation): Object&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PacketLoggerInterceptor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- logger: IPacketLogger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ invoke(MethodInvocation): Object&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="470" y="182.48" width="114.44" height="37.52" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PortRange&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- start: Integer&lt;br/&gt;- log: Logger&lt;br/&gt;- end: Integer&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ clone(): Object&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ setStart(Integer): void&lt;br/&gt;+ getEnd(): Integer&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ getStart(): Integer&lt;br/&gt;+ setEnd(Integer): void&lt;br/&gt;+ contains(Integer): Boolean&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PortRange&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- start: Integer&lt;br/&gt;- log: Logger&lt;br/&gt;- end: Integer&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ clone(): Object&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ setStart(Integer): void&lt;br/&gt;+ getEnd(): Integer&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ getStart(): Integer&lt;br/&gt;+ setEnd(Integer): void&lt;br/&gt;+ contains(Integer): Boolean&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="659.76" y="241.13" width="92.98" height="94.63" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PseudoHeader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourceIP: String&lt;br/&gt;- destinationIP: String&lt;br/&gt;- destinationPort: Integer&lt;br/&gt;- sourcePort: Integer&lt;br/&gt;- protocol: EProtocol&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getSourcePort(): Integer&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ getProtocol(): EProtocol&lt;br/&gt;+ getDestinationIP(): String&lt;br/&gt;+ getDestinationPort(): Integer&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getSourceIP(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PseudoHeader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourceIP: String&lt;br/&gt;- destinationIP: String&lt;br/&gt;- destinationPort: Integer&lt;br/&gt;- sourcePort: Integer&lt;br/&gt;- protocol: EProtocol&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getSourcePort(): Integer&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ getProtocol(): EProtocol&lt;br/&gt;+ getDestinationIP(): String&lt;br/&gt;+ getDestinationPort(): Integer&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getSourceIP(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="360" y="103.67000000000002" width="98.79" height="116.33" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-13" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleDeserializer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ deserialize(JsonElement, Type, JsonDeserializationContext): Rule&lt;br/&gt;- parsePortRange(String): PortRange&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-13" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleDeserializer&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ deserialize(JsonElement, Type, JsonDeserializationContext): Rule&lt;br/&gt;- parsePortRange(String): PortRange&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="20" y="119.59" width="168.53" height="33.09" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSet&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- rules: List&amp;lt;IRule&amp;gt;&lt;br/&gt;- log: Logger&lt;br/&gt;- loader: IRuleSetLoaderStrategy&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ loadRuleSetFromFile(): void&lt;br/&gt;+ getLoader(): IRuleSetLoaderStrategy&lt;br/&gt;+ setRules(List&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;+ getRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;+ clone(): Object&lt;br/&gt;+ matches(IPacket): Boolean&lt;br/&gt;+ removeRule(IRule): void&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ setLoader(IRuleSetLoaderStrategy): void&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ addRule(IRule): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSet&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- rules: List&amp;lt;IRule&amp;gt;&lt;br/&gt;- log: Logger&lt;br/&gt;- loader: IRuleSetLoaderStrategy&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ loadRuleSetFromFile(): void&lt;br/&gt;+ getLoader(): IRuleSetLoaderStrategy&lt;br/&gt;+ setRules(List&amp;lt;IRule&amp;gt;): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;+ getRules(): List&amp;lt;IRule&amp;gt;&lt;br/&gt;+ clone(): Object&lt;br/&gt;+ matches(IPacket): Boolean&lt;br/&gt;+ removeRule(IRule): void&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ setLoader(IRuleSetLoaderStrategy): void&lt;br/&gt;# canEqual(Object): boolean&lt;br/&gt;+ addRule(IRule): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="469.06" y="35.00000000000001" width="131.87" height="130.26" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSetLoaderJsonStrategy&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- gson: Gson&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ load(String): List&amp;lt;IRule&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSetLoaderJsonStrategy&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- gson: Gson&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ load(String): List&amp;lt;IRule&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="632.49" y="83.50999999999999" width="120.25" height="33.24" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSetLoaderXMLStrategy&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ load(String): List&amp;lt;IRule&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleSetLoaderXMLStrategy&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ load(String): List&amp;lt;IRule&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="633.38" y="48.370000000000005" width="119.36" height="19.74" as="geometry" />
         </mxCell>
-        <UserObject label="&lt;font style=&quot;line-height: 100%; font-size: 8px;&quot; face=&quot;Jetbrains Mono&quot;&gt;1&lt;/font&gt;" placeholders="1" name="Variable" id="5QhLUKLZfmG-UPf2fnDZ-25">
-          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-            <mxGeometry x="240" y="259.64" width="50" height="20" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-42" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 8px;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;1&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-          <mxGeometry x="421.64" y="310.49" width="10" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-48" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 8px;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;1&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-          <mxGeometry x="530" y="221.13" width="10" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-56" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
-          <mxGeometry x="642.16" y="210" width="10" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Rule&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourceIPRange: IRange&amp;lt;String&amp;gt;&lt;br/&gt;- log: Logger&lt;br/&gt;- ID: String&lt;br/&gt;- sourcePortRange: IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;- protocol: EProtocol&lt;br/&gt;- direction: EDirection&lt;br/&gt;- description: String&lt;br/&gt;- destinationIPRange: IRange&amp;lt;String&amp;gt;&lt;br/&gt;- destinationPortRange: IRange&amp;lt;Integer&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ clone(): Object&lt;br/&gt;+ setDirection(EDirection): void&lt;br/&gt;+ getDirection(): EDirection&lt;br/&gt;+ setSourceIPRange(IRange&amp;lt;String&amp;gt;): void&lt;br/&gt;+ setDestinationPortRange(IRange&amp;lt;Integer&amp;gt;): void&lt;br/&gt;+ getDestinationIPRange(): IRange&amp;lt;String&amp;gt;&lt;br/&gt;+ setDescription(String): void&lt;br/&gt;+ setProtocol(EProtocol): void&lt;br/&gt;+ getDestinationPortRange(): IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;- evaluateMatch(IHeader): Boolean&lt;br/&gt;+ getSourcePortRange(): IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getProtocol(): EProtocol&lt;br/&gt;+ setDestinationIPRange(IRange&amp;lt;String&amp;gt;): void&lt;br/&gt;+ setSourcePortRange(IRange&amp;lt;Integer&amp;gt;): void&lt;br/&gt;+ getID(): String&lt;br/&gt;+ getSourceIPRange(): IRange&amp;lt;String&amp;gt;&lt;br/&gt;+ setID(String): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;+ matches(IPacket): Boolean&lt;br/&gt;+ getDescription(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" vertex="1" parent="OnnQE_iedf080fl_v-75-1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Rule&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourceIPRange: IRange&amp;lt;String&amp;gt;&lt;br/&gt;- log: Logger&lt;br/&gt;- ID: String&lt;br/&gt;- sourcePortRange: IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;- protocol: EProtocol&lt;br/&gt;- direction: EDirection&lt;br/&gt;- description: String&lt;br/&gt;- destinationIPRange: IRange&amp;lt;String&amp;gt;&lt;br/&gt;- destinationPortRange: IRange&amp;lt;Integer&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ clone(): Object&lt;br/&gt;+ setDirection(EDirection): void&lt;br/&gt;+ getDirection(): EDirection&lt;br/&gt;+ setSourceIPRange(IRange&amp;lt;String&amp;gt;): void&lt;br/&gt;+ setDestinationPortRange(IRange&amp;lt;Integer&amp;gt;): void&lt;br/&gt;+ getDestinationIPRange(): IRange&amp;lt;String&amp;gt;&lt;br/&gt;+ setDescription(String): void&lt;br/&gt;+ setProtocol(EProtocol): void&lt;br/&gt;+ getDestinationPortRange(): IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;- evaluateMatch(IHeader): Boolean&lt;br/&gt;+ getSourcePortRange(): IRange&amp;lt;Integer&amp;gt;&lt;br/&gt;+ hashCode(): int&lt;br/&gt;+ getProtocol(): EProtocol&lt;br/&gt;+ setDestinationIPRange(IRange&amp;lt;String&amp;gt;): void&lt;br/&gt;+ setSourcePortRange(IRange&amp;lt;Integer&amp;gt;): void&lt;br/&gt;+ getID(): String&lt;br/&gt;+ getSourceIPRange(): IRange&amp;lt;String&amp;gt;&lt;br/&gt;+ setID(String): void&lt;br/&gt;+ equals(Object): boolean&lt;br/&gt;+ toString(): String&lt;br/&gt;+ matches(IPacket): Boolean&lt;br/&gt;+ getDescription(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;pointerEvents=0;fontColor=default;fillColor=#dae8fc;gradientColor=none;strokeColor=#6c8ebf;arcSize=10;" parent="OnnQE_iedf080fl_v-75-1" vertex="1">
           <mxGeometry x="226.22" y="31.13" width="123.78" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="OnnQE_iedf080fl_v-75-17" value="&lt;font&gt;it.unibas.softwarefirewall.firewallcore&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=210;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
-          <mxGeometry x="-780" y="-520" width="500" height="480" as="geometry" />
+        <mxCell id="OnnQE_iedf080fl_v-75-17" value="&lt;font&gt;it.unibas.softwarefirewall.firewallgui&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=210;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
+          <mxGeometry x="-780" y="-540" width="500" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanel&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- log: Logger&lt;br&gt;- octet1SourceIPTextField: JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet2&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet3&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- octet4&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Source&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;IPTextField: JTextField&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- sourcePortTextField: JTextField&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- payloadTextArea: JTextArea&lt;br&gt;- editRuleButton: JButton&lt;br&gt;- sendTestPacketButton: JButton&lt;br&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- packetsDetailsTableModel: PacketsDetailsTableModel&lt;br&gt;- filteredPacketsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- rulesDetailsTableModelClonedRuleSet: RulesDetailsTableModel&lt;br&gt;- removeRuleButton: JButton&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- addRuleButton: JButton&lt;br&gt;- startSimulationButton: JButton&lt;br&gt;- packetLogger: IPacketLogger&lt;br&gt;- rulesDetailsTableModel: RulesDetailsTableModel&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- mainPanelController: MainPanelController&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getAddRuleButtonClonedRuleSet(): JButton&lt;br&gt;+ getPayloadTextArea(): JTextArea&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ init(): void&lt;br&gt;+ updateRulesDetailsTable(): void&lt;br&gt;+ onSimulationStarted(): void&lt;br&gt;- initComponents(): void&lt;br&gt;- resizeColumns(JTable): void&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ updateFilteredPacketsTable(): void&lt;br&gt;+ onNewEntry(): void&lt;br&gt;+ onSimulationFinished(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="12.41" y="50" width="157.59" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainPanelController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- rulesDetailsTableClonedRuleSet: JTable&lt;br&gt;- removeRuleClonedRuleSetAction: Action&lt;br&gt;- rulesDetailsTable: JTable&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- log: Logger&lt;br&gt;- editRuleAction: Action&lt;br&gt;- addRuleAction: Action&lt;br&gt;- removeRuleAction: Action&lt;br&gt;- addRuleClonedRuleSetAction: Action&lt;br&gt;- editRuleClonedRuleSetAction: Action&lt;br&gt;- sendTestPacketAction: Action&lt;br&gt;- clientSimulatorProvider: Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- ruleFormDialogProvider: Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;- startSimulationAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setRulesDetailsTableClonedRuleSet(JTable): void&lt;br&gt;+ getStartSimulationAction(): Action&lt;br&gt;+ getClientSimulatorProvider(): Provider&amp;lt;ClientSimulator&amp;gt;&lt;br&gt;- validatePort(String): Boolean&lt;br&gt;+ getAddRuleAction(): Action&lt;br&gt;+ getAddRuleClonedRuleSetAction(): Action&lt;br&gt;- validateIP(String, String, String, String): Boolean&lt;br&gt;- buildPacketFromFields(): IPacket&lt;br&gt;+ getRuleFormDialogProvider(): Provider&amp;lt;RuleFormDialog&amp;gt;&lt;br&gt;+ getRulesDetailsTable(): JTable&lt;br&gt;+ getRulesDetailsTableClonedRuleSet(): JTable&lt;br&gt;+ getEditRuleClonedRuleSetAction(): Action&lt;br&gt;+ getSendTestPacketAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRemoveRuleAction(): Action&lt;br&gt;- getSelectedRuleClonedRuleSet(): IRule&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- getSelectedRule(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getEditRuleAction(): Action&lt;br&gt;+ getRemoveRuleClonedRuleSetAction(): Action&lt;br&gt;+ setRulesDetailsTable(JTable): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="180" y="50" width="150" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainView&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- menuItemExit: JMenuItem&lt;br/&gt;- log: Logger&lt;br/&gt;- mainViewController: MainViewController&lt;br/&gt;- mainPanel: MainPanel&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ showInformationMessage(String): void&lt;br/&gt;+ showWarningMessage(String): void&lt;br/&gt;+ init(): void&lt;br/&gt;+ showErrorMessage(String): void&lt;br/&gt;- initComponents(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="340" y="50" width="110" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainViewController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- exitAction: Action&lt;br/&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getExitAction(): Action&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="340" y="140" width="67" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Application&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- injector: Injector&lt;br&gt;- singleton: Application&lt;br&gt;- log: Logger&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- init(): void&lt;/span&gt;&lt;br style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- printBanner(): void&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;+ getInstance(): Application&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;+ main(String[]): void&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="14.41" y="395.5" width="82" height="64.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialog&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- descriptionTextField: JTextField&lt;br&gt;- octet1SourceIPRange: JTextField&lt;br&gt;- rule: Optional&amp;lt;IRule&amp;gt;&lt;br&gt;- octet2SourceIPRange: JTextField&lt;br&gt;- port1SourcePortRange: JTextField&lt;br&gt;- protocolComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- octet3SourceIPRange: JTextField&lt;br&gt;- ruleFormDialogController: RuleFormDialogController&lt;br&gt;- mainView: MainView&lt;br&gt;- log: Logger&lt;br&gt;- octet4SourceIPRange: JTextField&lt;br&gt;- port2SourcePortRange: JTextField&lt;br&gt;- directionComboBox: JComboBox&amp;lt;String&amp;gt;&lt;br&gt;- saveButton: JButton&lt;br&gt;- netmaskSourceIPRange: JTextField&lt;br&gt;- cancelButton: JButton&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- populateIPFields(String, JTextField[], JTextField): void&lt;br&gt;- initComponents(): void&lt;br&gt;+ getMainView(): MainView&lt;br&gt;- populateForm(IRule): void&lt;br&gt;+ showForAdd(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getOctet2SourceIPRange(): JTextField&lt;br&gt;+ showForEdit(Optional&amp;lt;IRule&amp;gt;, ETypeOfRuleSet): void&lt;br&gt;+ getRuleFormDialogController(): RuleFormDialogController&lt;br&gt;+ getDirectionComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet3SourceIPRange(): JTextField&lt;br&gt;+ getPort2SourcePortRange(): JTextField&lt;br&gt;- showRuleFormDialog(): void&lt;br&gt;+ getProtocolComboBox(): JComboBox&amp;lt;String&amp;gt;&lt;br&gt;+ getOctet4SourceIPRange(): JTextField&lt;br&gt;+ getRule(): Optional&amp;lt;IRule&amp;gt;&lt;br&gt;+ getCancelButton(): JButton&lt;br&gt;- populatePortFields(String, JTextField, JTextField): void&lt;br&gt;+ getOctet1SourceIPRange(): JTextField&lt;br&gt;+ getSaveButton(): JButton&lt;br&gt;+ getPort1SourcePortRange(): JTextField&lt;br&gt;+ getDescriptionTextField(): JTextField&lt;br&gt;+ getNetmaskSourceIPRange(): JTextField&lt;/p&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;...&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="340" y="190" width="157" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;RuleFormDialogController&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- cancelAction: Action&lt;br&gt;- saveEditedRuleClonedRuleSetAction: Action&lt;br&gt;- ruleFormDialog: RuleFormDialog&lt;br&gt;- firewall: IFirewallFacade&lt;br&gt;- saveAddedRuleAction: Action&lt;br&gt;- mainViewProvider: Provider&amp;lt;MainView&amp;gt;&lt;br&gt;- saveAddedRuleClonedRuleSetAction: Action&lt;br&gt;- mainPanelProvider: Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;- log: Logger&lt;br&gt;- saveEditedRuleAction: Action&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getSaveEditedRuleClonedRuleSetAction(): Action&lt;br&gt;- validateFields(String...): String&lt;br&gt;+ getRuleFormDialog(): RuleFormDialog&lt;br&gt;+ getSaveAddedRuleClonedRuleSetAction(): Action&lt;br&gt;- buildRuleFromFields(): IRule&lt;br&gt;+ getMainPanelProvider(): Provider&amp;lt;MainPanel&amp;gt;&lt;br&gt;+ getCancelAction(): Action&lt;br&gt;+ getSaveAddedRuleAction(): Action&lt;br&gt;+ setRuleFormDialog(RuleFormDialog): void&lt;br&gt;- validatePortRange(String, String): PortRange&lt;br&gt;+ getSaveEditedRuleAction(): Action&lt;br&gt;- validateIPRange(String, String, String, String, String): IPRange&lt;br&gt;+ getFirewall(): IFirewallFacade&lt;br&gt;+ getMainViewProvider(): Provider&amp;lt;MainView&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="160" y="340" width="170" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enumeration&amp;gt;&amp;gt;&lt;/i&gt;&lt;br/&gt;&lt;b&gt;ETypeOfRuleSet&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ ACTIVE: &lt;br/&gt;+ CLONED: &lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ values(): ETypeOfRuleSet[]&lt;br/&gt;+ valueOf(String): ETypeOfRuleSet&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=4;fontFamily=Jetbrains Mono;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;strokeColor=#6c8ebf;arcSize=10;fontColor=default;fillColor=#dae8fc;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="14.410000000000082" y="310" width="84" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-16" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="245" y="30" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.494;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-15" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-5" target="cf_jCmYm5Re2yIDIJEeb-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-201.99514" y="10" as="sourcePoint" />
+            <mxPoint x="-46.710000000000036" y="10" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="255" y="30" />
+              <mxPoint x="150" y="30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-28" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-7" target="cf_jCmYm5Re2yIDIJEeb-6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="410" y="90" as="sourcePoint" />
+            <mxPoint x="250" y="90" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="162" />
+              <mxPoint x="480" y="92" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-29" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="413.5" y="140" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-30" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.91;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="140" y="120" as="sourcePoint" />
+            <mxPoint x="300" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="230" y="40" />
+              <mxPoint x="320" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-31" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="150" y="30" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-32" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0.982;exitY=0.974;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-9">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="200" as="sourcePoint" />
+            <mxPoint x="440" y="200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="130" />
+              <mxPoint x="520" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-33" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="450" y="110" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-34" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=-0.214;exitY=1.034;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.968;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-35">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="470" as="sourcePoint" />
+            <mxPoint x="420" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-35" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="330" y="490" width="10" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-38" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.017;entryY=0.976;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="170" y="270" as="sourcePoint" />
+            <mxPoint x="330" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-39" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="130" y="290" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-40" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.998;entryY=0.323;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="70" as="sourcePoint" />
+            <mxPoint x="170" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-41" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="360" y="113" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-42" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="170" y="210" as="sourcePoint" />
+            <mxPoint x="330" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-43" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="373.59000000000003" y="170" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-46" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.604;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-4" target="cf_jCmYm5Re2yIDIJEeb-10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="60" y="350" as="sourcePoint" />
+            <mxPoint x="220" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-47" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="98.40999999999997" y="290" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-48" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.968;entryY=0.033;entryDx=0;entryDy=0;exitX=0.002;exitY=0.485;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-6" target="cf_jCmYm5Re2yIDIJEeb-10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="250" y="210" as="sourcePoint" />
+            <mxPoint x="410" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="330" y="90" />
+              <mxPoint x="330" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-49" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="330" y="70" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-50" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0.408;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="OnnQE_iedf080fl_v-75-17" source="cf_jCmYm5Re2yIDIJEeb-9" target="cf_jCmYm5Re2yIDIJEeb-10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="210" y="400" as="sourcePoint" />
+            <mxPoint x="370" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="490" />
+              <mxPoint x="360" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-51" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="OnnQE_iedf080fl_v-75-17">
+          <mxGeometry x="380" y="460" width="13.59" height="20" as="geometry" />
         </mxCell>
         <mxCell id="OnnQE_iedf080fl_v-75-18" value="&lt;font&gt;it.unibas.softwarefirewall.clientsimulator&lt;/font&gt;" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;rounded=1;shadow=0;fillColor=#f8cecc;strokeColor=#b85450;fontFamily=Jetbrains Mono;fontSize=6;" parent="1" vertex="1">
-          <mxGeometry x="-250" y="-520" width="210" height="480" as="geometry" />
+          <mxGeometry x="-250" y="-540" width="230" height="500" as="geometry" />
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-3" target="node1">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-19" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-3" target="node1" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-480" y="-770" as="sourcePoint" />
             <mxPoint x="-320" y="-770" as="targetPoint" />
@@ -147,7 +292,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-23" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="node7" target="5QhLUKLZfmG-UPf2fnDZ-3">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-23" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="node7" target="5QhLUKLZfmG-UPf2fnDZ-3" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-570" y="-790" as="sourcePoint" />
             <mxPoint x="-450" y="-790" as="targetPoint" />
@@ -156,7 +301,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-36" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.431;exitY=0.996;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-9" target="node13">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-36" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.431;exitY=0.996;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-9" target="node13" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-290" y="-880" as="sourcePoint" />
             <mxPoint x="-130" y="-880" as="targetPoint" />
@@ -166,7 +311,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-37" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.474;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-2" target="node13">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-37" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.474;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-2" target="node13" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-135" y="-800" as="sourcePoint" />
             <mxPoint x="-190" y="-735" as="targetPoint" />
@@ -176,7 +321,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-38" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-6" target="node11">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-38" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-6" target="node11" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-470" y="-810" as="sourcePoint" />
             <mxPoint x="-310" y="-810" as="targetPoint" />
@@ -187,7 +332,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-40" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-7" target="node2">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-40" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-7" target="node2" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-380" y="-760" as="sourcePoint" />
             <mxPoint x="-220" y="-760" as="targetPoint" />
@@ -200,43 +345,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-41" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-7" target="node11">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-630" y="-770" as="sourcePoint" />
-            <mxPoint x="-470" y="-770" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-345" y="-830" />
-              <mxPoint x="-440" y="-830" />
-              <mxPoint x="-440" y="-640" />
-              <mxPoint x="-530" y="-640" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-44" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-7" target="node6">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-343" y="-840" as="sourcePoint" />
-            <mxPoint x="-570" y="-617" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-345" y="-830" />
-              <mxPoint x="-390" y="-830" />
-              <mxPoint x="-440" y="-830" />
-              <mxPoint x="-440" y="-634" />
-              <mxPoint x="-460" y="-634" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-46" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.48;exitY=0.956;exitDx=0;exitDy=0;entryX=0.861;entryY=0.013;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-8" target="node2">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-110" y="-800" as="sourcePoint" />
-            <mxPoint x="-260" y="-577" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-253" y="-790" />
-              <mxPoint x="-550" y="-790" />
-              <mxPoint x="-550" y="-670" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-49" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-10" target="node3">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-49" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-10" target="node3" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-500" y="-800" as="sourcePoint" />
             <mxPoint x="-340" y="-800" as="targetPoint" />
@@ -248,31 +357,18 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-50" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-11" target="node0">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-50" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.971;exitY=0.969;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-11" target="node0" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-500" y="-750" as="sourcePoint" />
             <mxPoint x="-340" y="-750" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="-123" y="-930" />
-              <mxPoint x="-20" y="-930" />
+              <mxPoint x="-20" y="-940" />
               <mxPoint x="-20" y="-550" />
               <mxPoint x="-396" y="-550" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-52" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-11" target="node3">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="-500" y="-750" as="sourcePoint" />
-            <mxPoint x="-340" y="-750" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="-123" y="-800" />
-              <mxPoint x="-40" y="-800" />
-              <mxPoint x="-40" y="-570" />
-              <mxPoint x="-230" y="-570" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-57" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-6" target="node8">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-57" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.515;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-12" target="node8" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-480" y="-860" as="sourcePoint" />
             <mxPoint x="-320" y="-860" as="targetPoint" />
@@ -282,7 +378,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-58" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-14" target="node7">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-58" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-14" target="node7" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-245" y="-990" as="sourcePoint" />
             <mxPoint x="-340" y="-880" as="targetPoint" />
@@ -297,7 +393,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-59" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-15" target="node5">
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-59" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="5QhLUKLZfmG-UPf2fnDZ-15" target="node5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-460" y="-870" as="sourcePoint" />
             <mxPoint x="-300" y="-870" as="targetPoint" />
@@ -310,6 +406,121 @@
               <mxPoint x="-70" y="-700" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-18" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.41;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-827" y="-495" as="sourcePoint" />
+            <mxPoint x="-900" y="-720" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-800" y="-715" />
+              <mxPoint x="-800" y="-510" />
+              <mxPoint x="-720" y="-510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-20" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-800" y="-740" width="13.59" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-22" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.124;entryY=-0.001;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="1" source="node2" target="cf_jCmYm5Re2yIDIJEeb-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-940" y="-499.1" as="sourcePoint" />
+            <mxPoint x="-889.2824074074074" y="-584" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-750" y="-560" />
+              <mxPoint x="-750" y="-530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-25" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.002;entryY=0.416;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.001;exitY=0.202;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node9">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-790" y="-440" as="sourcePoint" />
+            <mxPoint x="-630" y="-530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-790" y="-440" />
+              <mxPoint x="-790" y="-650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-26" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.999;exitY=0.046;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-4" target="node6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-550" y="-520" as="sourcePoint" />
+            <mxPoint x="-390" y="-520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-610" y="-510" />
+              <mxPoint x="-495" y="-510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-46" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.48;entryY=0.956;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.848;exitY=0.002;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="node2" target="5QhLUKLZfmG-UPf2fnDZ-8" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-640" y="-620" as="sourcePoint" />
+            <mxPoint x="-110" y="-800" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-640" y="-670" />
+              <mxPoint x="-550" y="-670" />
+              <mxPoint x="-550" y="-790" />
+              <mxPoint x="-253" y="-790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-41" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.822;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node11" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-470" y="-770" as="sourcePoint" />
+            <mxPoint x="-630" y="-770" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-530" y="-640" />
+              <mxPoint x="-440" y="-640" />
+              <mxPoint x="-440" y="-810" />
+              <mxPoint x="-310" y="-810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-44" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.089;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="node6" target="5QhLUKLZfmG-UPf2fnDZ-7" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-570" y="-617" as="sourcePoint" />
+            <mxPoint x="-343" y="-840" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-460" y="-634" />
+              <mxPoint x="-440" y="-634" />
+              <mxPoint x="-440" y="-820" />
+              <mxPoint x="-390" y="-820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5QhLUKLZfmG-UPf2fnDZ-52" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.994;exitY=0.463;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="node3" target="5QhLUKLZfmG-UPf2fnDZ-11" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-340" y="-750" as="sourcePoint" />
+            <mxPoint x="-500" y="-750" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-40" y="-600" />
+              <mxPoint x="-40" y="-800" />
+              <mxPoint x="-123" y="-800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-36" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.732;entryY=0.008;entryDx=0;entryDy=0;exitX=-0.001;exitY=0.779;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="node1" target="cf_jCmYm5Re2yIDIJEeb-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-680" y="-610" as="sourcePoint" />
+            <mxPoint x="-520" y="-610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-780" y="-690" />
+              <mxPoint x="-780" y="-550" />
+              <mxPoint x="-490" y="-550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-44" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=-0.003;entryY=0.769;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="cf_jCmYm5Re2yIDIJEeb-37" target="cf_jCmYm5Re2yIDIJEeb-10">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-800" y="-700" as="sourcePoint" />
+            <mxPoint x="-450" y="-160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-800" y="-700" />
+              <mxPoint x="-800" y="-60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cf_jCmYm5Re2yIDIJEeb-45" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;font face=&quot;Jetbrains Mono&quot;&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;1&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-786.41" y="-720" width="13.59" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
