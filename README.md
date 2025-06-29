@@ -36,7 +36,13 @@ Per comodità, sono forniti due script di avvio già pronti:
 - ```ASFJ_start.ps1``` → Per sistemi Windows
 - ```ASFJ_start.sh``` → Per sistemi Unix-like
 
-Entrambi i file eseguono il jar con le opportune proprietà di sistema già configurate.
+Entrambi gli script eseguono il jar con le opportune proprietà di sistema già configurate. 
+Nel caso in cui non si riesca ad eseguire gli script, venga restituito un errore, oppure non venga stampato nulla sulla console ma l'applicativo non viene eseguito bisogna tener presente che:
+- In ambiente Windows potrebbe essere necessario configurare le policy di esecuzione degli script powershell;
+- In ambiente MacOS potrebbe essere necessario rimuovere lo script dalla quarantena e poi renderlo eseguibile;
+- In ambiente Linux potrebbe essere necessario rendere lo script eseguibile.
+
+Nel caso in cui anche questi consigli non risolvano il problema, fare riferimento al comando java precedente poichè in presenza di una JRE compatibile funzionerà sempre.
 
 
 ### 🏛️ Architettura del progetto
